@@ -9,7 +9,7 @@ const Home = () => {
           <p>1. Initial + Animate</p>
 
           <motion.div
-            className="border rounded-md p-1 w-24 text-center"
+            className="motion-div"
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 3 }}
@@ -23,7 +23,7 @@ const Home = () => {
           <p>2. Hover</p>
 
           <motion.div
-            className="border rounded-md p-1 w-24 text-center cursor-pointer"
+            className="motion-div"
             whileHover={{ y: -5 }}
           >
             Hello
@@ -35,7 +35,7 @@ const Home = () => {
           <p>3. Tap</p>
 
           <motion.div
-            className="border rounded-md p-1 w-24 text-center cursor-pointer"
+            className="motion-div"
             whileTap={{ rotateX: 50 }}
           >
             Hello
@@ -47,7 +47,7 @@ const Home = () => {
           <p>4. Focus</p>
 
           <motion.button
-            className="border rounded-md p-1 w-24"
+            className="motion-div"
             whileFocus={{ color: "red" }}
           >
             Focus me
@@ -59,7 +59,7 @@ const Home = () => {
           <p>5. Drag</p>
 
           <motion.div
-            className="border rounded-md p-1 w-24 text-center cursor-grab"
+            className="motion-div cursor-grab"
             drag
             whileDrag={{ border: "2px dotted black" }}
           >
@@ -72,7 +72,7 @@ const Home = () => {
           <p>6. While In View</p>
 
           <motion.div
-            className="border rounded-md p-1 w-24 text-center"
+            className="motion-div"
             whileInView={{ backgroundColor: "yellow" }}
           >
             Hello
@@ -84,7 +84,7 @@ const Home = () => {
           <p>7. Tween</p>
 
           <motion.div
-            className="border rounded-md p-1 w-24 text-center"
+            className="motion-div"
             animate={{ x: 100 }}
             transition={{
               type: "tween",
@@ -101,7 +101,7 @@ const Home = () => {
           <p>8. Spring</p>
 
           <motion.div
-            className="border rounded-md p-1 w-24 text-center"
+            className="motion-div"
             animate={{ x: 100 }}
             transition={{
               type: "spring",
