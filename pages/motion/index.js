@@ -9,9 +9,10 @@ const Home = () => {
       ring-4 ring-gray-200
       ring-offset-2 ring-offset-gray-300"
     >
-      <div>
-        <p>first animation</p>
+      <div className="space-y-5" >
+        <p className="text-blue-500" >first animation</p>
         <motion.div
+        className="border rounded-md p-1 w-24 text-center"
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 3 }}
