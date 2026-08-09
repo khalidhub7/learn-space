@@ -1,48 +1,32 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const concepts = [{ id: 1, concept: "Motion", href: "/motion" }];
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const concepts = [{ id: 1, concept: "motion", href: "/motion" }];
-
-const Home = () => {
+export default function Home() {
   return (
-    <nav
-      className="
-          p-14 rounded-md w-xl
-          flex justify-center items-center
-          ring-4 ring-gray-200
-          ring-offset-2 ring-offset-gray-300
-          "
-    >
-      <ul className="flex justify-center items-center gap-3 ">
-        {concepts.map((c) => (
-          <li key={c.id}>
-            <Link
-              href={c.href}
-              className="
-                  inline-block
-                  py-1 px-3 rounded-md
-                  ring-4 ring-blue-200
-                  ring-offset-2 ring-offset-blue-300
-                  hover:scale-105 transform-gpu duration-300
-                  "
-            >
-              {c.concept}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
-};
+    <main className="min-h-screen p-10">
+      <h1 className="mb-2 text-3xl font-bold">learn with examples</h1>
 
-export default Home;
+      <p className="mb-8 text-gray-600">Select a concept</p>
+
+      <nav>
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+          {concepts.map((c) => (
+            <li key={c.id}>
+              <Link
+                href={c.href}
+                className="
+                  inline-block rounded-lg border p-2
+                  transition
+                  hover:scale-105 hover:shadow-md
+                "
+              >
+                <span className="font-medium">{c.concept}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </main>
+  );
+}
