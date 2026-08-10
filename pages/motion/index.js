@@ -1,10 +1,10 @@
-import { motion } from "motion/react";
+import { motion, scale } from "motion/react";
 
 const Home = () => {
   return (
     <main className="p-10">
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {/* 1 — Initial + Animate */}
+        {/* 1 — Initial + Animate (Slide-in + Fade-in) */}
         <div className="space-y-3">
           <p>1. Initial + Animate</p>
 
@@ -18,37 +18,31 @@ const Home = () => {
           </motion.div>
         </div>
 
-        {/* 2 — Hover */}
+        {/* 2 — Hover (Hover Scale) */}
         <div className="space-y-3">
           <p>2. Hover</p>
 
-          <motion.div
-            className="motion-div"
-            whileHover={{ y: -5 }}
-          >
+          <motion.div className="motion-div" whileHover={{ scale: 1.1 }}>
             Hello
           </motion.div>
         </div>
 
-        {/* 3 — Tap */}
+        {/* 3 — Tap (Tap Shrink) */}
         <div className="space-y-3">
           <p>3. Tap</p>
 
-          <motion.div
-            className="motion-div"
-            whileTap={{ rotateX: 50 }}
-          >
+          <motion.div className="motion-div" whileTap={{ scale: 0.9 }}>
             Hello
           </motion.div>
         </div>
 
-        {/* 4 — Focus */}
+        {/* 4 — Focus (Focus Highlight) */}
         <div className="space-y-3">
           <p>4. Focus</p>
 
           <motion.button
             className="motion-div"
-            whileFocus={{ color: "red" }}
+            whileFocus={{ backgroundColor: "#fefce8" }}
           >
             Focus me
           </motion.button>
@@ -67,13 +61,15 @@ const Home = () => {
           </motion.div>
         </div>
 
-        {/* 6 — While In View */}
+        {/* 6 — While In View (Fade-in on View) */}
         <div className="space-y-3">
           <p>6. While In View</p>
 
           <motion.div
             className="motion-div"
-            whileInView={{ backgroundColor: "yellow" }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 3 }}
           >
             Hello
           </motion.div>
@@ -86,11 +82,7 @@ const Home = () => {
           <motion.div
             className="motion-div"
             animate={{ x: 100 }}
-            transition={{
-              type: "tween",
-              duration: 2,
-              ease: "easeInOut",
-            }}
+            transition={{ type: "tween", duration: 2, ease: "easeInOut" }}
           >
             Tween
           </motion.div>
@@ -103,11 +95,7 @@ const Home = () => {
           <motion.div
             className="motion-div"
             animate={{ x: 100 }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              damping: 10,
-            }}
+            transition={{ type: "spring", stiffness: 100, damping: 10 }}
           >
             Spring
           </motion.div>

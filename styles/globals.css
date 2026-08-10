@@ -25,10 +25,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
 .motion-div {
   @apply rounded-md p-1 w-24 text-center
   ring-2 ring-zinc-200
-  ring-offset-2 ring-offset-zinc-300
-  ;
+  ring-offset-2 ring-offset-zinc-300;
 }
