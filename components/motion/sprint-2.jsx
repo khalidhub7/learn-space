@@ -1,24 +1,10 @@
-import { motion, scale } from "motion/react";
+import { motion } from "motion/react";
 
-const Home = () => {
+// Initial + Animate (Slide-in + Fade-in)
+const Sprint2 = () => {
   return (
-    <main className="p-10">
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {/* 1 — Initial + Animate (Slide-in + Fade-in) */}
-        <div className="space-y-3">
-          <p>1. Initial + Animate</p>
-
-          <motion.div
-            className="motion-div"
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 3 }}
-          >
-            Hello
-          </motion.div>
-        </div>
-
-        {/* 2 — Hover (Hover Scale) */}
+    <>
+    {/* 2 — Hover (Hover Scale) */}
         <div className="space-y-3">
           <p>2. Hover</p>
 
@@ -74,35 +60,8 @@ const Home = () => {
             Hello
           </motion.div>
         </div>
-
-        {/* 7 — Tween */}
-        <div className="space-y-3">
-          <p>7. Tween</p>
-
-          <motion.div
-            className="motion-div"
-            animate={{ x: 100 }}
-            transition={{ type: "tween", duration: 2, ease: "easeInOut" }}
-          >
-            Tween
-          </motion.div>
-        </div>
-
-        {/* 8 — Spring */}
-        <div className="space-y-3">
-          <p>8. Spring</p>
-
-          <motion.div
-            className="motion-div"
-            animate={{ x: 100 }}
-            transition={{ type: "spring", stiffness: 100, damping: 10 }}
-          >
-            Spring
-          </motion.div>
-        </div>
-      </div>
-    </main>
+    </>
   );
 };
 
-export default Home;
+export { Sprint2 };

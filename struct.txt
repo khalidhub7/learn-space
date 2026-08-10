@@ -13,7 +13,6 @@
 │   │   └── hello.js
 │   ├── index.js
 │   └── motion
-│       ├── [id].js
 │       └── index.js
 ├── postcss.config.mjs
 ├── public
@@ -21,4 +20,4 @@
 └── styles
     └── globals.css
 
-5 directories, 16 files
+5 directories, 15 files
