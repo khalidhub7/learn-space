@@ -1,5 +1,9 @@
 ./
 ├── README.md
+├── components
+│   └── motion
+│       ├── sprint-1.jsx
+│       └── sprint-2.jsx
 ├── dev.sh
 ├── eslint.config.mjs
 ├── jsconfig.json
@@ -10,14 +14,14 @@
 │   ├── _app.js
 │   ├── _document.js
 │   ├── api
-│   │   └── hello.js
+│   │   └── product.js
 │   ├── index.js
 │   └── motion
-│       └── index.js
+│       └── index.jsx
 ├── postcss.config.mjs
 ├── public
 ├── struct.txt
 └── styles
     └── globals.css
 
-5 directories, 15 files
+7 directories, 17 files
