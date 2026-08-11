@@ -13,6 +13,8 @@ const Sprint1 = () => {
       .then((data) => setProduct(data));
   }, []);
 
+  if (!product) return <p>Loading...</p>;
+
   return (
     <motion.div
       className="
@@ -21,19 +23,20 @@ const Sprint1 = () => {
       ring-offset-2 ring-offset-stone-200
       "
 
-      initial={{ x: -100, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
+      initial={{ x: -100 }}
+      animate={{ x: 0 }}
       transition={{ duration: 2 }}
     >
       <div className="flex flex-col items-center gap-5">
-        <h3 className="text-blue-400 font-semibold">{product?.title}</h3>
-        <p className="text-stone-500 leading-7 tracking-wider text-sm">
-          {product?.description}
-        </p>
+        <h3 className="text-blue-400 font-semibold">{product.title}</h3>
+
+        <motion.p className="text-stone-500 leading-7 tracking-wider text-sm">
+          {product.description}
+        </motion.p>
         <motion.div whileHover={{ scale: 1.1 }}>
           <Image
-            src={product?.thumbnail}
-            alt={product?.title}
+            src={product.thumbnail}
+            alt={product.title}
             width={200}
             height={200}
           />
@@ -41,14 +44,17 @@ const Sprint1 = () => {
       </div>
 
       <div className="flex justify-between items-center h-12 ">
-        <div className="bg-amber-100 h-full w-1/2" ref={containerRef}>
+        <div className="h-full w-1/2" ref={containerRef}>
           <motion.span
-            className="text-blue-400 font-semibold p-2 rounded-lg cursor-grab"
+            className="
+            inline-block
+            text-blue-400 font-semibold p-2 rounded-lg cursor-grab
+            "
             drag
             whileDrag={{ border: "1px dashed" }}
             dragConstraints={containerRef}
           >
-            {product?.price}
+            {product.price}
           </motion.span>
         </div>
 
