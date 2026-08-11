@@ -30,7 +30,13 @@ const Sprint1 = () => {
       <div className="flex flex-col items-center gap-5">
         <h3 className="text-blue-400 font-semibold">{product.title}</h3>
 
-        <motion.p className="text-stone-500 leading-7 tracking-wider text-sm">
+        <motion.p
+          className="text-stone-500 leading-7 tracking-wider text-sm"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{duration: 2}}
+        >
           {product.description}
         </motion.p>
         <motion.div whileHover={{ scale: 1.1 }}>
