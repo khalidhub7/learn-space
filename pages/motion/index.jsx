@@ -3,12 +3,10 @@ import { Sprint2 } from "@/components/motion/sprint-2";
 
 const Home = () => {
   return (
-    <main className="p-10">
-      <div className="">
+    <div >
         <Sprint1 />
         {/* <Sprint2 /> */}
       </div>
-    </main>
   );
 };
 
