@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
 
+// sprint 1 fundamentals + interactions
+
 const Sprint1 = () => {
   const [product, setProduct] = useState(null);
   const containerRef = useRef(null);
@@ -27,15 +29,15 @@ const Sprint1 = () => {
       animate={{ x: 0 }}
       transition={{ duration: 2 }}
     >
-      <div className="flex flex-col items-center gap-5">
-        <h3 className="text-blue-400 font-semibold">{product.title}</h3>
+      <div className="flex flex-col items-center ">
+        <h3 className="text-blue-400 font-semibold mb-5">{product.title}</h3>
 
         <motion.p
           className="text-stone-500 leading-7 tracking-wider text-sm"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{duration: 2}}
+          transition={{ duration: 2 }}
         >
           {product.description}
         </motion.p>
@@ -50,7 +52,7 @@ const Sprint1 = () => {
       </div>
 
       <div className="flex justify-between items-center h-12 ">
-        <div className="h-full w-1/2" ref={containerRef}>
+        <div className="h-full w-1/3 " ref={containerRef}>
           <motion.span
             className="
             inline-block
