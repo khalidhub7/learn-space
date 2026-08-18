@@ -19,10 +19,7 @@ const Sprint1 = () => {
 
   return (
     <motion.div
-      className="
-      rounded-md p-5 w-sm
-      ring-4 ring-stone-100
-      ring-offset-2 ring-offset-stone-200
+      className="motion-div
       "
 
       initial={{ x: -100 }}

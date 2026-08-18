@@ -26,7 +26,7 @@ body {
 }
 
 .motion-div {
-  @apply rounded-md p-1 w-24 text-center
-  ring-2 ring-zinc-200
-  ring-offset-2 ring-offset-zinc-300;
+  @apply rounded-md p-5 w-sm 
+  ring-4 ring-stone-100
+  ring-offset-2 ring-offset-stone-200;
 }
