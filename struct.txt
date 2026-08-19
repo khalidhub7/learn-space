@@ -3,10 +3,10 @@
 ├── components
 │   └── motion
 │       ├── sprint-1.jsx
-│       └── sprint-2.jsx
+│       └── sprint-2.tsx
 ├── dev.sh
 ├── eslint.config.mjs
-├── jsconfig.json
+├── next-env.d.ts
 ├── next.config.mjs
 ├── package-lock.json
 ├── package.json
@@ -19,9 +19,10 @@
 │   └── motion
 │       └── index.jsx
 ├── postcss.config.mjs
-├── public
 ├── struct.txt
-└── styles
-    └── globals.css
+├── styles
+│   └── globals.css
+├── test.js
+└── tsconfig.json
 
-7 directories, 17 files
+6 directories, 19 files

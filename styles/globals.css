@@ -12,6 +12,27 @@
   --font-mono: var(--font-geist-mono);
 }
 
+
+@utility bg-diagonal {
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgb(229 231 235 / 0.45) 0,
+    rgb(229 231 235 / 0.45) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+
+  html.dark & {
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgb(255 255 255 / 0.06) 0,
+      rgb(255 255 255 / 0.06) 1px,
+      transparent 1px,
+      transparent 10px
+    );
+  }
+}
+
 /* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -30,3 +51,5 @@ body {
   ring-4 ring-stone-100
   ring-offset-2 ring-offset-stone-200;
 }
+
+
