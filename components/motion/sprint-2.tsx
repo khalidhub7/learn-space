@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import type { Transition } from "motion/react";
-import { keyframes, motion, useAnimationControls } from "motion/react";
-
-import { AnimatePresence } from "motion/react";
+import { motion, useAnimationControls } from "motion/react";
 
 /* 
 sprint 2: Transitions + Springs
@@ -40,8 +38,6 @@ Decay     → inertia-style movement that gradually slows down
 const Sprint2 = () => {
   const [transitionType, setTransitionType] = useState("spring");
   const controls = useAnimationControls();
-
-  const [exit, setExit] = useState(false);
 
   /* useEffect(() => {
     console.log(transitionType);
