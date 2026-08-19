@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import type { Transition } from "motion/react";
-import { motion, useAnimationControls } from "motion/react";
+import { keyframes, motion, useAnimationControls } from "motion/react";
+
+import { AnimatePresence } from "motion/react";
 
 /* 
 sprint 2: Transitions + Springs
@@ -18,7 +20,7 @@ const transitionTypes: Record<string, Transition> = {
     stiffness: 180, // how strongly it pulls
     damping: 15, // how much it reduces bouncing
     mass: 1, // how heavy the movement feels
-    bounce: 0.3, // how much it bounces
+    bounce: 0.3, // extra bounce
   },
 
   inertia: {
@@ -39,9 +41,11 @@ const Sprint2 = () => {
   const [transitionType, setTransitionType] = useState("spring");
   const controls = useAnimationControls();
 
-  useEffect(() => {
+  const [exit, setExit] = useState(false);
+
+  /* useEffect(() => {
     console.log(transitionType);
-  });
+  }); */
 
   return (
     <div
@@ -79,9 +83,7 @@ const Sprint2 = () => {
         className="motion-div"
         animate={controls}
 
-        transition={{
-          ...transitionTypes[transitionType],
-        }}
+        transition={transitionTypes[transitionType]}
       >
         <p>notification: please update ur profile</p>
       </motion.div>
@@ -128,5 +130,11 @@ const Sprint2 = () => {
     </div>
   );
 };
+
+/* 
+Need precise timing? → tween
+Need physical/natural movement? → spring
+Need momentum after movement? → inertia
+*/
 
 export { Sprint2 };
