@@ -16,6 +16,12 @@ const sprints = [
     description: "Transitions + Springs",
     component: <Sprint2 />,
   },
+  {
+    id: 3,
+    name: "sprint-3",
+    description: "Variants",
+    component: <Sprint3 />,
+  },
 ];
 
 const Motion = () => {
