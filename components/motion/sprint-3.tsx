@@ -1,4 +1,4 @@
-import { motion, Transition } from "motion/react";
+import { motion, Variants } from "motion/react";
 import { useState } from "react";
 
 /* 
@@ -6,9 +6,9 @@ sprint 3: Variants
 */
 const testNavs = ["Home", "About", "Projects", "Contact"];
 
-const variants: Record<string, Transition> = {
-  hidden: {},
-  visible: {},
+const variants: Variants = {
+  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0 },
 };
 
 const Sprint3 = () => {
