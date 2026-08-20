@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { useState } from "react";
 
 /* 
@@ -16,10 +17,17 @@ const Sprint3 = () => {
       flex flex-col items-center gap-10
       "
     >
-      <span className="
-      rounded-full aspect-square text-center
-      ring-1 ring-gray-400 
-      " > {isOpen ? "✕" : "☰"} </span>
+      <motion.span
+        className="
+      rounded-full w-8 aspect-square
+      flex items-center justify-center
+      ring-2 ring-slate-200 
+      ring-offset-1 ring-offset-slate-300
+      "
+      >
+        {" "}
+        {isOpen ? "✕" : "☰"}{" "}
+      </motion.span>
 
       <nav
         className="
