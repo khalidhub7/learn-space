@@ -47,18 +47,21 @@ const Sprint3 = () => {
         >
           <ul className="w-sm flex flex-col items-center gap-5">
             {testNavs.map((l) => (
-              <li
+              <motion.li
                 key={l}
                 className="
               rounded p-2 w-64
               ring-2 ring-slate-200
               ring-offset-2 ring-offset-slate-300
               "
+                variants={variants}
+                initial="hidden"
+                animate="visible"
               >
                 <a href="" className="text-center block">
                   {l}
                 </a>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </nav>
