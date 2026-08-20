@@ -44,13 +44,14 @@ const Sprint3 = () => {
               <motion.li
                 key={l}
                 className="
-              rounded p-2 w-64
-              ring-2 ring-slate-200
-              ring-offset-2 ring-offset-slate-300
-              "
+                rounded-lg p-2 w-60
+                ring-2 ring-slate-100
+                ring-offset-2 ring-offset-slate-200
+                "
                 variants={variants}
                 initial="hidden"
                 animate="visible"
+                transition={{type: "spring", stiffness: 500}}
               >
                 <a href="" className="text-center block">
                   {l}
