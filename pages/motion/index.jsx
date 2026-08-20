@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { Sprint1 } from "@/components/motion/sprint-1";
 import { Sprint2 } from "@/components/motion/sprint-2";
-import { useState } from "react";
+import { Sprint3 } from "@/components/motion/sprint-3";
 
 const sprints = [
   {
