@@ -1,10 +1,15 @@
-import { motion } from "motion/react";
+import { motion, Transition } from "motion/react";
 import { useState } from "react";
 
 /* 
 sprint 3: Variants
 */
 const testNavs = ["Home", "About", "Projects", "Contact"];
+
+const variants: Record<string, Transition> = {
+  hidden: {},
+  visible: {},
+};
 
 const Sprint3 = () => {
   const [isOpen, setIsOpen] = useState(false);
