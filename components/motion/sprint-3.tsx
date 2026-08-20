@@ -17,7 +17,7 @@ const Sprint3 = () => {
       flex flex-col items-center gap-10
       "
     >
-      <motion.span
+      <motion.button
         className="
       rounded-full w-8 aspect-square
       flex items-center justify-center
@@ -25,9 +25,8 @@ const Sprint3 = () => {
       ring-offset-1 ring-offset-slate-300
       "
       >
-        {" "}
-        {isOpen ? "✕" : "☰"}{" "}
-      </motion.span>
+        {isOpen ? "✕" : "☰"}
+      </motion.button>
 
       <nav
         className="
