@@ -16,7 +16,10 @@ const Sprint3 = () => {
       flex flex-col items-center gap-10
       "
     >
-      <span> {isOpen ? "✕" : "☰"} </span>
+      <span className="
+      rounded-full aspect-square text-center
+      ring-1 ring-gray-400 
+      " > {isOpen ? "✕" : "☰"} </span>
 
       <nav
         className="
@@ -25,14 +28,14 @@ const Sprint3 = () => {
         ring-offset-1 ring-offset-fuchsia-300
         "
       >
-        <ul className="w-sm flex flex-col gap-5 ">
+        <ul className="w-sm flex flex-col items-center gap-5 ">
           {testNavs.map((l) => (
             <li
               key={l}
               className="
-              rounded p-2
-              ring-2 ring-gray-200
-              ring-offset-2 ring-offset-gray-300
+              rounded p-2 w-64
+              ring-2 ring-slate-200
+              ring-offset-2 ring-offset-slate-300
               "
             >
               <a href="" className="text-center block">
