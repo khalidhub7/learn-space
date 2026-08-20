@@ -17,7 +17,7 @@ const Sprint3 = () => {
   return (
     <div
       className="
-      w-xl rounded-lg p-5
+      w-xl rounded-lg p-5 h-96
       ring-4 ring-gray-100
       flex flex-col items-center gap-10
       "
@@ -38,13 +38,7 @@ const Sprint3 = () => {
       </motion.button>
 
       {isOpen ? (
-        <nav
-          className="
-        p-4 rounded
-        ring-2 ring-gray-200
-        ring-offset-1 ring-offset-fuchsia-300
-        "
-        >
+        <nav>
           <ul className="w-sm flex flex-col items-center gap-5">
             {testNavs.map((l) => (
               <motion.li
