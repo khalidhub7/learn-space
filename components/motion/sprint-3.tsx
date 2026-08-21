@@ -59,9 +59,9 @@ const Sprint3 = () => {
                 ring-offset-2 ring-offset-slate-200
                 "
                 variants={variants}
-                initial="hidden"
-                animate="visible"
-                transition={{ type: "spring", stiffness: 500 }}
+                /* initial="hidden"
+                animate="visible" */
+                transition={{ type: "spring", stiffness: 400 }}
               >
                 <a href="" className="text-center block">
                   {l}
