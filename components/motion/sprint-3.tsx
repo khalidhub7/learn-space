@@ -11,6 +11,11 @@ const variants: Variants = {
   visible: { opacity: 1, x: 0 },
 };
 
+const parentVariants: Variants = {
+  visible: { transition: { staggerChildren: 0.2 } },
+  hidden: { transition: { staggerChildren: 0.2 } },
+};
+
 const Sprint3 = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,7 +44,12 @@ const Sprint3 = () => {
 
       {isOpen ? (
         <nav>
-          <ul className="w-sm flex flex-col items-center gap-5">
+          <motion.ul
+            className="w-sm flex flex-col items-center gap-5"
+            variants={parentVariants}
+            animate="visible"
+            initial="hidden"
+          >
             {testNavs.map((l) => (
               <motion.li
                 key={l}
@@ -51,14 +61,14 @@ const Sprint3 = () => {
                 variants={variants}
                 initial="hidden"
                 animate="visible"
-                transition={{type: "spring", stiffness: 500}}
+                transition={{ type: "spring", stiffness: 500 }}
               >
                 <a href="" className="text-center block">
                   {l}
                 </a>
               </motion.li>
             ))}
-          </ul>
+          </motion.ul>
         </nav>
       ) : undefined}
     </div>
