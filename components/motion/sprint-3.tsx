@@ -7,8 +7,8 @@ sprint 3: Variants
 const testNavs = ["Home", "About", "Projects", "Contact"];
 
 const variants: Variants = {
-  hidden: { opacity: 0, x: 100 },
-  visible: { opacity: 1, x: 0 },
+  hide: { opacity: 0, x: 100 },
+  show: { opacity: 1, x: 0 },
 };
 
 const parentVariants: Variants = {
