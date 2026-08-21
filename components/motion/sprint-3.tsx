@@ -12,8 +12,8 @@ const variants: Variants = {
 };
 
 const parentVariants: Variants = {
-  visible: { transition: { staggerChildren: 0.2 } },
-  hidden: { transition: { staggerChildren: 0.2 } },
+  visible: { transition: { staggerChildren: 0.1 } },
+  hidden: { transition: { staggerChildren: 0.1 } },
 };
 
 const Sprint3 = () => {
