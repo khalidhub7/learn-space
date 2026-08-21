@@ -1,20 +1,21 @@
 import { useState } from "react";
-import { motion, Variants } from "motion/react";
+import type { Variants } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 
 /* 
-sprint 3: Variants
+sprint 3: Variants, AnimatePresence, Exit animations
 */
 const testNavs = ["Home", "About", "Projects", "Contact"];
 
 const variants: Variants = {
-  hidden: { opacity: 0, x: 100 },
-  visible: { opacity: 1, x: 0 },
+  hidden: { opacity: 0, y: -20 },
+  visible: { opacity: 1, y: 0 },
 };
 
 const parentVariants: Variants = {
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.2 } },
   // that no effect i think need AnimatePresence
-  hidden: { transition: { staggerChildren: 0.1 } },
+  hidden: { transition: { staggerChildren: 1 } },
 };
 
 const Sprint3 = () => {
