@@ -13,6 +13,7 @@ const variants: Variants = {
 
 const parentVariants: Variants = {
   visible: { transition: { staggerChildren: 0.1 } },
+  // that no effect i think need AnimatePresence
   hidden: { transition: { staggerChildren: 0.1 } },
 };
 
@@ -36,7 +37,7 @@ const Sprint3 = () => {
         "
         whileTap={{ scale: 0.9 }}
         whileHover={{ rotate: 360 }}
-        transition={{ type: "spring", stiffness: 300 }}
+        transition={{ type: "spring", stiffness: 200 }}
         onClick={() => setIsOpen((prev) => !prev)}
       >
         {isOpen ? "✕" : "☰"}
@@ -61,7 +62,7 @@ const Sprint3 = () => {
                 variants={variants}
                 /* initial="hidden"
                 animate="visible" */
-                transition={{ type: "spring", stiffness: 400 }}
+                transition={{ type: "spring", stiffness: 600 }}
               >
                 <a href="" className="text-center block">
                   {l}
