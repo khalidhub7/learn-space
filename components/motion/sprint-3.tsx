@@ -16,6 +16,8 @@ const parentVariants: Variants = {
   visible: { transition: { staggerChildren: 0.2 } },
   // that no effect i think need AnimatePresence
   hidden: { transition: { staggerChildren: 1 } },
+
+  exit: { opacity: 0, transition: { duration: 2 } },
 };
 
 const Sprint3 = () => {
@@ -44,35 +46,38 @@ const Sprint3 = () => {
         {isOpen ? "✕" : "☰"}
       </motion.button>
 
-      {isOpen ? (
-        <nav>
-          <motion.ul
-            className="w-sm flex flex-col items-center gap-5"
-            variants={parentVariants}
-            animate="visible"
-            initial="hidden"
-          >
-            {testNavs.map((l) => (
-              <motion.li
-                key={l}
-                className="
+      <AnimatePresence>
+        {isOpen ? (
+          <nav>
+            <motion.ul
+              className="w-sm flex flex-col items-center gap-5"
+              variants={parentVariants}
+              animate="visible"
+              initial="hidden"
+              exit="exit"
+            >
+              {testNavs.map((l) => (
+                <motion.li
+                  key={l}
+                  className="
                 rounded-lg p-2 w-60
                 ring-2 ring-slate-100
                 ring-offset-2 ring-offset-slate-200
                 "
-                variants={variants}
-                /* initial="hidden"
+                  variants={variants}
+                  /* initial="hidden"
                 animate="visible" */
-                transition={{ type: "spring", stiffness: 600 }}
-              >
-                <a href="" className="text-center block">
-                  {l}
-                </a>
-              </motion.li>
-            ))}
-          </motion.ul>
-        </nav>
-      ) : undefined}
+                  transition={{ type: "spring", stiffness: 600 }}
+                >
+                  <a href="" className="text-center block">
+                    {l}
+                  </a>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </nav>
+        ) : undefined}
+      </AnimatePresence>
     </div>
   );
 };
