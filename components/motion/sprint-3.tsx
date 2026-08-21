@@ -60,7 +60,7 @@ const Sprint3 = () => {
                 "
                 variants={variants}
                 /* initial="hidden"
-                animate="visible" */
+                animate="visible" */ /* ??? */
                 transition={{ type: "spring", stiffness: 400 }}
               >
                 <a href="" className="text-center block">
