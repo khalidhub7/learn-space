@@ -1,5 +1,5 @@
-import { motion, Variants } from "motion/react";
 import { useState } from "react";
+import { motion, Variants } from "motion/react";
 
 /* 
 sprint 3: Variants
@@ -7,8 +7,8 @@ sprint 3: Variants
 const testNavs = ["Home", "About", "Projects", "Contact"];
 
 const variants: Variants = {
-  hide: { opacity: 0, x: 100 },
-  show: { opacity: 1, x: 0 },
+  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0 },
 };
 
 const parentVariants: Variants = {
@@ -37,7 +37,7 @@ const Sprint3 = () => {
         whileTap={{ scale: 0.9 }}
         whileHover={{ rotate: 360 }}
         transition={{ type: "spring", stiffness: 300 }}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setIsOpen((prev) => !prev)}
       >
         {isOpen ? "✕" : "☰"}
       </motion.button>
@@ -60,7 +60,7 @@ const Sprint3 = () => {
                 "
                 variants={variants}
                 /* initial="hidden"
-                animate="visible" */ /* ??? */
+                animate="visible" */
                 transition={{ type: "spring", stiffness: 400 }}
               >
                 <a href="" className="text-center block">
