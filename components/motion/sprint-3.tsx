@@ -8,13 +8,13 @@ sprint 3: Variants, AnimatePresence, Exit animations
 const testNavs = ["Home", "About", "Projects", "Contact"];
 
 const variants: Variants = {
-  hidden: { opacity: 0, y: -10 },
+  hidden: { opacity: 0, y: -30 },
   visible: { opacity: 1, y: 0 },
-  exit: { x: 40 },
+  exit: { x: 20 },
 };
 
 const parentVariants: Variants = {
-  visible: { transition: { staggerChildren: 0.2 } },
+  visible: { transition: { staggerChildren: 0.2, when: false } },
   exit: { opacity: 0, transition: { duration: 1 } },
 };
 
@@ -68,7 +68,7 @@ const Sprint3 = () => {
                   animate="visible"
                   exit="exit"
                   */
-                  transition={{ type: "spring", stiffness: 600 }}
+                  transition={{ type: "spring", stiffness: 100 }}
                 >
                   <a href="" className="text-center block">
                     {l}
