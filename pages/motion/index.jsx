@@ -19,7 +19,7 @@ const sprints = [
   {
     id: 3,
     name: "sprint-3",
-    description: "Variants",
+    description: "Variants, AnimatePresence, Exit animations",
     component: <Sprint3 />,
   },
 ];
