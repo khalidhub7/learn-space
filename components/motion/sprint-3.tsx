@@ -10,6 +10,7 @@ const testNavs = ["Home", "About", "Projects", "Contact"];
 const variants: Variants = {
   hidden: { opacity: 0, y: -20 },
   visible: { opacity: 1, y: 0 },
+  exit: { x: 40 }
 };
 
 const parentVariants: Variants = {
