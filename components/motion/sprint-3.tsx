@@ -14,9 +14,7 @@ const variants: Variants = {
 
 const parentVariants: Variants = {
   visible: { transition: { staggerChildren: 0.2 } },
-  // that no effect i think need AnimatePresence
   hidden: { transition: { staggerChildren: 1 } },
-
   exit: { opacity: 0, transition: { duration: 2 } },
 };
 
