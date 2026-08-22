@@ -14,8 +14,7 @@ const variants: Variants = {
 
 const parentVariants: Variants = {
   visible: { transition: { staggerChildren: 0.2 } },
-  hidden: { transition: { staggerChildren: 1 } },
-  exit: { opacity: 0, transition: { duration: 2 } },
+  exit: { opacity: 0, transition: { duration: 1 } },
 };
 
 const Sprint3 = () => {
@@ -50,8 +49,8 @@ const Sprint3 = () => {
             <motion.ul
               className="w-sm flex flex-col items-center gap-5"
               variants={parentVariants}
-              animate="visible"
               initial="hidden"
+              animate="visible"
               exit="exit"
             >
               {testNavs.map((l) => (
