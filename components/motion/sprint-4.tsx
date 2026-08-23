@@ -17,7 +17,7 @@ const tabs = ["Home", "About", "Projects"];
 
 const Sprint4 = () => {
   const [hiddenIds, setHiddenIds] = useState(new Set([]));
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState("Home");
 
   return (
     <div className="space-y-10">
@@ -42,13 +42,12 @@ const Sprint4 = () => {
        place-items-center
       "
         >
-          <LayoutGroup>
-            {widgets.map((w) => (
-              <motion.li
-                layout
-                key={w.id}
+          {widgets.map((w) => (
+            <motion.li
+              layout
+              key={w.id}
 
-                className={`
+              className={`
                 relative w-28
             flex items-center justify-center
             aspect-square rounded-lg
@@ -56,20 +55,17 @@ const Sprint4 = () => {
             ring-offset-1 ring-offset-slate-300
             ${hiddenIds.has(w.id) ? "hidden" : ""}
             `}
+            >
+              <motion.button
+                className=" cursor-pointer absolute right-2 top-1 "
+                whileHover={{ scale: 1.3, rotate: 90 }}
+                onClick={() => setHiddenIds((prev) => new Set(prev).add(w.id))}
               >
-                <motion.button
-                  className=" cursor-pointer absolute right-2 top-1 "
-                  whileHover={{ scale: 1.3, rotate: 90 }}
-                  onClick={() =>
-                    setHiddenIds((prev) => new Set(prev).add(w.id))
-                  }
-                >
-                  ×
-                </motion.button>
-                <p> {w.name} </p>
-              </motion.li>
-            ))}
-          </LayoutGroup>
+                ×
+              </motion.button>
+              <p> {w.name} </p>
+            </motion.li>
+          ))}
         </ul>
       </div>
 
