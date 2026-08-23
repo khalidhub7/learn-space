@@ -1,4 +1,4 @@
-import { motion, LayoutGroup } from "motion/react";
+import { motion } from "motion/react";
 import { useState } from "react";
 
 /* 
@@ -71,10 +71,10 @@ const Sprint4 = () => {
 
       <div
         className="
-      relative
-      w-xl rounded-lg p-5 
-      ring-4 ring-gray-100
-      flex flex-col items-center gap-10
+        relative
+        w-xl rounded-lg p-5
+        ring-4 ring-gray-100
+        flex flex-col items-center gap-10
         "
       >
         <ul className="flex justify-around w-full">
@@ -82,7 +82,7 @@ const Sprint4 = () => {
             <li>
               <button
                 onClick={() => setActive(tab)}
-                className="relative cursor-pointer"
+                className="relative cursor-pointer isolate"
               >
                 {tab}
                 {active === tab && (
@@ -90,10 +90,11 @@ const Sprint4 = () => {
                     layoutId="underline"
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     className="
-                    absolute -top-1 -left-2
+                    absolute -top-1 -left-2 -z-10
                     rounded-lg h-8 w-20
-                    ring-2 ring-slate-200
-                    ring-offset-1 ring-offset-slate-400
+                    bg-neutral-50
+                    ring-2 ring-olive-200
+                    ring-offset-1 ring-offset-slate-300
                   "
                   />
                 )}
