@@ -25,8 +25,7 @@ const Sprint4 = () => {
       <div
         className="
         relative w-xl rounded-lg p-5
-        ring-4 ring-gray-100 
-        flex flex-col items-center gap-10
+        ring-4 ring-gray-100
         "
       >
         <motion.button
@@ -73,10 +72,8 @@ const Sprint4 = () => {
 
       <div
         className="
-        relative
-        w-xl rounded-lg p-5
+        relative w-xl rounded-lg p-5
         ring-4 ring-gray-100
-        flex flex-col items-center gap-10
         "
       >
         <ul className="flex justify-around w-full">
@@ -93,8 +90,7 @@ const Sprint4 = () => {
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     className="
                     absolute -top-1 -left-2 -z-10
-                    rounded-lg h-8 w-20
-                    bg-neutral-50
+                    bg-neutral-50 rounded-lg h-8 w-20
                     ring-2 ring-olive-200
                     ring-offset-1 ring-offset-slate-300
                   "
@@ -107,14 +103,13 @@ const Sprint4 = () => {
       </div>
 
       {/* LayoutGroup */}
-      <div className="
-        relative
+      <div
+        className="
         w-xl rounded-lg p-5
         ring-4 ring-gray-100
         flex flex-col items-center gap-10
-        " >
-
-      </div>
+        "
+      ></div>
     </div>
   );
 };
