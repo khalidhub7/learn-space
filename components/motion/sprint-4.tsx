@@ -21,6 +21,7 @@ const Sprint4 = () => {
 
   return (
     <div className="space-y-10">
+      {/* layout */}
       <div
         className="
         relative w-xl rounded-lg p-5
@@ -68,6 +69,8 @@ const Sprint4 = () => {
         </ul>
       </div>
 
+      {/* layoutId */}
+
       <div
         className="
         relative
@@ -101,6 +104,16 @@ const Sprint4 = () => {
             </li>
           ))}
         </ul>
+      </div>
+
+      {/* LayoutGroup */}
+      <div className="
+        relative
+        w-xl rounded-lg p-5
+        ring-4 ring-gray-100
+        flex flex-col items-center gap-10
+        " >
+
       </div>
     </div>
   );
