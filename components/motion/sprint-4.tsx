@@ -15,6 +15,17 @@ const widgets = [
 ];
 const tabs = ["Home", "About", "Projects"];
 
+function Item({ title }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <motion.div layout onClick={() => setOpen(!open)}>
+      <h3>{title}</h3>
+      {open && <p>More content...</p>}
+    </motion.div>
+  );
+}
+
 const Sprint4 = () => {
   const [open, setOpen] = useState(null);
   const [active, setActive] = useState("Home");
@@ -112,12 +123,9 @@ const Sprint4 = () => {
         "
       >
         <LayoutGroup>
-          {["One", "Two", "Three"].map((item) => (
-            <motion.div layout key={item} onClick={() => setOpen(item)}>
-              <h3>{item}</h3>
-              {open === item && <p>Content...</p>}
-            </motion.div>
-          ))}
+          <Item title="One" />
+          <Item title="Two" />
+          <Item title="Three" />
         </LayoutGroup>
       </div>
     </div>
