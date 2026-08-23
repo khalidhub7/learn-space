@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { LayoutGroup, motion } from "motion/react";
 import { useState } from "react";
 
 /* 
@@ -16,8 +16,9 @@ const widgets = [
 const tabs = ["Home", "About", "Projects"];
 
 const Sprint4 = () => {
-  const [hiddenIds, setHiddenIds] = useState(new Set([]));
+  const [open, setOpen] = useState(null);
   const [active, setActive] = useState("Home");
+  const [hiddenIds, setHiddenIds] = useState(new Set([]));
 
   return (
     <div className="space-y-10">
@@ -107,8 +108,18 @@ const Sprint4 = () => {
         className="
         w-xl rounded-lg p-5
         ring-4 ring-gray-100
+        space-y-5
         "
-      ></div>
+      >
+        <LayoutGroup>
+          {["One", "Two", "Three"].map((item) => (
+            <motion.div layout key={item} onClick={() => setOpen(item)}>
+              <h3>{item}</h3>
+              {open === item && <p>Content...</p>}
+            </motion.div>
+          ))}
+        </LayoutGroup>
+      </div>
     </div>
   );
 };
