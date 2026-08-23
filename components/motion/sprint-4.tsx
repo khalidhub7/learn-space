@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, LayoutGroup } from "motion/react";
 import { useState } from "react";
 
 /* 
@@ -43,7 +43,8 @@ const Sprint4 = () => {
       "
         >
           {widgets.map((w) => (
-            <motion.li
+            <LayoutGroup>
+                <motion.li
               layout
               key={w.id}
 
@@ -65,6 +66,8 @@ const Sprint4 = () => {
               </motion.button>
               <p> {w.name} </p>
             </motion.li>
+            </LayoutGroup>
+            
           ))}
         </ul>
       </div>
@@ -88,6 +91,7 @@ const Sprint4 = () => {
                 {active === tab && (
                   <motion.div
                     layoutId="underline"
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     className="
                     absolute -top-1 -left-2
                     rounded-lg h-8 w-20
