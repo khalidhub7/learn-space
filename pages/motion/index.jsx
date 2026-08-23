@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Sprint1 } from "@/components/motion/sprint-1";
 import { Sprint2 } from "@/components/motion/sprint-2";
 import { Sprint3 } from "@/components/motion/sprint-3";
+import { Sprint4 } from "@/components/motion/sprint-4";
 
 const sprints = [
   {
@@ -21,6 +22,12 @@ const sprints = [
     name: "sprint-3",
     description: "Variants, AnimatePresence, Exit animations",
     component: <Sprint3 />,
+  },
+  {
+    id: 4,
+    name: "sprint-4",
+    description: "Layout animations",
+    component: <Sprint4 />,
   },
 ];
 
