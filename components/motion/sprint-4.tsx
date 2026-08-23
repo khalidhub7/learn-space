@@ -42,13 +42,13 @@ const Sprint4 = () => {
        place-items-center
       "
         >
-          {widgets.map((w) => (
-            <LayoutGroup>
-                <motion.li
-              layout
-              key={w.id}
+          <LayoutGroup>
+            {widgets.map((w) => (
+              <motion.li
+                layout
+                key={w.id}
 
-              className={`
+                className={`
                 relative w-28
             flex items-center justify-center
             aspect-square rounded-lg
@@ -56,19 +56,20 @@ const Sprint4 = () => {
             ring-offset-1 ring-offset-slate-300
             ${hiddenIds.has(w.id) ? "hidden" : ""}
             `}
-            >
-              <motion.button
-                className=" cursor-pointer absolute right-2 top-1 "
-                whileHover={{ scale: 1.3, rotate: 90 }}
-                onClick={() => setHiddenIds((prev) => new Set(prev).add(w.id))}
               >
-                ×
-              </motion.button>
-              <p> {w.name} </p>
-            </motion.li>
-            </LayoutGroup>
-            
-          ))}
+                <motion.button
+                  className=" cursor-pointer absolute right-2 top-1 "
+                  whileHover={{ scale: 1.3, rotate: 90 }}
+                  onClick={() =>
+                    setHiddenIds((prev) => new Set(prev).add(w.id))
+                  }
+                >
+                  ×
+                </motion.button>
+                <p> {w.name} </p>
+              </motion.li>
+            ))}
+          </LayoutGroup>
         </ul>
       </div>
 
