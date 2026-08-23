@@ -107,7 +107,6 @@ const Sprint4 = () => {
         className="
         w-xl rounded-lg p-5
         ring-4 ring-gray-100
-        flex flex-col items-center gap-10
         "
       ></div>
     </div>
