@@ -1,3 +1,5 @@
+import { motion } from "motion/react";
+
 /* 
 sprint 4: Layout animations
 */
@@ -6,9 +8,9 @@ const widgets = [
   { id: "1", name: "Weather" },
   { id: "2", name: "Clock" },
   { id: "3", name: "Calendar" },
-  { id: "4", name: "Notes" },
+  /* { id: "4", name: "Notes" },
   { id: "5", name: "Tasks" },
-  { id: "6", name: "Music" },
+  { id: "6", name: "Music" }, */
 ];
 
 const Sprint4 = () => {
@@ -26,16 +28,20 @@ const Sprint4 = () => {
       "
       >
         {widgets.map((w) => (
-          <li
+          <motion.li
             key={w.id}
+            
             className="
-          aspect-square rounded-lg
-          ring-2 ring-slate-200
-          ring-offset-1 ring-offest-slate-300
-          "
+            relative
+            flex items-center justify-center
+            aspect-square rounded-lg
+            ring-2 ring-slate-200
+            ring-offset-1 ring-offset-slate-300
+            "
           >
+            <span className="absolute right-2 top-1 " >x</span>
             <p> {w.name} </p>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </div>
