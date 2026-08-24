@@ -112,12 +112,10 @@ const Sprint4 = () => {
         "
       >
         <LayoutGroup>
-          
-        </LayoutGroup>
-
-        {["one", "two", "three"].map((i) => (
+          {["one", "two", "three"].map((i) => (
             <motion.div
               layout
+              transition={{ type: "tween", duration: 10, ease: "backOut" }}
               onClick={() =>
                 setOpen((prev) =>
                   prev.includes(i)
@@ -135,6 +133,7 @@ const Sprint4 = () => {
               {open.includes(i) && <p className="mt-6"> more content...</p>}
             </motion.div>
           ))}
+        </LayoutGroup>
       </div>
     </div>
   );
