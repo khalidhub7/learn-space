@@ -106,7 +106,7 @@ const Sprint4 = () => {
       {/* LayoutGroup */}
       <div
         className="
-        w-xl rounded-lg p-5
+        w-xl rounded-lg p-5 h-96
         ring-4 ring-gray-100
         space-y-5
         "
@@ -122,10 +122,14 @@ const Sprint4 = () => {
                     : [...prev, i],
                 )
               }
-              className="cursor-pointer p-2 border"
+              className="
+              cursor-pointer p-2 rounded-lg
+              ring-2 ring-olive-100
+              ring-offset-1 ring-offset-slate-300
+              "
             >
               {i}
-              {open.includes(i) && <p className="mt-2">More content...</p>}
+              {open.includes(i) && <p className="mt-6">More content...</p>}
             </motion.div>
           ))}
         </LayoutGroup>
