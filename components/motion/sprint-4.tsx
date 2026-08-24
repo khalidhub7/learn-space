@@ -112,7 +112,10 @@ const Sprint4 = () => {
         "
       >
         <LayoutGroup>
-          {["one", "two", "three"].map((i) => (
+          
+        </LayoutGroup>
+
+        {["one", "two", "three"].map((i) => (
             <motion.div
               layout
               onClick={() =>
@@ -129,10 +132,9 @@ const Sprint4 = () => {
               "
             >
               {i}
-              {open.includes(i) && <p className="mt-6">More content...</p>}
+              {open.includes(i) && <p className="mt-6"> more content...</p>}
             </motion.div>
           ))}
-        </LayoutGroup>
       </div>
     </div>
   );
