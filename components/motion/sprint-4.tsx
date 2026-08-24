@@ -111,26 +111,28 @@ const Sprint4 = () => {
         space-y-5
         "
       >
-        <LayoutGroup></LayoutGroup>
-
-        {["one", "two", "three"].map((i) => (
-          <motion.div
-            layout
-            onClick={() =>
-              setOpen((prev) =>
-                prev.includes(i) ? prev.filter((id) => id !== i) : [...prev, i],
-              )
-            }
-            className="
+        <LayoutGroup>
+          {["one", "two", "three"].map((i) => (
+            <motion.div
+              layout
+              onClick={() =>
+                setOpen((prev) =>
+                  prev.includes(i)
+                    ? prev.filter((id) => id !== i)
+                    : [...prev, i],
+                )
+              }
+              className="
               cursor-pointer p-2 rounded-lg
               ring-2 ring-olive-100
               ring-offset-1 ring-offset-slate-300
               "
-          >
-            {i}
-            {open.includes(i) && <p className="mt-6"> more content...</p>}
-          </motion.div>
-        ))}
+            >
+              {i}
+              {open.includes(i) && <p className="mt-6"> more content...</p>}
+            </motion.div>
+          ))}
+        </LayoutGroup>
       </div>
     </div>
   );
