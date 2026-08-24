@@ -16,7 +16,7 @@ const widgets = [
 const tabs = ["Home", "About", "Projects"];
 
 const Sprint4 = () => {
-  const [open, setOpen] = useState("");
+  const [open, setOpen] = useState([]);
   const [active, setActive] = useState("Home");
   const [hiddenIds, setHiddenIds] = useState(new Set([]));
 
@@ -115,11 +115,17 @@ const Sprint4 = () => {
           {["one", "two", "three"].map((i) => (
             <motion.div
               layout
-              onClick={() => setOpen(i)}
-              className="cursor-pointer"
+              onClick={() =>
+                setOpen((prev) =>
+                  prev.includes(i)
+                    ? prev.filter((id) => id !== i)
+                    : [...prev, i],
+                )
+              }
+              className="cursor-pointer p-2 border"
             >
               {i}
-              {open === i && <p>More content...</p>}
+              {open.includes(i) && <p className="mt-2">More content...</p>}
             </motion.div>
           ))}
         </LayoutGroup>
