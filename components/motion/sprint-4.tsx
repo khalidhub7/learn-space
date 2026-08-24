@@ -115,6 +115,7 @@ const Sprint4 = () => {
           {["one", "two", "three"].map((i) => (
             <motion.div
               layout
+              transition={{ duration: 2, type: "tween" }}
               onClick={() =>
                 setOpen((prev) =>
                   prev.includes(i)
