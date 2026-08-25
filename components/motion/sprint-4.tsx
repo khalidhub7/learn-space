@@ -21,7 +21,7 @@ const AccordionItem = ({ header }) => {
   return (
     <motion.div
       className="
-      rounded-lg p-2 w-1/2 cursor-pointer
+      rounded-lg p-2 cursor-pointer
       ring-1 ring-olive-300
       "
       layout
@@ -30,16 +30,12 @@ const AccordionItem = ({ header }) => {
       transition={{ type: "tween", duration: 3 }}
     >
       <motion.h2 layout>{header}</motion.h2>
-      {/* {isOpen ? "AccordionItem content ..." : null} */}
-      {isOpen ? (
-        <div style={{ height: 200 }}>AccordionItem content...</div>
-      ) : null}
+      {isOpen ? <p className="h-28">AccordionItem content ...</p> : null}
     </motion.div>
   );
 };
 
 const Sprint4 = () => {
-  const [open, setOpen] = useState([]);
   const [active, setActive] = useState("Home");
   const [hiddenIds, setHiddenIds] = useState(new Set([]));
 
@@ -131,35 +127,10 @@ const Sprint4 = () => {
         className="
         w-xl rounded-lg p-5 h-96
         ring-4 ring-gray-100
-        space-y-5
+        space-y-1
         "
       >
-        <LayoutGroup>
-          {["one", "two", "three"].map((i) => (
-            <motion.div
-              layout
-
-              transition={{ duration: 2, type: "tween" }}
-              onClick={() =>
-                setOpen((prev) =>
-                  prev.includes(i)
-                    ? prev.filter((id) => id !== i)
-                    : [...prev, i],
-                )
-              }
-              className="
-              cursor-pointer p-2 rounded-lg
-              ring-2 ring-olive-100
-              ring-offset-1 ring-offset-slate-300
-              "
-            >
-              {i}
-              {open.includes(i) && <p className="h-24"> more content...</p>}
-            </motion.div>
-          ))}
-        </LayoutGroup>
-
-        {/*
+        {/* 
         Test:
         1. Open item 2.
         2. Quickly toggle item 1.
@@ -167,17 +138,31 @@ const Sprint4 = () => {
         Animations are separate, so you may see overlap.
         With LayoutGroup:
         Animations are coordinated, so the overlap is avoided.
+        Rule:
+        LayoutGroup is useful when items have separate state/updates.
         */}
 
-        {/* {tabs.map((t) => (
-          <AccordionItem header={t} />
-        ))}
+        <div className="grid grid-cols-2 gap-x-3">
+          <div className="space-y-5">
+            <p className="text-fuchsia-500">without LayoutGroup</p>
+            <div>
+              {tabs.map((t) => (
+                <AccordionItem header={t} />
+              ))}
+            </div>
+          </div>
 
-        <LayoutGroup>
-          {tabs.map((t) => (
-            <AccordionItem header={t} />
-          ))}
-        </LayoutGroup> */}
+          <div className="space-y-5">
+            <p className="text-fuchsia-500">with LayoutGroup</p>
+            <div>
+              <LayoutGroup>
+                {tabs.map((t) => (
+                  <AccordionItem header={t} />
+                ))}
+              </LayoutGroup>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
