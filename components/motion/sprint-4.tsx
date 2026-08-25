@@ -139,7 +139,7 @@ const Sprint4 = () => {
             <motion.div
               layout
 
-              transition={{ duration: 3, type: "tween" }}
+              transition={{ duration: 2, type: "tween" }}
               onClick={() =>
                 setOpen((prev) =>
                   prev.includes(i)
@@ -154,9 +154,7 @@ const Sprint4 = () => {
               "
             >
               {i}
-              <div className="h-28">
-                {open.includes(i) && <p className="mt-6"> more content...</p>}
-              </div>
+              {open.includes(i) && <p className="h-24"> more content...</p>}
             </motion.div>
           ))}
         </LayoutGroup>
