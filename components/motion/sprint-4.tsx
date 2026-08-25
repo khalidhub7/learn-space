@@ -26,6 +26,8 @@ const AccordionItem = ({ header }) => {
       "
       layout
       onClick={() => setIsOpen(!isOpen)}
+
+      transition={{ type: "tween", duration: 3 }}
     >
       <motion.h2 layout>{header}</motion.h2>
       {/* {isOpen ? "AccordionItem content ..." : null} */}
@@ -156,11 +158,23 @@ const Sprint4 = () => {
           ))}
         </LayoutGroup> */}
 
+        {/* 
+        Test:
+1. Open item 2.
+2. Quickly toggle item 1.
+
+Without LayoutGroup:
+Animations are separate, so you may see overlap.
+
+With LayoutGroup:
+Animations are coordinated, so the overlap is avoided.
+
+        */}
+
         {tabs.map((t) => (
           <AccordionItem header={t} />
         ))}
 
-        <hr />
         <LayoutGroup>
           {tabs.map((t) => (
             <AccordionItem header={t} />
@@ -172,3 +186,8 @@ const Sprint4 = () => {
 };
 
 export { Sprint4 };
+
+/*
+layout = animate layout changes
+LayoutGroup = coordinate multiple layout animations so they don't conflict
+*/
