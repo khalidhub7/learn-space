@@ -28,7 +28,10 @@ const AccordionItem = ({ header }) => {
       onClick={() => setIsOpen(!isOpen)}
     >
       <motion.h2 layout>{header}</motion.h2>
-      {isOpen ? "AccordionItem content ..." : null}
+      {/* {isOpen ? "AccordionItem content ..." : null} */}
+      {isOpen ? (
+        <div style={{ height: 200 }}>AccordionItem content...</div>
+      ) : null}
     </motion.div>
   );
 };
