@@ -15,6 +15,24 @@ const widgets = [
 ];
 const tabs = ["Home", "About", "Projects"];
 
+const AccordionItem = ({ header }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <motion.div
+      className="
+      rounded-lg p-2 w-1/2 cursor-pointer
+      ring-1 ring-olive-300
+      "
+      layout
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      <motion.h2 layout>{header}</motion.h2>
+      {isOpen ? "AccordionItem content ..." : null}
+    </motion.div>
+  );
+};
+
 const Sprint4 = () => {
   const [open, setOpen] = useState([]);
   const [active, setActive] = useState("Home");
@@ -23,7 +41,7 @@ const Sprint4 = () => {
   return (
     <div className="space-y-10">
       {/* layout */}
-      <div
+      {/*  <div
         className="
         relative w-xl rounded-lg p-5
         ring-4 ring-gray-100
@@ -67,11 +85,11 @@ const Sprint4 = () => {
             </motion.li>
           ))}
         </ul>
-      </div>
+      </div> */}
 
       {/* layoutId */}
 
-      <div
+      {/* <div
         className="
         relative w-xl rounded-lg p-5
         ring-4 ring-gray-100
@@ -101,7 +119,7 @@ const Sprint4 = () => {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
 
       {/* LayoutGroup */}
       <div
@@ -111,7 +129,7 @@ const Sprint4 = () => {
         space-y-5
         "
       >
-        <LayoutGroup>
+        {/* <LayoutGroup>
           {["one", "two", "three"].map((i) => (
             <motion.div
               layout
@@ -133,7 +151,17 @@ const Sprint4 = () => {
               {open.includes(i) && <p className="mt-6"> more content...</p>}
             </motion.div>
           ))}
-        </LayoutGroup>
+        </LayoutGroup> */}
+
+        {tabs.map((t) => (
+          <AccordionItem header={t} />
+        ))}
+
+        {tabs.map((t) => (
+          <LayoutGroup>
+            <AccordionItem header={t} />
+          </LayoutGroup>
+        ))}
       </div>
     </div>
   );
