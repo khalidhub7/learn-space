@@ -134,11 +134,12 @@ const Sprint4 = () => {
         space-y-5
         "
       >
-        {/* <LayoutGroup>
+        <LayoutGroup>
           {["one", "two", "three"].map((i) => (
             <motion.div
               layout
-              transition={{ duration: 2, type: "tween" }}
+
+              transition={{ duration: 3, type: "tween" }}
               onClick={() =>
                 setOpen((prev) =>
                   prev.includes(i)
@@ -153,25 +154,24 @@ const Sprint4 = () => {
               "
             >
               {i}
-              {open.includes(i) && <p className="mt-6"> more content...</p>}
+              <div className="h-28">
+                {open.includes(i) && <p className="mt-6"> more content...</p>}
+              </div>
             </motion.div>
           ))}
-        </LayoutGroup> */}
+        </LayoutGroup>
 
-        {/* 
+        {/*
         Test:
-1. Open item 2.
-2. Quickly toggle item 1.
-
-Without LayoutGroup:
-Animations are separate, so you may see overlap.
-
-With LayoutGroup:
-Animations are coordinated, so the overlap is avoided.
-
+        1. Open item 2.
+        2. Quickly toggle item 1.
+        Without LayoutGroup:
+        Animations are separate, so you may see overlap.
+        With LayoutGroup:
+        Animations are coordinated, so the overlap is avoided.
         */}
 
-        {tabs.map((t) => (
+        {/* {tabs.map((t) => (
           <AccordionItem header={t} />
         ))}
 
@@ -179,7 +179,7 @@ Animations are coordinated, so the overlap is avoided.
           {tabs.map((t) => (
             <AccordionItem header={t} />
           ))}
-        </LayoutGroup>
+        </LayoutGroup> */}
       </div>
     </div>
   );
