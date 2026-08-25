@@ -157,11 +157,12 @@ const Sprint4 = () => {
           <AccordionItem header={t} />
         ))}
 
-        {tabs.map((t) => (
-          <LayoutGroup>
+        <hr />
+        <LayoutGroup>
+          {tabs.map((t) => (
             <AccordionItem header={t} />
-          </LayoutGroup>
-        ))}
+          ))}
+        </LayoutGroup>
       </div>
     </div>
   );
