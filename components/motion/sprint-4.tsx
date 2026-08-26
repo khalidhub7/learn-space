@@ -234,7 +234,7 @@ const Sprint4 = () => {
               <p className="text-fuchsia-500">without LayoutGroup</p>
               <ul>
                 {tabs.map((t) => (
-                  <li key={t} >
+                  <li key={t}>
                     <AccordionItem header={t} />
                   </li>
                 ))}
@@ -264,6 +264,7 @@ export { Sprint4 };
 
 /*
 layout = animate layout changes
-LayoutGroup = coordinate multiple layout animations so they don't conflict
+LayoutGroup = LayoutGroup coordinates layout animations 
+              between components that update independently.
 layoutId = animate between matching/shared elements
 */
