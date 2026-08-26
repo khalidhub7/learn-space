@@ -90,7 +90,7 @@ const Sprint4 = () => {
 
       {/* layoutId */}
 
-      {/* <div
+      <div
         className="
         relative w-xl rounded-lg p-5
         ring-4 ring-gray-100
@@ -98,7 +98,7 @@ const Sprint4 = () => {
       >
         <ul className="flex justify-around w-full">
           {tabs.map((tab) => (
-            <li>
+            <li key={tab}>
               <button
                 onClick={() => setActive(tab)}
                 className="relative cursor-pointer isolate"
@@ -106,7 +106,7 @@ const Sprint4 = () => {
                 {tab}
                 {active === tab && (
                   <motion.div
-                    layoutId="underline"
+                    layoutId="active-tab"
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     className="
                     absolute -top-1 -left-2 -z-10
@@ -120,7 +120,7 @@ const Sprint4 = () => {
             </li>
           ))}
         </ul>
-      </div> */}
+      </div>
 
       {/* LayoutGroup */}
       <div
