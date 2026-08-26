@@ -18,8 +18,7 @@ const Sprint5 = () => {
   const [concept, setConcept] = useState("motionValue");
 
   const x = useMotionValue(0);
-
-  const opacity = useTransform( x, [-200, 0, 200], [0, 1, 0] );
+  const opacity = useTransform(x, [-200, 0, 200], [0, 1, 0]);
 
   return (
     <div className="space-y-8">
@@ -46,7 +45,9 @@ const Sprint5 = () => {
         w-xl rounded-lg p-5
         ring-4 ring-gray-100
         "
-      ></div>
+      >
+        <motion.div drag="x" style={{ x, opacity }} />
+      </div>
     </div>
   );
 };
