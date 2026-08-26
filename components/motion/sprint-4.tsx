@@ -171,10 +171,20 @@ const Sprint4 = () => {
         space-y-1
         "
         >
-          Test: 1. Open item 2. 2. Quickly toggle item 1. Without LayoutGroup:
-          Animations are separate, so you may see overlap. With LayoutGroup:
-          Animations are coordinated, so the overlap is avoided. Rule:
-          LayoutGroup is useful when items have separate state/updates.
+          {/*
+          Test:
+          1. Open item 2.
+          2. Quickly toggle item 1.
+
+          Without LayoutGroup:
+          Animations are separate, so you may see overlap.
+
+          With LayoutGroup:
+          Animations are coordinated, so the overlap is avoided.
+          
+          Rule:
+          LayoutGroup is useful when items have separate state/updates. 
+          */}
           <p className="text-blue-400 font-bold text-xl ">
             LayoutGroup example 1
           </p>
