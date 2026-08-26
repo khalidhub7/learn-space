@@ -39,26 +39,25 @@ const NavItem = ({ tabName, get, set }) => {
   return (
     <>
       {get ? (
-        <>
-          <motion.div
-            layoutId="active-tab"
-            transition={{
-              type: "spring",
-              stiffness: 300,
-              damping: 20,
-            }}
-            className="
+        <motion.div
+          layoutId="active-tab"
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+          }}
+          className="
             absolute -top-1 -left-2 -z-10
             bg-neutral-50 rounded h-8 w-20
             ring-2 ring-olive-200
             ring-offset-1 ring-offset-fuchsia-400
             "
-          />
-          <button onClick={() => set(tabName)} className="cursor-pointer">
-            {tabName}
-          </button>
-        </>
+        />
       ) : undefined}
+
+      <button onClick={() => set(tabName)} className="cursor-pointer">
+        {tabName}
+      </button>
     </>
   );
 };
