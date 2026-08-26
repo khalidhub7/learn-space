@@ -35,12 +35,10 @@ const AccordionItem = ({ header }) => {
   );
 };
 
-const NavItem = ({ title }) => {
-  const [active, setActive] = useState(false);
-
+const NavItem = ({ tabName, get, set }) => {
   return (
     <>
-      {active ? (
+      {get ? (
         <>
           <motion.div
             layoutId="active-tab"
@@ -56,11 +54,8 @@ const NavItem = ({ title }) => {
             ring-offset-1 ring-offset-fuchsia-400
             "
           />
-          <button
-            onClick={() => setActive((prev) => !prev)}
-            className="cursor-pointer"
-          >
-            {title}
+          <button onClick={() => set(tabName)} className="cursor-pointer">
+            {tabName}
           </button>
         </>
       ) : undefined}
@@ -70,6 +65,7 @@ const NavItem = ({ title }) => {
 
 const Sprint4 = () => {
   const [hiddenIds, setHiddenIds] = useState(new Set([]));
+  const [activeTab, setActiveTab] = useState("Home");
 
   return (
     <div className="space-y-10">
@@ -130,7 +126,13 @@ const Sprint4 = () => {
       >
         <ul className="flex justify-around w-full">
           {tabs.map((tab) => (
-            <li key={tab} className="relative isolate"></li>
+            <li key={tab} className="relative isolate">
+              <NavItem
+                tabName={tab}
+                get={activeTab === tab}
+                set={setActiveTab}
+              />
+            </li>
           ))}
         </ul>
       </div>
