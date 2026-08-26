@@ -35,7 +35,15 @@ const AccordionItem = ({ header }) => {
   );
 };
 
-const NavItem = ({ tabName, isActive, setActive }) => {
+const NavItem = ({ rowId, tabName, isActive, setActive }) => {
+  const handler = () => {
+    setActive((prev) => {
+      if (prev[rowId] !== tabName) {
+        return { ...prev, [rowId]: tabName };
+      }
+      return prev;
+    });
+  };
   return (
     <>
       {isActive ? (
@@ -51,7 +59,7 @@ const NavItem = ({ tabName, isActive, setActive }) => {
         />
       ) : undefined}
 
-      <button onClick={() => setActive(tabName)} className="cursor-pointer">
+      <button onClick={handler} className="cursor-pointer">
         {tabName}
       </button>
     </>
@@ -60,7 +68,7 @@ const NavItem = ({ tabName, isActive, setActive }) => {
 
 const Sprint4 = () => {
   const [hiddenIds, setHiddenIds] = useState(new Set([]));
-  const [activeTab, setActiveTab] = useState("Home");
+  const [activeTab, setActiveTab] = useState({ row1: "Home", row2: "Home" });
   const [concept, setConcept] = useState("layout");
 
   return (
@@ -151,6 +159,9 @@ const Sprint4 = () => {
             Two rows use the same layoutId.
             Motion treats them as one shared identity,
             so the active indicator can appear in only one row.
+          Namespace:
+            LayoutGroup id separates the rows,
+            so each row gets its own layoutId scope.
           */}
 
           <LayoutGroup id="row-1">
@@ -160,7 +171,7 @@ const Sprint4 = () => {
                 <li key={tab} className="relative isolate">
                   <NavItem
                     tabName={tab}
-                    isActive={activeTab === tab}
+                    isActive={activeTab.row1 === tab}
                     setActive={setActiveTab}
                   />
                 </li>
@@ -175,7 +186,7 @@ const Sprint4 = () => {
                 <li key={tab} className="relative isolate">
                   <NavItem
                     tabName={tab}
-                    isActive={activeTab === tab}
+                    isActive={activeTab.row2 === tab}
                     setActive={setActiveTab}
                   />
                 </li>
