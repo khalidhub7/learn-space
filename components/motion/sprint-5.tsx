@@ -25,9 +25,9 @@ const Sprint5 = () => {
             <motion.button
               className={`
                 rounded p-1 cursor-pointer
-            ring-2 ring-slate-300
-            ring-offset-1
-            ${concept === c ? "ring-offset-fuchsia-400" : undefined}
+                ring-2 ring-slate-300
+                ring-offset-1
+                ${concept === c ? "ring-offset-fuchsia-400" : undefined}
                 `}
               whileHover={{ scale: 0.9 }}
             >
