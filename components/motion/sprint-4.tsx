@@ -220,7 +220,8 @@ const Sprint4 = () => {
           Animations are coordinated, so the overlap is avoided.
 
           Rule:
-          LayoutGroup is useful when items have separate state/updates. 
+          LayoutGroup is useful when items have separate state/updates
+          and need coordination
           */}
           <p className="text-blue-400 font-bold text-xl ">
             LayoutGroup example 1
@@ -231,22 +232,26 @@ const Sprint4 = () => {
           <div className="grid grid-cols-2 gap-x-3">
             <div className="space-y-5">
               <p className="text-fuchsia-500">without LayoutGroup</p>
-              <div>
+              <ul>
                 {tabs.map((t) => (
-                  <AccordionItem header={t} />
+                  <li>
+                    <AccordionItem header={t} />
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
             <div className="space-y-5">
               <p className="text-fuchsia-500">with LayoutGroup</p>
-              <div>
+              <ul>
                 <LayoutGroup>
                   {tabs.map((t) => (
-                    <AccordionItem header={t} />
+                    <li>
+                      <AccordionItem header={t} />
+                    </li>
                   ))}
                 </LayoutGroup>
-              </div>
+              </ul>
             </div>
           </div>
         </div>
