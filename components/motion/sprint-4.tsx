@@ -99,18 +99,23 @@ const Sprint4 = () => {
         <ul className="flex justify-around w-full">
           {tabs.map((tab) => (
             <li key={tab} className="relative isolate">
-              {active === tab && (
+              {active === tab ? (
                 <motion.div
                   layoutId="active-tab"
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 20,
+                    duration: 2,
+                  }}
                   className="
                     absolute -top-1 -left-2 -z-10
                     bg-neutral-50 rounded-lg h-8 w-20
                     ring-2 ring-olive-200
-                    ring-offset-1 ring-offset-slate-300
+                    ring-offset-1 ring-offset-fuchsia-400
                   "
                 />
-              )}
+              ) : undefined}
               <button onClick={() => setActive(tab)} className="cursor-pointer">
                 {tab}
               </button>
