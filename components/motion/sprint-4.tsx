@@ -27,6 +27,7 @@ const AccordionItem = ({ header }) => {
       layout
       onClick={() => setIsOpen(!isOpen)}
 
+      /* enable that to see the interfere clearly */
       /* transition={{ type: "tween", duration: 3 }} */
       transition={{ type: "spring", stiffness: 300, damping: 25 }}
     >
