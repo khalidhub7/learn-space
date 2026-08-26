@@ -1,4 +1,5 @@
 import { LayoutGroup, motion } from "motion/react";
+import { li } from "motion/react-client";
 import { useState } from "react";
 
 /* 
@@ -65,7 +66,13 @@ const Sprint4 = () => {
   return (
     <div className="space-y-10">
       {/* task nav */}
-      <ul>{["layout", "LayoutGroup", "layoutId"]}</ul>
+      <ul>
+        {["layout", "LayoutGroup", "layoutId"].map((n) => (
+          <li key={n}>
+            <button>{n}</button>
+          </li>
+        ))}
+      </ul>
 
       {/* layout */}
       {/*  <div
