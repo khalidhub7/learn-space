@@ -173,6 +173,7 @@ const Sprint4 = () => {
                     tabName={tab}
                     isActive={activeTab.row1 === tab}
                     setActive={setActiveTab}
+                    rowId={"row1"}
                   />
                 </li>
               ))}
@@ -188,6 +189,7 @@ const Sprint4 = () => {
                     tabName={tab}
                     isActive={activeTab.row2 === tab}
                     setActive={setActiveTab}
+                    rowId={"row2"}
                   />
                 </li>
               ))}
