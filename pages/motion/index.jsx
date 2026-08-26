@@ -3,6 +3,7 @@ import { Sprint1 } from "@/components/motion/sprint-1";
 import { Sprint2 } from "@/components/motion/sprint-2";
 import { Sprint3 } from "@/components/motion/sprint-3";
 import { Sprint4 } from "@/components/motion/sprint-4";
+import { Sprint5 } from "@/components/motion/sprint-5";
 
 const sprints = [
   {
@@ -29,10 +30,17 @@ const sprints = [
     description: "Layout animations",
     component: <Sprint4 />,
   },
+
+  {
+    id: 5,
+    name: "sprint-5",
+    description: "Motion Values + Scroll",
+    component: <Sprint5 />,
+  },
 ];
 
 const Motion = () => {
-  const [sprint, setSprint] = useState(1);
+  const [sprint, setSprint] = useState(5);
 
   return (
     <div
