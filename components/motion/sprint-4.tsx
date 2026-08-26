@@ -35,8 +35,40 @@ const AccordionItem = ({ header }) => {
   );
 };
 
+const NavItem = ({ title }) => {
+  const [active, setActive] = useState(false);
+
+  return (
+    <>
+      {active ? (
+        <>
+          <motion.div
+            layoutId="active-tab"
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 20,
+            }}
+            className="
+            absolute -top-1 -left-2 -z-10
+            bg-neutral-50 rounded h-8 w-20
+            ring-2 ring-olive-200
+            ring-offset-1 ring-offset-fuchsia-400
+            "
+          />
+          <button
+            onClick={() => setActive((prev) => !prev)}
+            className="cursor-pointer"
+          >
+            {title}
+          </button>
+        </>
+      ) : undefined}
+    </>
+  );
+};
+
 const Sprint4 = () => {
-  const [active, setActive] = useState("Home");
   const [hiddenIds, setHiddenIds] = useState(new Set([]));
 
   return (
@@ -98,28 +130,7 @@ const Sprint4 = () => {
       >
         <ul className="flex justify-around w-full">
           {tabs.map((tab) => (
-            <li key={tab} className="relative isolate">
-              {active === tab ? (
-                <motion.div
-                  layoutId="active-tab"
-                  transition={{
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 20,
-                    duration: 2,
-                  }}
-                  className="
-                    absolute -top-1 -left-2 -z-10
-                    bg-neutral-50 rounded-lg h-8 w-20
-                    ring-2 ring-olive-200
-                    ring-offset-1 ring-offset-fuchsia-400
-                  "
-                />
-              ) : undefined}
-              <button onClick={() => setActive(tab)} className="cursor-pointer">
-                {tab}
-              </button>
-            </li>
+            <li key={tab} className="relative isolate"></li>
           ))}
         </ul>
       </div>
