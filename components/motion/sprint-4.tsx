@@ -64,6 +64,9 @@ const Sprint4 = () => {
 
   return (
     <div className="space-y-10">
+      {/* task nav */}
+      <ul>{["layout", "LayoutGroup", "layoutId"]}</ul>
+
       {/* layout */}
       {/*  <div
         className="
@@ -113,7 +116,7 @@ const Sprint4 = () => {
 
       {/* layoutId */}
 
-      <div
+      {/* <div
         className="
         relative w-xl rounded-lg p-5
         ring-4 ring-gray-100
@@ -130,17 +133,17 @@ const Sprint4 = () => {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
 
       {/* LayoutGroup */}
-      <div
+      {/* <div
         className="
-        w-xl rounded-lg p-5 h-96
+        w-xl rounded-lg p-5
         ring-4 ring-gray-100
         space-y-1
         "
       >
-        {/* 
+        
         Test:
         1. Open item 2.
         2. Quickly toggle item 1.
@@ -150,7 +153,15 @@ const Sprint4 = () => {
         Animations are coordinated, so the overlap is avoided.
         Rule:
         LayoutGroup is useful when items have separate state/updates.
-        */}
+       
+
+        <p className="text-blue-400 font-bold text-xl ">
+          LayoutGroup example 1
+        </p>
+
+        <p className="text-slate-400">
+          with/without LayoutGroup read cmnts inside code to understand
+        </p>
 
         <div className="grid grid-cols-2 gap-x-3">
           <div className="space-y-5">
@@ -173,7 +184,7 @@ const Sprint4 = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
