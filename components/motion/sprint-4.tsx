@@ -97,7 +97,7 @@ const Sprint4 = () => {
       {concept === "layout" ? (
         <div
           className="
-        relative w-xl rounded-lg p-5
+          relative w-xl rounded-lg p-5
         ring-4 ring-gray-100
         "
         >
@@ -260,4 +260,5 @@ export { Sprint4 };
 /*
 layout = animate layout changes
 LayoutGroup = coordinate multiple layout animations so they don't conflict
+layoutId = animate between matching/shared elements
 */
