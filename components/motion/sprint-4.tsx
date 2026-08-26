@@ -1,6 +1,5 @@
-import { LayoutGroup, motion } from "motion/react";
-import { li } from "motion/react-client";
 import { useState } from "react";
+import { LayoutGroup, motion } from "motion/react";
 
 /* 
 sprint 4: Layout animations
@@ -181,7 +180,7 @@ const Sprint4 = () => {
 
           With LayoutGroup:
           Animations are coordinated, so the overlap is avoided.
-          
+
           Rule:
           LayoutGroup is useful when items have separate state/updates. 
           */}
