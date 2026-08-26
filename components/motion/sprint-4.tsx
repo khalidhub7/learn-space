@@ -234,7 +234,7 @@ const Sprint4 = () => {
               <p className="text-fuchsia-500">without LayoutGroup</p>
               <ul>
                 {tabs.map((t) => (
-                  <li>
+                  <li key={t} >
                     <AccordionItem header={t} />
                   </li>
                 ))}
@@ -246,7 +246,7 @@ const Sprint4 = () => {
               <ul>
                 <LayoutGroup>
                   {tabs.map((t) => (
-                    <li>
+                    <li key={t}>
                       <AccordionItem header={t} />
                     </li>
                   ))}
