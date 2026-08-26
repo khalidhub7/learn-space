@@ -61,7 +61,6 @@ const NavItem = ({ tabName, isActive, setActive }) => {
 const Sprint4 = () => {
   const [hiddenIds, setHiddenIds] = useState(new Set([]));
   const [activeTab, setActiveTab] = useState("Home");
-
   const [concept, setConcept] = useState("layout");
 
   return (
@@ -144,6 +143,7 @@ const Sprint4 = () => {
           className="
         relative w-xl rounded-lg p-5
         ring-4 ring-gray-100
+        space-y-6
         "
         >
           <ul className="flex justify-around w-full">
@@ -157,6 +157,21 @@ const Sprint4 = () => {
               </li>
             ))}
           </ul>
+          <ul className="flex justify-around w-full">
+            {tabs.map((tab) => (
+              <li key={tab} className="relative isolate">
+                <NavItem
+                  tabName={tab}
+                  isActive={activeTab === tab}
+                  setActive={setActiveTab}
+                />
+              </li>
+            ))}
+          </ul>
+
+          {/* <LayoutGroup id="row-1"></LayoutGroup>
+
+          <LayoutGroup id="row-2"></LayoutGroup> */}
         </div>
       ) : undefined}
 
