@@ -63,13 +63,26 @@ const Sprint4 = () => {
   const [hiddenIds, setHiddenIds] = useState(new Set([]));
   const [activeTab, setActiveTab] = useState("Home");
 
+  const [concept, setConcept] = useState("layout");
+
   return (
     <div className="space-y-10">
       {/* task nav */}
-      <ul>
+      <ul className="w-xl p-2 flex justify-evenly">
         {["layout", "LayoutGroup", "layoutId"].map((n) => (
           <li key={n}>
-            <button>{n}</button>
+            <motion.button
+              className={`
+                rounded-lg  w-28 cursor-pointer
+                ring-2 ring-olive-300 ring-offset-1
+                ${concept === n ? "ring-offset-fuchsia-400" : undefined}
+              `}
+              onClick={() => setConcept(n)}
+              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.1 }}
+            >
+              {n}
+            </motion.button>
           </li>
         ))}
       </ul>
