@@ -27,7 +27,8 @@ const AccordionItem = ({ header }) => {
       layout
       onClick={() => setIsOpen(!isOpen)}
 
-      transition={{ type: "tween", duration: 3 }}
+      /* transition={{ type: "tween", duration: 3 }} */
+      transition={{ type: "spring", stiffness: 300, damping: 25 }}
     >
       <motion.h2 layout>{header}</motion.h2>
       {isOpen ? <p className="h-28">AccordionItem content ...</p> : null}
