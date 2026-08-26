@@ -146,32 +146,42 @@ const Sprint4 = () => {
         space-y-6
         "
         >
-          <ul className="flex justify-around w-full">
-            {tabs.map((tab) => (
-              <li key={tab} className="relative isolate">
-                <NavItem
-                  tabName={tab}
-                  isActive={activeTab === tab}
-                  setActive={setActiveTab}
-                />
-              </li>
-            ))}
-          </ul>
-          <ul className="flex justify-around w-full">
-            {tabs.map((tab) => (
-              <li key={tab} className="relative isolate">
-                <NavItem
-                  tabName={tab}
-                  isActive={activeTab === tab}
-                  setActive={setActiveTab}
-                />
-              </li>
-            ))}
-          </ul>
+          {/*
+          Problem before namespace:
+            Two rows use the same layoutId.
+            Motion treats them as one shared identity,
+            so the active indicator can appear in only one row.
+          */}
 
-          {/* <LayoutGroup id="row-1"></LayoutGroup>
+          <LayoutGroup id="row-1">
+            {/* first row */}
+            <ul className="flex justify-around w-full">
+              {tabs.map((tab) => (
+                <li key={tab} className="relative isolate">
+                  <NavItem
+                    tabName={tab}
+                    isActive={activeTab === tab}
+                    setActive={setActiveTab}
+                  />
+                </li>
+              ))}
+            </ul>
+          </LayoutGroup>
 
-          <LayoutGroup id="row-2"></LayoutGroup> */}
+          <LayoutGroup id="row-2">
+            {/* second row */}
+            <ul className="flex justify-around w-full">
+              {tabs.map((tab) => (
+                <li key={tab} className="relative isolate">
+                  <NavItem
+                    tabName={tab}
+                    isActive={activeTab === tab}
+                    setActive={setActiveTab}
+                  />
+                </li>
+              ))}
+            </ul>
+          </LayoutGroup>
         </div>
       ) : undefined}
 
