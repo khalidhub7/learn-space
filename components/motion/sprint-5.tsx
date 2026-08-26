@@ -1,6 +1,10 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 
+/* 
+sprint 5: Motion Values + Scroll
+*/
+
 const concepts = [
   "motionValue",
   "useMotionValue",
@@ -13,10 +17,10 @@ const concepts = [
 const Sprint5 = () => {
   const [concept, setConcept] = useState("motionValue");
   return (
-    <div>
+    <div className="space-y-8">
       <ul className="p-1 w-xl flex justify-evenly gap-5 flex-wrap">
         {concepts.map((c) => (
-          <li>
+          <li key={c}>
             <motion.button
               className={`
                 rounded p-1 cursor-pointer
@@ -32,12 +36,12 @@ const Sprint5 = () => {
         ))}
       </ul>
 
-      {/* <div
-      className="
+      <div
+        className="
         w-xl rounded-lg p-5
         ring-4 ring-gray-100
         "
-    ></div> */}
+      ></div>
     </div>
   );
 };
