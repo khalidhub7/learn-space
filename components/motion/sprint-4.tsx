@@ -164,37 +164,35 @@ const Sprint4 = () => {
             so each row gets its own layoutId scope.
           */}
 
-          <LayoutGroup id="row-1">
-            {/* first row */}
-            <ul className="flex justify-around w-full">
-              {tabs.map((tab) => (
-                <li key={tab} className="relative isolate">
-                  <NavItem
-                    tabName={tab}
-                    isActive={activeTab.row1 === tab}
-                    setActive={setActiveTab}
-                    rowId={"row1"}
-                  />
-                </li>
-              ))}
-            </ul>
-          </LayoutGroup>
+          <LayoutGroup id="row-1"></LayoutGroup>
+          {/* first row */}
+          <ul className="flex justify-around w-full">
+            {tabs.map((tab) => (
+              <li key={tab} className="relative isolate">
+                <NavItem
+                  tabName={tab}
+                  isActive={activeTab.row1 === tab}
+                  setActive={setActiveTab}
+                  rowId="row1"
+                />
+              </li>
+            ))}
+          </ul>
 
-          <LayoutGroup id="row-2">
-            {/* second row */}
-            <ul className="flex justify-around w-full">
-              {tabs.map((tab) => (
-                <li key={tab} className="relative isolate">
-                  <NavItem
-                    tabName={tab}
-                    isActive={activeTab.row2 === tab}
-                    setActive={setActiveTab}
-                    rowId={"row2"}
-                  />
-                </li>
-              ))}
-            </ul>
-          </LayoutGroup>
+          <LayoutGroup id="row-2"></LayoutGroup>
+          {/* second row */}
+          <ul className="flex justify-around w-full">
+            {tabs.map((tab) => (
+              <li key={tab} className="relative isolate">
+                <NavItem
+                  tabName={tab}
+                  isActive={activeTab.row2 === tab}
+                  setActive={setActiveTab}
+                  rowId="row2"
+                />
+              </li>
+            ))}
+          </ul>
         </div>
       ) : undefined}
 
