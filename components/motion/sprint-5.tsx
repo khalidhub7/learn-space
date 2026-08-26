@@ -1,5 +1,5 @@
-import { motion } from "motion/react";
 import { useState } from "react";
+import { motion, useMotionValue, useTransform } from "motion/react";
 
 /* 
 sprint 5: Motion Values + Scroll
@@ -16,6 +16,11 @@ const concepts = [
 
 const Sprint5 = () => {
   const [concept, setConcept] = useState("motionValue");
+
+  const x = useMotionValue(0);
+
+  const opacity = useTransform( x, [-200, 0, 200], [0, 1, 0] );
+
   return (
     <div className="space-y-8">
       <ul className="p-1 w-xl flex justify-evenly gap-5 flex-wrap">
