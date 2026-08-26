@@ -88,7 +88,8 @@ const Sprint4 = () => {
       </ul>
 
       {/* layout */}
-      {/*  <div
+      {
+        concept === "layout" ?  <div
         className="
         relative w-xl rounded-lg p-5
         ring-4 ring-gray-100
@@ -132,7 +133,8 @@ const Sprint4 = () => {
             </motion.li>
           ))}
         </ul>
-      </div> */}
+      </div> : undefined
+      }
 
       {/* layoutId */}
 
