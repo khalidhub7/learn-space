@@ -35,7 +35,7 @@ const AccordionItem = ({ header }) => {
   );
 };
 
-const NavItem = ({ tabName, get, set }) => {
+const NavItem = ({ tabName, isActive, setActive }) => {
   return (
     <>
       {get ? (
@@ -128,8 +128,8 @@ const Sprint4 = () => {
             <li key={tab} className="relative isolate">
               <NavItem
                 tabName={tab}
-                get={activeTab === tab}
-                set={setActiveTab}
+                isActive={activeTab === tab}
+                setActive={setActiveTab}
               />
             </li>
           ))}
