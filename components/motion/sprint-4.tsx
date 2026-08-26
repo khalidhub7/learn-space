@@ -38,14 +38,10 @@ const AccordionItem = ({ header }) => {
 const NavItem = ({ tabName, isActive, setActive }) => {
   return (
     <>
-      {get ? (
+      {isActive ? (
         <motion.div
           layoutId="active-tab"
-          transition={{
-            type: "spring",
-            stiffness: 300,
-            damping: 20,
-          }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
           className="
             absolute -top-1 -left-2 -z-10
             bg-neutral-50 rounded h-8 w-20
@@ -55,7 +51,7 @@ const NavItem = ({ tabName, isActive, setActive }) => {
         />
       ) : undefined}
 
-      <button onClick={() => set(tabName)} className="cursor-pointer">
+      <button onClick={() => setActive(tabName)} className="cursor-pointer">
         {tabName}
       </button>
     </>
