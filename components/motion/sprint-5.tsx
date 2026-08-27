@@ -51,12 +51,20 @@ const Sprint5 = () => {
       ) : undefined}
 
       {concept === "useTransform" ? (
-        <div className="w-xl rounded-lg p-5 ring-4 ring-gray-100">
+        <div
+          className="
+        w-xl rounded-lg p-5 ring-4 ring-gray-100
+        flex flex-col gap-6 items-center justify-center
+        "
+        >
+          <p className="text-zinc-600">
+            drag me ( opacity caculated according x )
+          </p>
           <motion.div
-            className="bg-blue-400 size-10 rounded-xl cursor-pointer"
-            style={{ x }}
+            className="bg-blue-400 size-10 rounded-xl cursor-grab"
+            style={{ x, opacity }}
             drag="x"
-            dragConstraints={{ left: -300, right: 300 }}
+            dragConstraints={{ left: -200, right: 200 }}
           />
         </div>
       ) : undefined}
