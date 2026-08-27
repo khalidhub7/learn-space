@@ -111,7 +111,14 @@ const Sprint5 = () => {
             scroll me ( scroll to see animation )
           </p>
 
-          <TimeLine />
+          <div
+            className="
+          rounded h-96 p-3
+      ring-1 ring-slate-200 w-full
+      "
+          >
+            <TimeLine />
+          </div>
         </div>
       ) : undefined}
     </div>

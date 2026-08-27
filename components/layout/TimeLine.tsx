@@ -20,7 +20,7 @@ const Separator = ({ className = "" }) => {
   );
 };
 
-const TimeLineItem = ({ isMobile = false, position }) => {
+const TimeLineItem = ({ isMobile = false, position, title }) => {
   return (
     <div
       className={`
@@ -46,21 +46,24 @@ const TimeLineItem = ({ isMobile = false, position }) => {
 
       {/* right card */}
       <div className="p-5 border-t-2 border-blue-300 w-[95%]">
-        <p>sign up/in</p>
+        <p>{title}</p>
       </div>
     </div>
   );
 };
 
-const TimeLine = () => {
+const TimeLine = ({}) => {
   return (
-    <div
-      className="
-      rounded h-96 p-3
-      ring-1 ring-slate-200 w-full
-      "
-    >
-      <TimeLineItem position={"right"} />
+    <div className="">
+      <TimeLineItem position={"right"} title={"sign up/in"} />
+      <TimeLineItem position={"left"} title={"sign up/in"} />
+      <TimeLineItem position={"right"} title={"sign up/in"} />
+      <TimeLineItem position={"left"} title={"sign up/in"} />
+      <TimeLineItem position={"right"} title={"sign up/in"} />
+      <TimeLineItem position={"left"} title={"sign up/in"} />
+      <TimeLineItem position={"right"} title={"sign up/in"} />
+      <TimeLineItem position={"left"} title={"sign up/in"} />
+      <TimeLineItem position={"right"} title={"sign up/in"} />
     </div>
   );
 };
