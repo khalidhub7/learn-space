@@ -110,7 +110,12 @@ const Sprint5 = () => {
             scroll me ( scroll to see animation )
           </p>
 
-          <div className="rounded ring-1 ring-blue-200 w-full h-96 "></div>
+          <div
+            className="
+          rounded ring-1 ring-blue-200 w-full h-96
+          overflow-y-scroll
+          "
+          ></div>
         </div>
       ) : undefined}
     </div>
