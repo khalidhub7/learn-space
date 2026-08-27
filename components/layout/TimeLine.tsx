@@ -33,14 +33,14 @@ const TimeLineItem = ({ isMobile = false, position }) => {
       <div aria-hidden="true" className={`${isMobile ? "hidden" : ""}`}></div>
 
       <Separator
-        className={` ${!isMobile && position === "left" ? "order-1" : ""} `}
+        className={` ${isMobile === false && position === "left" ? "order-1" : ""} `}
       />
 
       {/* right card */}
       <div
         className={`
         p-5 border-t-2 border-blue-300 w-[95%]
-        ${!isMobile && position === "left" ? "order-2" : ""}
+        ${isMobile === false && position === "left" ? "order-2" : ""}
         `}
       >
         <p>sign up/in</p>
@@ -54,7 +54,7 @@ const TimeLine = () => {
     <div
       className="
       rounded h-96 p-3
-      ring-1 ring-blue-200 w-full
+      ring-1 ring-slate-200 w-full
       "
     >
       <TimeLineItem position={"left"} />
