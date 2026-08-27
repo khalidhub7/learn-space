@@ -37,9 +37,11 @@ const TimeLineItem = ({ isMobile = false, position }) => {
             
             `}
       ></div>
-      <Separator className={`
+      <Separator
+        className={`
         ${!isMobile && position === "right" ? "order-1" : ""}
-        `} />
+        `}
+      />
       {/* right card */}
       <div
         className={`
