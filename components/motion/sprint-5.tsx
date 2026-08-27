@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 
 /* 
@@ -14,12 +14,15 @@ const concepts = [
 ];
 
 const Sprint5 = () => {
-  const [concept, setConcept] = useState("useMotionValue");
+  const [concept, setConcept] = useState("useScroll");
 
   const x = useMotionValue(0);
   // calculate opacity according x
   const opacity = useTransform(x, [-200, 0, 200], [0, 1, 0]);
+  // attach spring transition
   const smoothX = useSpring(x, { stiffness: 300 });
+  // scroll ref
+  const scrollRef = useRef(null);
 
   return (
     <div className="space-y-8">
@@ -93,6 +96,21 @@ const Sprint5 = () => {
             onClick={() => (x.get() === 0 ? x.set(200) : x.set(0))}
             style={{ x: smoothX }}
           />
+        </div>
+      ) : undefined}
+
+      {concept === "useScroll" ? (
+        <div
+          className="
+          w-xl rounded-lg p-5 ring-4 ring-gray-100
+          flex flex-col gap-6 items-center justify-center
+          "
+        >
+          <p className="text-slate-500">
+            scroll me ( scroll to see animation )
+          </p>
+
+          <div className="rounded ring-1 ring-blue-200 w-full h-96 "></div>
         </div>
       ) : undefined}
     </div>
