@@ -6,7 +6,6 @@ sprint 5: Motion Values + Scroll
 */
 
 const concepts = [
-  "motionValue",
   "useMotionValue",
   "useTransform",
   "useSpring",
@@ -15,7 +14,7 @@ const concepts = [
 ];
 
 const Sprint5 = () => {
-  const [concept, setConcept] = useState("motionValue");
+  const [concept, setConcept] = useState("useMotionValue");
 
   const x = useMotionValue(0);
   // calculate opacity according x
@@ -41,24 +40,32 @@ const Sprint5 = () => {
         ))}
       </ul>
 
-      <div
-        className="
+      {concept === "useMotionValue" ? (
+        <div
+          className="
         w-xl rounded-lg p-5
         ring-4 ring-gray-100
         "
-      >
-        <motion.div
-          className="
+        >
+          <motion.div
+            className="
           w-24 h-10 rounded cursor-grab
           ring-1 ring-slate-400
           "
-          drag="x"
-          dragConstraints={{ left: 300, right: 300 }}
-          style={{ x, opacity }}
-        />
-      </div>
+            drag="x"
+            dragConstraints={{ left: 300, right: 300 }}
+            style={{ x, opacity }}
+          />
+        </div>
+      ) : undefined}
     </div>
   );
 };
 
 export { Sprint5 };
+
+/* other apis
+useMotionValueEvent → Instead of repeatedly checking x.get()
+                    it help to listen for events
+
+*/
