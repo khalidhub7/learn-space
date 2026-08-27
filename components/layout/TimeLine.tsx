@@ -38,7 +38,12 @@ const TimeLineItem = ({ isMobile = false, position }) => {
       ></div>
       <Separator />
       {/* right card */}
-      <div className="p-5 border-t-2 border-blue-300 w-[95%]">
+      <div
+        className={`
+        p-5 border-t-2 border-blue-300 w-[95%]
+        ${!isMobile && position === "right" ? "order-1" : ""}
+        `}
+      >
         <p>sign up/in</p>
       </div>
     </div>
