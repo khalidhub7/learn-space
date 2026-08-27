@@ -43,9 +43,20 @@ const Sprint5 = () => {
       {concept === "useMotionValue" ? (
         <div className="w-xl rounded-lg p-5 ring-4 ring-gray-100">
           <motion.div
-            className="bg-blue-400 size-10 rounded-xl"
+            className="bg-blue-400 size-10 rounded-xl cursor-pointer"
+            onClick={() => (x.get() === 0 ? x.set(200) : x.set(0))}
             style={{ x }}
-            onClick={() => (x.get() === 0 ? x.set(200) : x.set(200))}
+          />
+        </div>
+      ) : undefined}
+
+      {concept === "useTransform" ? (
+        <div className="w-xl rounded-lg p-5 ring-4 ring-gray-100">
+          <motion.div
+            className="bg-blue-400 size-10 rounded-xl cursor-pointer"
+            style={{ x }}
+            drag="x"
+            dragConstraints={{ left: -300, right: 300 }}
           />
         </div>
       ) : undefined}
