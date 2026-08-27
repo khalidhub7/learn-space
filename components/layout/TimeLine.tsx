@@ -1,6 +1,22 @@
 import { motion } from "motion/react";
 
-const Separator = ({ className = "" }) => {
+type SeparatorProps = { className?: string };
+
+type TimeLineItemProps = {
+  isMobile?: boolean;
+  position: "left" | "right";
+  title: string;
+};
+
+type TimeLineItemData = {
+  id: string | number;
+  position: "left" | "right";
+  title: string;
+};
+
+type TimeLineProps = { items: TimeLineItemData[] };
+
+const Separator = ({ className = "" }: SeparatorProps) => {
   return (
     <div
       className={`
@@ -20,7 +36,11 @@ const Separator = ({ className = "" }) => {
   );
 };
 
-const TimeLineItem = ({ isMobile = false, position, title }) => {
+const TimeLineItem = ({
+  isMobile = false,
+  position,
+  title,
+}: TimeLineItemProps) => {
   return (
     <div
       className={`
@@ -34,13 +54,13 @@ const TimeLineItem = ({ isMobile = false, position, title }) => {
         aria-hidden="true"
         className={`
         ${isMobile ? "hidden" : ""}
-        ${isMobile === false && position === "left" ? "order-2" : ""}
+        ${!isMobile && position === "left" ? "order-2" : ""}
         `}
       />
 
       <Separator
         className={`
-            ${isMobile === false && position === "left" ? "order-1" : ""}
+            ${!isMobile && position === "left" ? "order-1" : ""}
             `}
       />
 
@@ -52,10 +72,10 @@ const TimeLineItem = ({ isMobile = false, position, title }) => {
   );
 };
 
-const TimeLine = ({ cards }) => {
+const TimeLine = ({ items }: TimeLineProps) => {
   return (
     <ul>
-      {cards.map((c) => (
+      {items.map((c) => (
         <li key={c.id}>
           <TimeLineItem position={c.position} title={c.title} />
         </li>

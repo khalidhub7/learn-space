@@ -124,7 +124,7 @@ const Sprint5 = () => {
             overflow-y-scroll
             "
           >
-            <TimeLine cards={steps} />
+            <TimeLine items={steps} />
           </div>
         </div>
       ) : undefined}
