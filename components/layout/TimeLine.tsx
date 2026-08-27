@@ -52,19 +52,15 @@ const TimeLineItem = ({ isMobile = false, position, title }) => {
   );
 };
 
-const TimeLine = ({}) => {
+const TimeLine = ({ cards }) => {
   return (
-    <div className="">
-      <TimeLineItem position={"right"} title={"sign up/in"} />
-      <TimeLineItem position={"left"} title={"sign up/in"} />
-      <TimeLineItem position={"right"} title={"sign up/in"} />
-      <TimeLineItem position={"left"} title={"sign up/in"} />
-      <TimeLineItem position={"right"} title={"sign up/in"} />
-      <TimeLineItem position={"left"} title={"sign up/in"} />
-      <TimeLineItem position={"right"} title={"sign up/in"} />
-      <TimeLineItem position={"left"} title={"sign up/in"} />
-      <TimeLineItem position={"right"} title={"sign up/in"} />
-    </div>
+    <ul>
+      {cards.map((c) => (
+        <li key={c.id}>
+          <TimeLineItem position={c.position} title={c.title} />
+        </li>
+      ))}
+    </ul>
   );
 };
 

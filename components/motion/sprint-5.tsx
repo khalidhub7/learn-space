@@ -13,6 +13,12 @@ const concepts = [
   "useScroll",
   "useVelocity",
 ];
+const steps = [
+  { id: 1, position: "left", title: "sign up" },
+  { id: 2, position: "right", title: "setup dashboard" },
+  { id: 3, position: "left", title: "custom your overlay" },
+  { id: 4, position: "right", title: "take browser source" },
+];
 
 const Sprint5 = () => {
   const [concept, setConcept] = useState("useScroll");
@@ -114,10 +120,11 @@ const Sprint5 = () => {
           <div
             className="
             rounded h-96 p-3 w-full
-            ring-1 ring-slate-200 
+            ring-1 ring-slate-200
+            overflow-y-scroll
             "
           >
-            <TimeLine />
+            <TimeLine cards={steps} />
           </div>
         </div>
       ) : undefined}
