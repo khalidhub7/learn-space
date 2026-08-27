@@ -112,10 +112,23 @@ const Sprint5 = () => {
 
           <div
             className="
-          rounded ring-1 ring-blue-200 w-full h-96
-          overflow-y-scroll
-          "
-          ></div>
+            rounded ring-1 ring-blue-200 w-full h-96
+            p-3
+            grid grid-cols-[1fr_50px_1fr]
+            "
+          >
+            <div></div>
+            <div>
+              <div
+                className="
+              size-2 rounded-full ring-1 ring-fuchsia-400
+              ring-offset-8 bg-fuchsia-400
+              "
+              ></div>
+              <div className="w-0.5 h-28 bg-blue-500"></div>
+            </div>
+            <div>text</div>
+          </div>
         </div>
       ) : undefined}
     </div>
