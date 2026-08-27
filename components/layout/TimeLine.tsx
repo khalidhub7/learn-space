@@ -30,18 +30,12 @@ const TimeLineItem = ({ isMobile = false, position }) => {
         `}
     >
       {/* left card */}
-      <div
-        aria-hidden="true"
-        className={`
-            ${isMobile ? "hidden" : ""}
-            
-            `}
-      ></div>
+      <div aria-hidden="true" className={`${isMobile ? "hidden" : ""}`}></div>
+
       <Separator
-        className={`
-        ${!isMobile && position === "right" ? "order-1" : ""}
-        `}
+        className={` ${!isMobile && position === "right" ? "order-1" : ""} `}
       />
+
       {/* right card */}
       <div
         className={`
