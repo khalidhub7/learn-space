@@ -18,9 +18,8 @@ const Sprint5 = () => {
   const [concept, setConcept] = useState("motionValue");
 
   const x = useMotionValue(0);
+  // calculate opacity according x
   const opacity = useTransform(x, [-200, 0, 200], [0, 1, 0]);
-
-  const mouseX = useMotionValue(0);
 
   return (
     <div className="space-y-8">
@@ -57,13 +56,6 @@ const Sprint5 = () => {
           dragConstraints={{ left: 300, right: 300 }}
           style={{ x, opacity }}
         />
-
-        <motion.div
-          style={{ x: mouseX }}
-          onMouseMove={(e) => mouseX.set(e.clientX)}
-        >
-          Follow mouse
-        </motion.div>
       </div>
     </div>
   );
