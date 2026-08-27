@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, useMotionValue, useTransform } from "motion/react";
+import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 
 /* 
 sprint 5: Motion Values + Scroll
@@ -19,6 +19,7 @@ const Sprint5 = () => {
   const x = useMotionValue(0);
   // calculate opacity according x
   const opacity = useTransform(x, [-200, 0, 200], [0, 1, 0]);
+  const smoothX = useSpring(x, { stiffness: 300 });
 
   return (
     <div className="space-y-8">
@@ -73,6 +74,24 @@ const Sprint5 = () => {
             style={{ x, opacity }}
             drag="x"
             dragConstraints={{ left: -200, right: 200 }}
+          />
+        </div>
+      ) : undefined}
+
+      {concept === "useSpring" ? (
+        <div
+          className="
+        w-xl rounded-lg p-5 ring-4 ring-gray-100
+        flex flex-col gap-6 items-center justify-center
+        "
+        >
+          <p className="text-slate-500">
+            click me ( change x with a spring transition )
+          </p>
+          <motion.div
+            className="bg-blue-400 size-10 rounded-xl cursor-pointer"
+            onClick={() => (x.get() === 0 ? x.set(200) : x.set(0))}
+            style={{ x: smoothX }}
           />
         </div>
       ) : undefined}
