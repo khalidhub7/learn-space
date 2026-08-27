@@ -113,9 +113,9 @@ const Sprint5 = () => {
 
           <div
             className="
-          rounded h-96 p-3
-      ring-1 ring-slate-200 w-full
-      "
+            rounded h-96 p-3 w-full
+            ring-1 ring-slate-200 
+            "
           >
             <TimeLine />
           </div>
