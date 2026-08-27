@@ -18,6 +18,7 @@ const Sprint5 = () => {
   const [concept, setConcept] = useState("motionValue");
 
   const x = useMotionValue(0);
+
   const opacity = useTransform(x, [-200, 0, 200], [0, 1, 0]);
 
   return (
@@ -46,7 +47,15 @@ const Sprint5 = () => {
         ring-4 ring-gray-100
         "
       >
-        <motion.div drag="x" style={{ x, opacity }} />
+        <motion.div
+          className="
+          w-24 h-10 rounded cursor-grab
+          ring-1 ring-slate-400
+          "
+          drag="x"
+          dragConstraints={{ left: 300, right: 300 }}
+          style={{ x, opacity }}
+        />
       </div>
     </div>
   );
