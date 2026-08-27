@@ -29,20 +29,23 @@ const TimeLineItem = ({ isMobile = false, position }) => {
         ${isMobile ? "grid-cols-[30px_1fr]" : "grid-cols-[1fr_30px_1fr]"}
         `}
     >
-      {/* left card */}
-      <div aria-hidden="true" className={`${isMobile ? "hidden" : ""}`}></div>
+      {/* empty card */}
+      <div
+        aria-hidden="true"
+        className={`
+        ${isMobile ? "hidden" : ""}
+        ${isMobile === false && position === "left" ? "order-2" : ""}
+        `}
+      />
 
       <Separator
-        className={` ${isMobile === false && position === "left" ? "order-1" : ""} `}
+        className={`
+            ${isMobile === false && position === "left" ? "order-1" : ""}
+            `}
       />
 
       {/* right card */}
-      <div
-        className={`
-        p-5 border-t-2 border-blue-300 w-[95%]
-        ${isMobile === false && position === "left" ? "order-2" : ""}
-        `}
-      >
+      <div className="p-5 border-t-2 border-blue-300 w-[95%]">
         <p>sign up/in</p>
       </div>
     </div>
@@ -57,7 +60,7 @@ const TimeLine = () => {
       ring-1 ring-slate-200 w-full
       "
     >
-      <TimeLineItem position={"left"} />
+      <TimeLineItem position={"right"} />
     </div>
   );
 };
