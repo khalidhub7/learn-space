@@ -41,19 +41,11 @@ const Sprint5 = () => {
       </ul>
 
       {concept === "useMotionValue" ? (
-        <div
-          className="
-        w-xl rounded-lg p-5
-        ring-4 ring-gray-100
-        "
-        >
+        <div className="w-xl rounded-lg p-5 ring-4 ring-gray-100">
           <motion.div
-            className="
-            bg-blue-400 size-10 rounded-xl cursor-grab
-            "
-            drag="x"
-            dragConstraints={{ left: -300, right: 300 }}
-            style={{ x, opacity }}
+            className="bg-blue-400 size-10 rounded-xl"
+            style={{ x }}
+            onClick={() => (x.get() === 0 ? x.set(200) : x.set(200))}
           />
         </div>
       ) : undefined}
