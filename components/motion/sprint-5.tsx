@@ -49,11 +49,10 @@ const Sprint5 = () => {
         >
           <motion.div
             className="
-          w-24 h-10 rounded cursor-grab
-          ring-1 ring-slate-400
-          "
+            bg-blue-400 size-10 rounded-xl cursor-grab
+            "
             drag="x"
-            dragConstraints={{ left: 300, right: 300 }}
+            dragConstraints={{ left: -300, right: 300 }}
             style={{ x, opacity }}
           />
         </div>
