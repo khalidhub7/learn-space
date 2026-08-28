@@ -1,22 +1,30 @@
 import { motion } from "motion/react";
+import type { RefObject } from "react";
 
-type SeparatorProps = { className?: string };
+type SeparatorProps = {
+  className?: string;
+  parentRef: RefObject<HTMLElement | null>;
+};
 
 type TimeLineItemProps = {
   isMobile?: boolean;
   position: "left" | "right";
   title: string;
+  parentRef: RefObject<HTMLElement | null>;
 };
 
 type TimeLineItemData = {
-  id: string | number;
+  id: number;
   position: "left" | "right";
   title: string;
 };
 
-type TimeLineProps = { items: TimeLineItemData[] };
+type TimeLineProps = {
+  items: TimeLineItemData[];
+  parentRef: RefObject<HTMLElement | null>;
+};
 
-const Separator = ({ className = "" }: SeparatorProps) => {
+const Separator = ({ className = "", parentRef }: SeparatorProps) => {
   return (
     <div
       className={`
@@ -27,8 +35,9 @@ const Separator = ({ className = "" }: SeparatorProps) => {
       <div
         aria-hidden="true"
         className="
-        size-2 rounded-full ring-1 ring-fuchsia-300
-        ring-offset-8 bg-fuchsia-300
+        size-2 rounded-full 
+        ring-2 ring-pink-200
+        ring-offset-1 bg-pink-300
         "
       ></div>
       <div className="w-0.5 h-28 bg-blue-300 rounded-full "></div>
@@ -40,6 +49,7 @@ const TimeLineItem = ({
   isMobile = false,
   position,
   title,
+  parentRef,
 }: TimeLineItemProps) => {
   return (
     <div
@@ -62,22 +72,27 @@ const TimeLineItem = ({
         className={`
             ${!isMobile && position === "left" ? "order-1" : ""}
             `}
+        parentRef={parentRef}
       />
 
       {/* right card */}
-      <div className="p-5 border-t-2 border-blue-300 w-[95%]">
+      <div className="p-5 border-t-2 border-blue-400 w-[95%]">
         <p>{title}</p>
       </div>
     </div>
   );
 };
 
-const TimeLine = ({ items }: TimeLineProps) => {
+const TimeLine = ({ items, parentRef }: TimeLineProps) => {
   return (
     <ul>
       {items.map((c) => (
         <li key={c.id}>
-          <TimeLineItem position={c.position} title={c.title} />
+          <TimeLineItem
+            position={c.position}
+            title={c.title}
+            parentRef={parentRef}
+          />
         </li>
       ))}
     </ul>
@@ -85,3 +100,4 @@ const TimeLine = ({ items }: TimeLineProps) => {
 };
 
 export { TimeLine };
+export type { TimeLineItemData };

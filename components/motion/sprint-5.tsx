@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { TimeLine } from "../layout/TimeLine";
+import { TimeLine, type TimeLineItemData } from "../layout/TimeLine";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 
 /* 
@@ -13,7 +13,7 @@ const concepts = [
   "useScroll",
   "useVelocity",
 ];
-const steps = [
+const items: TimeLineItemData[] = [
   { id: 1, position: "left", title: "sign up" },
   { id: 2, position: "right", title: "setup dashboard" },
   { id: 3, position: "left", title: "custom your overlay" },
@@ -124,7 +124,7 @@ const Sprint5 = () => {
             overflow-y-scroll
             "
           >
-            <TimeLine items={steps} />
+            <TimeLine items={items} parentRef={scrollRef} />
           </div>
         </div>
       ) : undefined}
