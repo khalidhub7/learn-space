@@ -33,8 +33,9 @@ const Separator = ({ className = "" }: SeparatorProps) => {
         "
       ></div>
       <motion.div
-        className="w-0.5 h-28 bg-blue-300 rounded-full origin-top "
-        
+        className="
+        w-0.5 h-28 bg-blue-300 rounded-full origin-top
+        "
         style={{ scaleY: scrollYProgress }}
       />
     </div>
