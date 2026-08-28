@@ -22,7 +22,6 @@ type TimeLineProps = {
 
 const Separator = ({ className = "" }: SeparatorProps) => {
   const { scrollYProgress } = useScroll();
-  const height = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
     <div className={`flex flex-col items-center gap-4 ${className}`}>
@@ -35,8 +34,8 @@ const Separator = ({ className = "" }: SeparatorProps) => {
       ></div>
       <motion.div
         className="w-0.5 h-28 bg-blue-300 rounded-full origin-top "
-        initial={{ backgroundColor: "transparant" }}
-        whileInView={{}}
+        
+        style={{ scaleY: scrollYProgress }}
       />
     </div>
   );
