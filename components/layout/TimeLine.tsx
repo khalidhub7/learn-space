@@ -1,4 +1,5 @@
 import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 
 type SeparatorProps = {
   className?: string;
@@ -21,7 +22,13 @@ type TimeLineProps = {
 };
 
 const Separator = ({ className = "" }: SeparatorProps) => {
-  const { scrollYProgress } = useScroll();
+  
+  const ref = useRef<HTMLDivElement>(null);
+
+const { scrollYProgress } = useScroll({
+  target: ref,
+  offset: ["start 80%", "start 20%"],
+});
 
   return (
     <div className={`flex flex-col items-center gap-4 ${className}`}>
@@ -37,6 +44,7 @@ const Separator = ({ className = "" }: SeparatorProps) => {
         className="
         w-0.5 h-28 bg-gray-100 rounded-full origin-top
         "
+        ref={ref}
         whileInView={{ backgroundColor: "oklch(80.9% 0.105 251.813)" }}
         transition={{ duration: 2 }}
         style={{ scaleY: scrollYProgress }}
