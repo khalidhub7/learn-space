@@ -25,17 +25,20 @@ const Separator = ({ className = "" }: SeparatorProps) => {
 
   return (
     <div className={`flex flex-col items-center gap-4 ${className}`}>
-      <div
+      <motion.div
         aria-hidden="true"
         className="
-        size-2 rounded-full bg-pink-300
-        ring-2 ring-pink-200 ring-offset-1 
+        size-1 rounded 
+        ring-4 ring-rose-100 
+        ring-offset-2 ring-offset-rose-300
         "
-      ></div>
+      />
       <motion.div
         className="
-        w-0.5 h-28 bg-blue-300 rounded-full origin-top
+        w-0.5 h-28 bg-gray-100 rounded-full origin-top
         "
+        whileInView={{ backgroundColor: "oklch(80.9% 0.105 251.813)" }}
+        transition={{ duration: 2 }}
         style={{ scaleY: scrollYProgress }}
       />
     </div>
@@ -72,9 +75,15 @@ const TimeLineItem = ({
 
       {/* right card */}
       <motion.div
-        className="p-5 border-t-2 border-blue-400 w-[95%]"
-        initial={{ y: 50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
+        className="p-5 border-t-2 border-gray-100 w-[95%]"
+        initial={{ x: -50, opacity: 0 }}
+        whileInView={{
+          x: 0,
+          opacity: 1,
+          borderColor: "oklch(80.9% 0.105 251.813)",
+        }}
+
+        transition={{ type: "spring", stiffness: 900, delay: 1 }}
       >
         <p>{title}</p>
       </motion.div>
