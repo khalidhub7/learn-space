@@ -28,8 +28,6 @@ const Sprint5 = () => {
   const opacity = useTransform(x, [-200, 0, 200], [0, 1, 0]);
   // attach spring transition
   const smoothX = useSpring(x, { stiffness: 300 });
-  // scroll ref
-  const scrollRef = useRef(null);
 
   return (
     <div className="space-y-8">
@@ -119,12 +117,11 @@ const Sprint5 = () => {
 
           <div
             className="
-            rounded h-96 p-3 w-full
+            rounded p-3 w-full pt-96
             ring-1 ring-slate-200
-            overflow-y-scroll
             "
           >
-            <TimeLine items={items} parentRef={scrollRef} />
+            <TimeLine items={items} />
           </div>
         </div>
       ) : undefined}
