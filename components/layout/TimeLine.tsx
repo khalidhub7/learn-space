@@ -22,13 +22,12 @@ type TimeLineProps = {
 };
 
 const Separator = ({ className = "" }: SeparatorProps) => {
-  
   const ref = useRef<HTMLDivElement>(null);
 
-const { scrollYProgress } = useScroll({
-  target: ref,
-  offset: ["start 80%", "start 20%"],
-});
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 80%", "start 20%"],
+  });
 
   return (
     <div className={`flex flex-col items-center gap-4 ${className}`}>
