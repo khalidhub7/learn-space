@@ -1,5 +1,22 @@
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+/*
+- Initially created to practice using useScroll.
+
+- It is now a standalone reusable component that I plan
+      to improve and use in future projects.
+  
+*/
+
+/* 
+const items: TimeLineItemData[] = [
+  { id: 1, position: "left", title: "sign up" },
+  { id: 2, position: "right", title: "setup dashboard" },
+  { id: 3, position: "left", title: "custom your overlay" },
+  { id: 4, position: "right", title: "take browser source" },
+];
+
+*/
+
+import { motion } from "motion/react";
 
 type SeparatorProps = {
   className?: string;
@@ -22,13 +39,6 @@ type TimeLineProps = {
 };
 
 const Separator = ({ className = "" }: SeparatorProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 80%", "start 20%"],
-  });
-
   return (
     <div className={`flex flex-col items-center gap-4 ${className}`}>
       <motion.div
@@ -43,10 +53,8 @@ const Separator = ({ className = "" }: SeparatorProps) => {
         className="
         w-0.5 h-28 bg-gray-100 rounded-full origin-top
         "
-        ref={ref}
         whileInView={{ backgroundColor: "oklch(80.9% 0.105 251.813)" }}
         transition={{ duration: 2 }}
-        style={{ scaleY: scrollYProgress }}
       />
     </div>
   );
@@ -110,5 +118,5 @@ const TimeLine = ({ items }: TimeLineProps) => {
   );
 };
 
-export { TimeLine };
-export type { TimeLineItemData };
+/* export { TimeLine };
+export type { TimeLineItemData }; */

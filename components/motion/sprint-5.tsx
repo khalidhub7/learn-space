@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
-import { TimeLine, type TimeLineItemData } from "../layout/TimeLine";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+
 
 /* 
 sprint 5: Motion Values + Scroll
@@ -12,12 +12,6 @@ const concepts = [
   "useSpring",
   "useScroll",
   "useVelocity",
-];
-const items: TimeLineItemData[] = [
-  { id: 1, position: "left", title: "sign up" },
-  { id: 2, position: "right", title: "setup dashboard" },
-  { id: 3, position: "left", title: "custom your overlay" },
-  { id: 4, position: "right", title: "take browser source" },
 ];
 
 const Sprint5 = () => {
@@ -121,7 +115,7 @@ const Sprint5 = () => {
             ring-1 ring-slate-200
             "
           >
-            <TimeLine items={items} />
+            
           </div>
         </div>
       ) : undefined}
