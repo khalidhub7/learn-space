@@ -49,7 +49,7 @@ const Separator = ({ className = "" }: SeparatorProps) => {
   });
 
   const scaleY = useSpring(scrollYProgress, {
-    stiffness: 100,
+    stiffness: 600,
     damping: 20,
   });
 
@@ -62,7 +62,7 @@ const Separator = ({ className = "" }: SeparatorProps) => {
         ring-4 ring-blue-100 
         ring-offset-2 ring-offset-blue-300
         "
-        initial={{opacity: 0}}
+        initial={{ opacity: 0 }}
         whileInView={{ height: 5, width: 5, opacity: 1 }}
         transition={{ type: "spring", stiffness: 900 }}
       />
