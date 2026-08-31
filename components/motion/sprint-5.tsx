@@ -83,9 +83,9 @@ const Sprint5 = () => {
       {concept === "useSpring" ? (
         <div
           className="
-        w-xl rounded-lg p-5 ring-4 ring-gray-100
-        flex flex-col gap-6 items-center justify-center
-        "
+          w-xl rounded-lg p-5 ring-4 ring-gray-100
+          flex flex-col gap-6 items-center justify-center
+          "
         >
           <p className="text-slate-500">
             click me ( change x with a spring transition )
