@@ -6,17 +6,15 @@
   
 */
 
-/* 
-const items: TimeLineItemData[] = [
+/* const items: TimeLineItemData[] = [
   { id: 1, position: "left", title: "sign up" },
   { id: 2, position: "right", title: "setup dashboard" },
   { id: 3, position: "left", title: "custom your overlay" },
   { id: 4, position: "right", title: "take browser source" },
-];
+]; */
 
-*/
-
-import { motion } from "motion/react";
+import { motion, useScroll, useSpring } from "motion/react";
+import { useRef } from "react";
 
 type SeparatorProps = {
   className?: string;
@@ -39,14 +37,25 @@ type TimeLineProps = {
 };
 
 const Separator = ({ className = "" }: SeparatorProps) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 90%", "start 75%"],
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 20,
+  });
+
   return (
     <div className={`flex flex-col items-center gap-4 ${className}`}>
       <motion.div
         aria-hidden="true"
         className="
         size-1 rounded 
-        ring-4 ring-rose-100 
-        ring-offset-2 ring-offset-rose-300
+        ring-4 ring-blue-100 
+        ring-offset-2 ring-offset-blue-300
         "
       />
       <motion.div
@@ -54,7 +63,10 @@ const Separator = ({ className = "" }: SeparatorProps) => {
         w-0.5 h-28 bg-gray-100 rounded-full origin-top
         "
         whileInView={{ backgroundColor: "oklch(80.9% 0.105 251.813)" }}
+
+        ref={ref}
         transition={{ duration: 2 }}
+        style={{ scaleY }}
       />
     </div>
   );
@@ -118,5 +130,5 @@ const TimeLine = ({ items }: TimeLineProps) => {
   );
 };
 
-/* export { TimeLine };
-export type { TimeLineItemData }; */
+export { TimeLine };
+export type { TimeLineItemData };
