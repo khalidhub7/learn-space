@@ -13,7 +13,12 @@
   { id: 4, position: "right", title: "take browser source" },
 ]; */
 
-import { motion, useScroll, useSpring } from "motion/react";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useSpring,
+} from "motion/react";
 import { useRef } from "react";
 
 type SeparatorProps = {
@@ -46,6 +51,18 @@ const Separator = ({ className = "" }: SeparatorProps) => {
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 20,
+  });
+
+  useMotionValueEvent(scrollYProgress, "change", (value) => {
+    const previous = scrollYProgress.getPrevious();
+
+    if (value > previous) {
+      // scrolling down → follow progress
+      scaleY.set(value);
+    } else {
+      // scrolling up → reset
+      scaleY.set(0);
+    }
   });
 
   return (
