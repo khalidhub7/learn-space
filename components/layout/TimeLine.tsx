@@ -53,18 +53,6 @@ const Separator = ({ className = "" }: SeparatorProps) => {
     damping: 20,
   });
 
-  useMotionValueEvent(scrollYProgress, "change", (value) => {
-    const previous = scrollYProgress.getPrevious();
-
-    if (value > previous) {
-      // scrolling down → follow progress
-      scaleY.set(value);
-    } else {
-      // scrolling up → reset
-      scaleY.set(0);
-    }
-  });
-
   return (
     <div className={`flex flex-col items-center gap-4 ${className}`}>
       <motion.div
