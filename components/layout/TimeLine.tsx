@@ -62,8 +62,9 @@ const Separator = ({ className = "" }: SeparatorProps) => {
         ring-4 ring-blue-100 
         ring-offset-2 ring-offset-blue-300
         "
-        whileInView={{ height: 5, width: 5 }}
-        transition={{ type: "spring", stiffness: 500 }}
+        initial={{opacity: 0}}
+        whileInView={{ height: 5, width: 5, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 900 }}
       />
       <motion.div
         className="
