@@ -54,8 +54,8 @@ const Separator = ({ className = "" }: SeparatorProps) => {
   });
 
   useMotionValueEvent(scrollYProgress, "change", (newValue) => {
-    if (newValue < scaleY.get()) return
-    scaleY.set(newValue)
+    if (newValue < scaleY.get()) return;
+    scaleY.set(newValue);
   });
 
   return (
@@ -63,9 +63,8 @@ const Separator = ({ className = "" }: SeparatorProps) => {
       <motion.div
         aria-hidden="true"
         className="
-        size-6 rounded-full
-        ring-4 ring-blue-100 
-        ring-offset-2 ring-offset-blue-300
+        size-7 rounded-full
+        ring-4 ring-blue-200 
         "
         initial={{ opacity: 0 }}
         whileInView={{ height: 5, width: 5, opacity: 1 }}
