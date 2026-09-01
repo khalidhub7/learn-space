@@ -61,7 +61,7 @@ const Separator = ({ className = "" }: SeparatorProps) => {
       <motion.div
         aria-hidden="true"
         className="size-8 rounded-full ring-4 ring-blue-200"
-        initial={{}}
+        
         whileInView={{ height: 5, width: 5, opacity: 1 }}
         transition={{ type: "spring", stiffness: 900 }}
       />
