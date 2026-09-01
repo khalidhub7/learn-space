@@ -106,9 +106,8 @@ const TimeLineItem = ({
       {/* right card */}
       <motion.div
         className="
-        p-5 w-full border-t-2 border-gray-100 
-        rounded-b-xl
-        shadow
+        p-5 w-full rounded-b-xl shadow
+        border-t-2 border-blue-300
         "
 
         initial={{ x: -50, opacity: 0 }}
