@@ -61,7 +61,7 @@ const Separator = ({ className = "" }: SeparatorProps) => {
       <motion.div
         aria-hidden="true"
         className="size-8 rounded-full ring-4 ring-blue-200"
-        
+
         whileInView={{ height: 5, width: 5, opacity: 1 }}
         transition={{ type: "spring", stiffness: 900 }}
       />
@@ -84,8 +84,7 @@ const TimeLineItem = ({
   return (
     <div
       className={`
-        p-3
-        grid justify-items-center
+        p-3 grid justify-items-center
         ${isMobile ? "grid-cols-[30px_1fr]" : "grid-cols-[1fr_30px_1fr]"}
         `}
     >
@@ -106,14 +105,14 @@ const TimeLineItem = ({
 
       {/* right card */}
       <motion.div
-        className="p-5 border-t-2 border-gray-100 w-[95%]"
-        initial={{ x: -50, opacity: 0 }}
-        whileInView={{
-          x: 0,
-          opacity: 1,
-          borderColor: "oklch(80.9% 0.105 251.813)",
-        }}
+        className="
+        p-5 w-full border-t-2 border-gray-100 
+        rounded-b-xl
+        shadow
+        "
 
+        initial={{ x: -50, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 900, delay: 1 }}
       >
         <p>{title}</p>
