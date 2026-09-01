@@ -69,9 +69,7 @@ const Separator = ({ className = "" }: SeparatorProps) => {
         transition={{ type: "spring", stiffness: 900 }}
       />
       <motion.div
-        className="
-        w-0.5 h-28 bg-gray-100 rounded-full origin-top
-        "
+        className="w-0.5 h-28 rounded-full origin-top"
         whileInView={{ backgroundColor: "oklch(80.9% 0.105 251.813)" }}
 
         ref={ref}
