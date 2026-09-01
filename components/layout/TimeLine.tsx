@@ -49,10 +49,7 @@ const Separator = ({ className = "" }: SeparatorProps) => {
     offset: ["start 90%", "start 75%"],
   });
 
-  const scaleY = useSpring(0, {
-    stiffness: 100,
-    damping: 10,
-  });
+  const scaleY = useSpring(0, { stiffness: 100, damping: 10 });
 
   useMotionValueEvent(scrollYProgress, "change", (newValue) => {
     if (newValue < scaleY.get()) return;
