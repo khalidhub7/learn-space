@@ -43,6 +43,7 @@ type TimeLineProps = {
 
 const Separator = ({ className = "" }: SeparatorProps) => {
   const ref = useRef(null);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start 90%", "start 75%"],
