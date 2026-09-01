@@ -60,11 +60,8 @@ const Separator = ({ className = "" }: SeparatorProps) => {
     <div className={`flex flex-col items-center gap-4 ${className}`}>
       <motion.div
         aria-hidden="true"
-        className="
-        size-7 rounded-full
-        ring-4 ring-blue-200 
-        "
-        initial={{ opacity: 0 }}
+        className="size-8 rounded-full ring-4 ring-blue-200"
+        initial={{}}
         whileInView={{ height: 5, width: 5, opacity: 1 }}
         transition={{ type: "spring", stiffness: 900 }}
       />
