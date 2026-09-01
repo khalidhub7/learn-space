@@ -54,8 +54,8 @@ const Separator = ({ className = "" }: SeparatorProps) => {
   });
 
   useMotionValueEvent(scrollYProgress, "change", (newValue) => {
-    if (newValue < scaleY.get()) {
-    }
+    if (newValue < scaleY.get()) return
+    
   });
 
   return (
