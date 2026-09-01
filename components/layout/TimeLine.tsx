@@ -47,6 +47,7 @@ const Separator = ({ className = "" }: SeparatorProps) => {
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start 90%", "start 75%"],
+    trackContentSize: true,
   });
 
   const scaleY = useSpring(0, { stiffness: 100, damping: 10 });
