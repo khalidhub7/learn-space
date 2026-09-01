@@ -73,7 +73,6 @@ const Separator = ({ className = "" }: SeparatorProps) => {
         whileInView={{ backgroundColor: "oklch(80.9% 0.105 251.813)" }}
 
         ref={ref}
-        transition={{ duration: 2 }}
         style={{ scaleY }}
       />
     </div>
