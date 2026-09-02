@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import {
   motion,
+  motionValue,
   useMotionValue,
   useSpring,
   useTransform,
@@ -28,7 +29,7 @@ const items: TimeLineItemData[] = [
 ];
 
 const Sprint5 = () => {
-  const [concept, setConcept] = useState("useScroll");
+  const [concept, setConcept] = useState("useVelocity");
 
   const x = useMotionValue(0);
   // calculate opacity according x
@@ -39,7 +40,7 @@ const Sprint5 = () => {
   // useVelocity
   const velocityValue = useMotionValue(0);
   const xVelocity = useVelocity(velocityValue);
-  const deforcation = useTransform(xVelocity, [-1000, 0, 1000], [1.3, 1, 1.3]);
+  const deforcation = useTransform(xVelocity, [-20, 0, 20], [1.3, 1, 1.3]);
 
   return (
     <div className="space-y-8">
@@ -148,9 +149,12 @@ const Sprint5 = () => {
           <p className="text-slate-500">drag me ( to see velocity )</p>
 
           <motion.div
+            className="size-10 bg-blue-400 rounded-xl cursor-pointer "
+            style={{ x: velocityValue, scaleX: deforcation }}
             drag="x"
-            style={{ x, scaleX: deforcation }}
-            className="w-40 h-40 bg-blue-400 rounded-xl"
+            dragConstraints={{ left: -200, right: 200 }}
+
+            transition={{type: "spring", stiffness: 600}}
           />
         </div>
       ) : undefined}
