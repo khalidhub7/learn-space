@@ -40,7 +40,10 @@ const Sprint5 = () => {
   // useVelocity
   const velocityValue = useMotionValue(0);
   const xVelocity = useVelocity(velocityValue);
-  const deforcation = useSpring(useTransform(xVelocity, [-1000, 0, 1000], [1.5, 1, 1.5]));
+  const deforcation = useSpring(
+    useTransform(xVelocity, [-1000, 0, 1000], [1.5, 1, 1.5]),
+    { stiffness: 600 },
+  );
 
   return (
     <div className="space-y-8">
@@ -54,7 +57,7 @@ const Sprint5 = () => {
                 ${concept === c ? "ring-offset-fuchsia-400" : undefined}
                 `}
               onClick={() => setConcept(c)}
-              whileHover={{ scale: 0.9 }}
+              whileHover={{ scale: 0.9, y: -3 }}
             >
               {c}
             </motion.button>
@@ -130,7 +133,7 @@ const Sprint5 = () => {
 
           <div
             className="
-            rounded p-3 w-full pt-96
+            rounded p-3 w-full
             ring-1 ring-slate-200
             "
           >
@@ -146,14 +149,13 @@ const Sprint5 = () => {
           flex flex-col gap-6 items-center justify-center
           "
         >
-          <p className="text-slate-500">drag me ( to see velocity )</p>
+          <p className="text-slate-500">drag me ( to see velocity fake effect )</p>
 
           <motion.div
             className="size-10 bg-blue-400 rounded-xl cursor-pointer "
             style={{ x: velocityValue, scaleX: deforcation }}
             drag="x"
             dragConstraints={{ left: -200, right: 200 }}
-            transition={{ type: "spring", stiffness: 600 }}
           />
         </div>
       ) : undefined}

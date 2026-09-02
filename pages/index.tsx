@@ -6,11 +6,11 @@ export default function Home() {
   return (
     <div
       className="
-    min-h-1/2
-    flex flex-col gap-10 justify-center items-center
-    "
+      min-h-screen
+      flex flex-col gap-10 justify-center items-center
+      "
     >
-      <h1 className="text-3xl text-blue-400 font-bold">Learn with examples</h1>
+      <h1 className="text-3xl text-fuchsia-400 font-bold">Learn with examples</h1>
       <p className="text-gray-500 text-2xl">Select a concept</p>
 
       <nav>
