@@ -40,7 +40,7 @@ const Sprint5 = () => {
   // useVelocity
   const velocityValue = useMotionValue(0);
   const xVelocity = useVelocity(velocityValue);
-  const deforcation = useTransform(xVelocity, [-1000, 0, 1000], [1.5, 1, 1.5]);
+  const deforcation = useSpring(useTransform(xVelocity, [-1000, 0, 1000], [1.5, 1, 1.5]));
 
   return (
     <div className="space-y-8">
