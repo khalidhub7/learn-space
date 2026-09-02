@@ -1,7 +1,12 @@
 import { useRef, useState } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  useVelocity,
+} from "motion/react";
 import { TimeLine, TimeLineItemData } from "../layout/TimeLine";
-
 
 /* 
 sprint 5: Motion Values + Scroll
@@ -30,6 +35,11 @@ const Sprint5 = () => {
   const opacity = useTransform(x, [-200, 0, 200], [0, 1, 0]);
   // attach spring transition
   const smoothX = useSpring(x, { stiffness: 300 });
+
+  // useVelocity
+  const velocityValue = useMotionValue(0);
+  const xVelocity = useVelocity(velocityValue);
+  const deforcation = useTransform(xVelocity, [-1000, 0, 1000], [1.3, 1, 1.3]);
 
   return (
     <div className="space-y-8">
@@ -125,6 +135,23 @@ const Sprint5 = () => {
           >
             <TimeLine items={items} />
           </div>
+        </div>
+      ) : undefined}
+
+      {concept === "useVelocity" ? (
+        <div
+          className="
+          w-xl rounded-lg p-5 ring-4 ring-gray-100
+          flex flex-col gap-6 items-center justify-center
+          "
+        >
+          <p className="text-slate-500">drag me ( to see velocity )</p>
+
+          <motion.div
+            drag="x"
+            style={{ x, scaleX: deforcation }}
+            className="w-40 h-40 bg-blue-400 rounded-xl"
+          />
         </div>
       ) : undefined}
     </div>

@@ -18,6 +18,8 @@ import {
   useMotionValueEvent,
   useScroll,
   useSpring,
+  useTime,
+  useTransform,
 } from "motion/react";
 import { useRef } from "react";
 
@@ -42,6 +44,13 @@ type TimeLineProps = {
 };
 
 const Separator = ({ className = "" }: SeparatorProps) => {
+  const time = useTime();
+  /* const scale = useTransform(time, [0, 4000], [0, 1], { clamp: false }); */
+  const scale = useTransform(time, (latest) => {
+    const progress = (latest % 4000) / 4000;
+    return 0.2 + progress;
+  });
+
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -63,6 +72,7 @@ const Separator = ({ className = "" }: SeparatorProps) => {
         aria-hidden="true"
         className="size-8 rounded-full ring-4 ring-blue-200"
 
+        style={{ scale }}
         whileInView={{ height: 5, width: 5, opacity: 1 }}
         transition={{ type: "spring", stiffness: 900 }}
       />
@@ -107,8 +117,8 @@ const TimeLineItem = ({
       {/* right card */}
       <motion.div
         className="
-        p-5 w-full rounded-b-xl 
-        border-t-2 border-blue-400
+        p-5 w-full rounded
+        border-t-4 border-blue-200
 
         ring-2 ring-olive-100
         ring-offset-1 ring-offset-olive-300
