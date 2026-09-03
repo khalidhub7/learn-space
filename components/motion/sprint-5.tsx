@@ -30,7 +30,7 @@ const items: TimeLineItemData[] = [
 ];
 
 const Sprint5 = () => {
-  const [concept, setConcept] = useState("useSpring");
+  const [concept, setConcept] = useState("useVelocity");
 
   // useMotionValue
   const x1 = useMotionValue(0);
@@ -44,8 +44,8 @@ const Sprint5 = () => {
   const smoothX = useSpring(x3, { stiffness: 300 }); // attach spring transition
 
   // useVelocity
-  const velocityValue = useMotionValue(0);
-  const xVelocity = useVelocity(velocityValue);
+  const x4 = useMotionValue(0);
+  const xVelocity = useVelocity(x4);
   const deforcation = useSpring(
     useTransform(xVelocity, [-1000, 0, 1000], [1.5, 1, 1.5]),
     { stiffness: 600 },
@@ -141,20 +141,16 @@ const Sprint5 = () => {
       {concept === "useScroll" ? (
         <div
           className="
-          w-xl rounded-lg p-5 ring-4 ring-gray-100
-          flex flex-col gap-6 items-center justify-center
+          w-xl rounded-lg p-5
+          ring-4 ring-gray-100
+          flex flex-col gap-6 items-center
           "
         >
           <p className="text-slate-500">
             scroll me ( scroll to see animation )
           </p>
 
-          <div
-            className="
-            rounded p-3 w-full
-            ring-1 ring-slate-200
-            "
-          >
+          <div className="rounded p-3 w-full ring-1 ring-slate-200">
             <TimeLine items={items} />
           </div>
         </div>
@@ -164,7 +160,7 @@ const Sprint5 = () => {
         <div
           className="
           w-xl rounded-lg p-5 ring-4 ring-gray-100
-          flex flex-col gap-6 items-center justify-center
+          flex flex-col gap-6 items-center
           "
         >
           <p className="text-slate-500">
@@ -172,8 +168,8 @@ const Sprint5 = () => {
           </p>
 
           <motion.div
-            className="size-10 bg-blue-400 rounded-xl cursor-pointer "
-            style={{ x: velocityValue, scaleX: deforcation }}
+            className="size-10 bg-blue-400 rounded-xl cursor-pointer"
+            style={{ x: x4, scaleX: deforcation }}
             drag="x"
             dragConstraints={{ left: -200, right: 200 }}
           />
