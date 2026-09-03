@@ -1,11 +1,13 @@
 import { useState } from "react";
 import {
+  animate,
   motion,
   useMotionValue,
   useSpring,
   useTransform,
   useVelocity,
 } from "motion/react";
+
 import { TimeLine, TimeLineItemData } from "../layout/TimeLine";
 
 /* 
@@ -67,16 +69,26 @@ const Sprint5 = () => {
       {concept === "useMotionValue" ? (
         <div
           className="
-        w-xl rounded-lg p-5 ring-4 ring-gray-100
-        flex flex-col gap-6 items-center justify-center
-        "
+          w-xl rounded-lg p-5 
+          ring-4 ring-gray-100
+          flex flex-col gap-8 items-center
+          "
         >
           <p className="text-slate-500">
             click me ( change x without re-render )
           </p>
           <motion.div
-            className="bg-blue-400 size-10 rounded-xl cursor-pointer"
-            onClick={() => (x.get() === 0 ? x.set(200) : x.set(0))}
+            className="
+            bg-blue-400 size-10 rounded-xl cursor-pointer self-start
+            "
+            /* onClick={() => (x.get() === 0 ? x.set(200) : x.set(0))} */
+            onClick={() =>
+              animate(x, x.get() === 0 ? 200 : 0, {
+                type: "tween",
+                ease: "easeOut",
+                duration: 1.5,
+              })
+            }
             style={{ x }}
           />
         </div>
