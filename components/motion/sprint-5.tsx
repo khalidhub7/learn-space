@@ -30,11 +30,11 @@ const items: TimeLineItemData[] = [
 const Sprint5 = () => {
   const [concept, setConcept] = useState("useMotionValue");
 
+  // useMotionValue
   const x = useMotionValue(0);
-  // calculate opacity according x
-  const opacity = useTransform(x, [-200, 0, 200], [0, 1, 0]);
-  // attach spring transition
-  const smoothX = useSpring(x, { stiffness: 300 });
+
+  const opacity = useTransform(x, [-200, 0, 200], [0, 1, 0]); // calculate opacity according x
+  const smoothX = useSpring(x, { stiffness: 300 }); // attach spring transition
 
   // useVelocity
   const velocityValue = useMotionValue(0);
