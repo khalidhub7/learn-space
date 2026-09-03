@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "motion/react";
 import { Sprint1 } from "@/components/motion/sprint-1";
 import { Sprint2 } from "@/components/motion/sprint-2";
 import { Sprint3 } from "@/components/motion/sprint-3";
@@ -43,31 +44,33 @@ const Motion = () => {
   const [sprint, setSprint] = useState(5);
 
   return (
-    <div
-      className="
-    flex flex-col gap-10 justify-center items-center
-    "
-    >
-      <ul className="w-md flex justify-around p-2 ">
+    <div className="flex flex-col items-center gap-10">
+      <ul
+        className="
+      w-xl flex justify-around p-4
+      "
+      >
         {sprints.map((s) => (
           <li>
-            <button
-              className={`inline-block rounded-lg p-2 cursor-pointer
-              ring-2 ring-gray-200
-              ring-offset-1 ring-offset-gray-300
-
-              hover:scale-95 transition-transform duration-300
-              ${sprint === s.id ? "ring-offset-red-400" : ""}
-              `}
+            <motion.button
+              className={`
+                inline-block rounded-lg px-4 py-1 cursor-pointer
+                ring-2 ring-gray-200
+                ring-offset-1 ring-offset-gray-300
+                ${sprint === s.id ? "ring-offset-red-400" : ""}
+                `}
               onClick={() => setSprint(s.id)}
+
+              whileHover={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 600 }}
             >
               {s.name}
-            </button>
+            </motion.button>
           </li>
         ))}
       </ul>
 
-      <div className="flex flex-col gap-10 justify-center items-center">
+      <div className="flex flex-col items-center gap-10">
         <p>{sprints[sprint - 1].description}</p>
         <div>{sprints[sprint - 1].component}</div>
       </div>

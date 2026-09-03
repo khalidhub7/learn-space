@@ -10,7 +10,9 @@ export default function Home() {
       flex flex-col gap-10 justify-center items-center
       "
     >
-      <h1 className="text-3xl text-fuchsia-400 font-bold">Learn with examples</h1>
+      <h1 className="text-3xl text-fuchsia-400 font-bold">
+        Learn with examples
+      </h1>
       <p className="text-gray-500 text-2xl">Select a concept</p>
 
       <nav>
@@ -20,11 +22,13 @@ export default function Home() {
               <Link
                 href={c.href}
                 className="
-                  inline-block rounded-lg p-2
-                  ring-2 ring-blue-200
-                  ring-offset-1 ring-offset-blue-300
+                  inline-block
+                  rounded-lg py-1 px-5
                   hover:scale-95
                   transition-transform duration-300
+
+                  ring-2 ring-blue-100
+                  ring-offset-1 ring-offset-blue-400
                 "
               >
                 {c.concept}
