@@ -30,13 +30,18 @@ const items: TimeLineItemData[] = [
 ];
 
 const Sprint5 = () => {
-  const [concept, setConcept] = useState("useMotionValue");
+  const [concept, setConcept] = useState("useSpring");
 
   // useMotionValue
-  const x = useMotionValue(0);
+  const x1 = useMotionValue(0);
 
-  const opacity = useTransform(x, [-200, 0, 200], [0, 1, 0]); // calculate opacity according x
-  const smoothX = useSpring(x, { stiffness: 300 }); // attach spring transition
+  // useTransform
+  const x2 = useMotionValue(0);
+  const opacity = useTransform(x2, [-200, 0, 200], [0, 1, 0]); // calculate opacity according x
+
+  // useSpring
+  const x3 = useMotionValue(0);
+  const smoothX = useSpring(x3, { stiffness: 300 }); // attach spring transition
 
   // useVelocity
   const velocityValue = useMotionValue(0);
@@ -83,13 +88,13 @@ const Sprint5 = () => {
             "
             /* onClick={() => (x.get() === 0 ? x.set(200) : x.set(0))} */
             onClick={() =>
-              animate(x, x.get() === 0 ? 200 : 0, {
+              animate(x1, x1.get() === 0 ? 200 : 0, {
                 type: "tween",
                 ease: "easeOut",
-                duration: 1.5,
+                duration: 1,
               })
             }
-            style={{ x }}
+            style={{ x: x1 }}
           />
         </div>
       ) : undefined}
@@ -97,18 +102,19 @@ const Sprint5 = () => {
       {concept === "useTransform" ? (
         <div
           className="
-        w-xl rounded-lg p-5 ring-4 ring-gray-100
-        flex flex-col gap-6 items-center justify-center
-        "
+          w-xl rounded-lg p-5 
+          ring-4 ring-gray-100
+          flex flex-col gap-6 items-center
+          "
         >
           <p className="text-slate-500">
             drag me ( opacity caculated according x )
           </p>
           <motion.div
             className="bg-blue-400 size-10 rounded-xl cursor-grab"
-            style={{ x, opacity }}
             drag="x"
             dragConstraints={{ left: -200, right: 200 }}
+            style={{ x: x2, opacity }}
           />
         </div>
       ) : undefined}
@@ -116,16 +122,17 @@ const Sprint5 = () => {
       {concept === "useSpring" ? (
         <div
           className="
-          w-xl rounded-lg p-5 ring-4 ring-gray-100
-          flex flex-col gap-6 items-center justify-center
+          w-xl rounded-lg p-5
+          ring-4 ring-gray-100
+          flex flex-col gap-6 items-center
           "
         >
           <p className="text-slate-500">
             click me ( change x with a spring transition )
           </p>
           <motion.div
-            className="bg-blue-400 size-10 rounded-xl cursor-pointer"
-            onClick={() => (x.get() === 0 ? x.set(200) : x.set(0))}
+            className="bg-blue-400 size-10 rounded-xl cursor-pointer self-start"
+            onClick={() => (x3.get() === 0 ? x3.set(200) : x3.set(0))}
             style={{ x: smoothX }}
           />
         </div>
