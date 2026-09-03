@@ -1,7 +1,6 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import {
   motion,
-  motionValue,
   useMotionValue,
   useSpring,
   useTransform,
@@ -29,7 +28,7 @@ const items: TimeLineItemData[] = [
 ];
 
 const Sprint5 = () => {
-  const [concept, setConcept] = useState("useVelocity");
+  const [concept, setConcept] = useState("useMotionValue");
 
   const x = useMotionValue(0);
   // calculate opacity according x
@@ -149,7 +148,9 @@ const Sprint5 = () => {
           flex flex-col gap-6 items-center justify-center
           "
         >
-          <p className="text-slate-500">drag me ( to see velocity fake effect )</p>
+          <p className="text-slate-500">
+            drag me ( to see velocity fake effect )
+          </p>
 
           <motion.div
             className="size-10 bg-blue-400 rounded-xl cursor-pointer "
