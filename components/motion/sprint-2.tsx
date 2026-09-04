@@ -129,29 +129,33 @@ const Sprint2 = () => {
           </>
         ) : undefined}
 
-        {/* <p className=" tracking-wider text-fuchsia-400 font-bold ">
-        Other animation
-      </p>
+        {level === "advanced" ? (
+          <>
+            <p className=" tracking-wider text-fuchsia-400 font-bold ">
+              Other animation
+            </p>
 
-      <motion.div
-        className="motion-div"
-        animate={{ x: [-100, 100, 0] }}
-        transition={{
-          type: "keyframes",
-          duration: 2,
-        }}
-      >
-        keyframes example
-      </motion.div>
+            <motion.div
+              className="motion-div"
+              animate={{ x: [-100, 100, 0] }}
+              transition={{
+                type: "keyframes",
+                duration: 2,
+              }}
+            >
+              keyframes example
+            </motion.div>
 
-      <motion.div
-        className="motion-div cursor-grab "
-        drag="x"
-        dragConstraints={{ left: -100, right: 100 }}
-        dragTransition={{ power: 0, timeConstant: 100 }}
-      >
-        decay example
-      </motion.div> */}
+            <motion.div
+              className="motion-div cursor-grab "
+              drag="x"
+              dragConstraints={{ left: -100, right: 100 }}
+              dragTransition={{ power: 0, timeConstant: 100 }}
+            >
+              decay example
+            </motion.div>
+          </>
+        ) : undefined}
       </div>
     </div>
   );
