@@ -53,7 +53,7 @@ const Sprint2 = () => {
                 className="rounded-lg px-3 cursor-pointer ring-2 ring-stone-200"
                 onClick={() => setLevel(l)}
 
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.9 }}
               >
                 {l}
@@ -69,6 +69,7 @@ const Sprint2 = () => {
         w-xl rounded-lg p-5 ring-2 ring-stone-100
         "
       >
+        {/* basic level */}
         {level === "basic" ? (
           <>
             <p className="tracking-wider text-blue-400 font-bold">
