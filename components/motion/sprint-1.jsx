@@ -1,7 +1,7 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { motion } from "motion/react";
 import Image from "next/image";
+import { motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 
 // sprint 1 fundamentals + interactions
 
@@ -19,14 +19,17 @@ const Sprint1 = () => {
 
   return (
     <motion.div
-      className="motion-div
+      className="
+      rounded-md p-5 w-sm
+      ring-2 ring-stone-100
+      ring-offset-1 ring-offset-stone-200
       "
 
       initial={{ x: -100 }}
       animate={{ x: 0 }}
-      transition={{ duration: 2 }}
+      transition={{ duration: 1 }}
     >
-      <div className="flex flex-col items-center ">
+      <div className="p-2 flex flex-col items-center">
         <h3 className="text-blue-400 font-semibold mb-5">{product.title}</h3>
 
         <motion.p

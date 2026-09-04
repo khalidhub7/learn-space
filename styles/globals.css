@@ -41,10 +41,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.motion-div {
+/* .motion-div {
   @apply rounded-md p-5 w-sm 
   ring-4 ring-stone-100
   ring-offset-2 ring-offset-stone-200;
-}
-
-
+} */
