@@ -72,19 +72,19 @@ const Sprint2 = () => {
         {/* basic level */}
         {level === "basic" ? (
           <>
-            <p className="tracking-wider text-blue-400 font-bold">
+            <p className="text-blue-400 font-bold tracking-wider">
               Transition types
             </p>
 
-            <ul className="flex justify-around w-full">
+            <ul className="py-2 flex justify-around w-full">
               {Object.keys(transitionTypes).map((t) => (
                 <li key={t}>
                   <motion.button
                     className={`
-                px-5 rounded cursor-pointer
-                ring-2 ring-stone-200 ring-offset-1
-                ${transitionType === t ? "ring-offset-fuchsia-400 " : ""}
-                `}
+                      px-5 rounded cursor-pointer
+                      ring-2 ring-stone-200 ring-offset-1
+                      ${transitionType === t ? "ring-offset-fuchsia-400 " : ""}
+                      `}
                     whileTap={{ scale: 0.9 }}
                     whileHover={{ translateY: -2 }}
                     onClick={() => setTransitionType(t)}
