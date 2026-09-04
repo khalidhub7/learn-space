@@ -37,11 +37,16 @@ const Sprint1 = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 2 }}
+          transition={{ duration: 1 }}
         >
           {product.description}
         </motion.p>
-        <motion.div whileHover={{ scale: 1.1 }}>
+
+        <motion.div
+          className="cursor-pointer"
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 1 }}
+        >
           <Image
             src={product.thumbnail}
             alt={product.title}
