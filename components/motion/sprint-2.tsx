@@ -97,34 +97,34 @@ const Sprint2 = () => {
 
             <motion.div
               className="
-        rounded-md px-5 py-1
-        ring-2 ring-stone-100
-        ring-offset-1 ring-offset-stone-300
-        "
+              rounded-md px-5 py-1
+              ring-2 ring-stone-100 ring-offset-1 ring-offset-stone-300
+              "
 
               animate={controls}
               transition={transitionTypes[transitionType]}
             >
-              <p>notification: please update ur profile</p>
+              <p>notification : please update your profile</p>
             </motion.div>
 
-            <button
+            <motion.button
               className="
-        px-5 py-1 rounded cursor-pointer
-        ring-2 ring-olive-200
-        "
+              px-5 py-1 rounded-xl cursor-pointer
+              ring-2 ring-olive-200
+              "
 
               onClick={() => {
                 controls.set({ x: -100 }); // like initial
                 controls.start({ x: 0 }); // like animate
               }}
+
+              whileHover={{ y: -2 }}
+              whileTap={{ backgroundColor: "oklch(70.7% 0.165 254.624)" }}
             >
               ↻
-            </button>
+            </motion.button>
           </>
         ) : undefined}
-
-        <br />
 
         {/* <p className=" tracking-wider text-fuchsia-400 font-bold ">
         Other animation
