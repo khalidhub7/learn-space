@@ -38,6 +38,7 @@ Decay     → inertia-style movement that gradually slows down
 const Sprint2 = () => {
   const [transitionType, setTransitionType] = useState("tween");
   const controls = useAnimationControls();
+  const [level, setLevel] = useState('basic')
 
   return (
     <div
