@@ -119,7 +119,10 @@ const Sprint2 = () => {
               }}
 
               whileHover={{ y: -2 }}
-              whileTap={{ backgroundColor: "oklch(70.7% 0.165 254.624)" }}
+              whileTap={{
+                backgroundColor: "oklch(88.2% 0.059 254.128)",
+                scale: 0.9,
+              }}
             >
               ↻
             </motion.button>
