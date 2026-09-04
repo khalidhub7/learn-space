@@ -9,6 +9,7 @@ import {
 } from "motion/react";
 
 import { TimeLine, TimeLineItemData } from "../layout/TimeLine";
+import { Parallax } from "../layout/Parallax";
 
 /* 
 sprint 5: Motion Values + Scroll
@@ -20,6 +21,7 @@ const concepts = [
   "useSpring",
   "useScroll",
   "useVelocity",
+  "bonus",
 ];
 
 const items: TimeLineItemData[] = [
@@ -30,7 +32,7 @@ const items: TimeLineItemData[] = [
 ];
 
 const Sprint5 = () => {
-  const [concept, setConcept] = useState("useVelocity");
+  const [concept, setConcept] = useState("bonus");
 
   // useMotionValue
   const x1 = useMotionValue(0);
@@ -50,6 +52,8 @@ const Sprint5 = () => {
     useTransform(xVelocity, [-1000, 0, 1000], [1.5, 1, 1.5]),
     { stiffness: 600 },
   );
+
+  // Parallax task
 
   return (
     <div className="space-y-8">
@@ -173,6 +177,22 @@ const Sprint5 = () => {
             drag="x"
             dragConstraints={{ left: -200, right: 200 }}
           />
+        </div>
+      ) : undefined}
+
+      {concept === "bonus" ? (
+        <div
+          className="
+          w-xl rounded-lg p-5
+          ring-4 ring-gray-100
+          flex flex-col gap-6 items-center
+          "
+        >
+          <p className="text-slate-500">
+            Parallax ( different elements move at different speeds )
+          </p>
+
+          < Parallax />
         </div>
       ) : undefined}
     </div>
