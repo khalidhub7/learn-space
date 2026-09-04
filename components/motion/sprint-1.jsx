@@ -56,12 +56,12 @@ const Sprint1 = () => {
         </motion.div>
       </div>
 
-      <div className="flex justify-between items-center h-12 ">
-        <div className="h-full w-1/3 " ref={containerRef}>
+      <div className="flex justify-between items-center h-12">
+        <div className="h-full w-1/2" ref={containerRef}>
           <motion.span
             className="
-            inline-block
-            text-blue-400 font-semibold p-2 rounded-lg cursor-grab
+            inline-block rounded-lg cursor-grab
+            text-blue-400 font-semibold p-2 
             "
             drag
             whileDrag={{ border: "1px dashed" }}
@@ -75,8 +75,8 @@ const Sprint1 = () => {
           className="
           text-blue-400 font-bold text-sm p-2 rounded-lg cursor-pointer
           outline-none
-          ring-4 ring-blue-50
-          ring-offset-2 ring-offset-blue-100
+          ring-2 ring-blue-50
+          ring-offset-1 ring-offset-blue-200
         "
           whileTap={{ scale: 0.9 }}
           whileFocus={{ backgroundColor: "oklch(93% 0.007 106.5)" }}

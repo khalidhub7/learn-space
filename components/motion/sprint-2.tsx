@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import type { Transition } from "motion/react";
 import { motion, useAnimationControls } from "motion/react";
 
@@ -36,35 +36,28 @@ Decay     → inertia-style movement that gradually slows down
 */
 
 const Sprint2 = () => {
-  const [transitionType, setTransitionType] = useState("spring");
+  const [transitionType, setTransitionType] = useState("tween");
   const controls = useAnimationControls();
-
-  /* useEffect(() => {
-    console.log(transitionType);
-  }); */
 
   return (
     <div
       className="
       w-xl rounded-lg p-5
-      ring-4 ring-gray-100
+      ring-2 ring-stone-100
       flex flex-col items-center gap-10
-    "
+      "
     >
-      <p className=" tracking-wider text-fuchsia-400 font-bold ">
-        Transition types
-      </p>
+      <p className="tracking-wider text-blue-400 font-bold">Transition types</p>
 
       <ul className="flex justify-around w-full">
         {Object.keys(transitionTypes).map((t) => (
           <li key={t}>
             <motion.button
               className={`
-              px-5 py-1 rounded cursor-pointer
-              ring-2 ring-olive-200
-              ring-offset-1
-              ${transitionType === t ? "ring-offset-fuchsia-400 " : ""}
-              `}
+                px-5 rounded cursor-pointer
+                ring-2 ring-stone-200 ring-offset-1
+                ${transitionType === t ? "ring-offset-fuchsia-400 " : ""}
+                `}
               whileTap={{ scale: 0.9 }}
               whileHover={{ translateY: -2 }}
               onClick={() => setTransitionType(t)}
@@ -76,9 +69,13 @@ const Sprint2 = () => {
       </ul>
 
       <motion.div
-        className="motion-div"
-        animate={controls}
+        className="
+        rounded-md px-5 py-1
+        ring-2 ring-stone-100
+        ring-offset-1 ring-offset-stone-300
+        "
 
+        animate={controls}
         transition={transitionTypes[transitionType]}
       >
         <p>notification: please update ur profile</p>

@@ -41,7 +41,7 @@ const sprints = [
 ];
 
 const Motion = () => {
-  const [sprint, setSprint] = useState(1);
+  const [sprint, setSprint] = useState(2);
 
   return (
     <div className="flex flex-col items-center gap-10">
