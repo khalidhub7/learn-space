@@ -41,7 +41,7 @@ const Sprint2 = () => {
   const [level, setLevel] = useState("basic");
 
   return (
-    <div className="space-y-10" >
+    <div className="space-y-10">
       {/* level nav */}
       <div className="px-5 flex items-center gap-5">
         <p className="flex-[1_1]">select level :</p>
@@ -50,10 +50,11 @@ const Sprint2 = () => {
           {["basic", "advanced"].map((l) => (
             <li key={l}>
               <motion.button
-                className="rounded-lg px-3 ring-2 ring-stone-200"
+                className="rounded-lg px-3 cursor-pointer ring-2 ring-stone-200"
                 onClick={() => setLevel(l)}
 
-                whileTap={{scale: 0.9}}
+                whileHover={{ y: -5 }}
+                whileTap={{ scale: 0.9 }}
               >
                 {l}
               </motion.button>
@@ -64,60 +65,63 @@ const Sprint2 = () => {
 
       <div
         className="
-        w-xl rounded-lg p-5
-      ring-2 ring-stone-100
-      flex flex-col items-center gap-10
-      "
+        flex flex-col items-center gap-10
+        w-xl rounded-lg p-5 ring-2 ring-stone-100
+        "
       >
-        <p className="tracking-wider text-blue-400 font-bold">
-          Transition types
-        </p>
+        {level === "basic" ? (
+          <>
+            <p className="tracking-wider text-blue-400 font-bold">
+              Transition types
+            </p>
 
-        <ul className="flex justify-around w-full">
-          {Object.keys(transitionTypes).map((t) => (
-            <li key={t}>
-              <motion.button
-                className={`
+            <ul className="flex justify-around w-full">
+              {Object.keys(transitionTypes).map((t) => (
+                <li key={t}>
+                  <motion.button
+                    className={`
                 px-5 rounded cursor-pointer
                 ring-2 ring-stone-200 ring-offset-1
                 ${transitionType === t ? "ring-offset-fuchsia-400 " : ""}
                 `}
-                whileTap={{ scale: 0.9 }}
-                whileHover={{ translateY: -2 }}
-                onClick={() => setTransitionType(t)}
-              >
-                {t}
-              </motion.button>
-            </li>
-          ))}
-        </ul>
+                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ translateY: -2 }}
+                    onClick={() => setTransitionType(t)}
+                  >
+                    {t}
+                  </motion.button>
+                </li>
+              ))}
+            </ul>
 
-        <motion.div
-          className="
+            <motion.div
+              className="
         rounded-md px-5 py-1
         ring-2 ring-stone-100
         ring-offset-1 ring-offset-stone-300
         "
 
-          animate={controls}
-          transition={transitionTypes[transitionType]}
-        >
-          <p>notification: please update ur profile</p>
-        </motion.div>
+              animate={controls}
+              transition={transitionTypes[transitionType]}
+            >
+              <p>notification: please update ur profile</p>
+            </motion.div>
 
-        <button
-          className="
+            <button
+              className="
         px-5 py-1 rounded cursor-pointer
         ring-2 ring-olive-200
         "
 
-          onClick={() => {
-            controls.set({ x: -100 }); // like initial
-            controls.start({ x: 0 }); // like animate
-          }}
-        >
-          ↻
-        </button>
+              onClick={() => {
+                controls.set({ x: -100 }); // like initial
+                controls.start({ x: 0 }); // like animate
+              }}
+            >
+              ↻
+            </button>
+          </>
+        ) : undefined}
 
         <br />
 
