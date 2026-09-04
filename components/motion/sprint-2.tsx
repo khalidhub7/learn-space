@@ -41,7 +41,7 @@ const Sprint2 = () => {
   const [level, setLevel] = useState("basic");
 
   return (
-    <div>
+    <div className="space-y-10" >
       {/* level nav */}
       <div className="px-5 flex items-center gap-5">
         <p className="flex-[1_1]">select level :</p>
@@ -50,11 +50,10 @@ const Sprint2 = () => {
           {["basic", "advanced"].map((l) => (
             <li key={l}>
               <motion.button
-                className="
-              rounded-lg px-3
-              ring-2 ring-stone-200
-              "
+                className="rounded-lg px-3 ring-2 ring-stone-200"
                 onClick={() => setLevel(l)}
+
+                whileTap={{scale: 0.9}}
               >
                 {l}
               </motion.button>
