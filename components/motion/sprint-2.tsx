@@ -50,10 +50,8 @@ Decay     → inertia-style movement that gradually slows down
 
 const Sprint2 = () => {
   const [transitionType, setTransitionType] = useState("tween");
-  /* const controls = useAnimationControls(); */
+  const controls = useAnimationControls();
   const [level, setLevel] = useState("basic");
-
-  const x = useMotionValue(0);
 
   return (
     <div className="space-y-10">
@@ -122,9 +120,8 @@ const Sprint2 = () => {
               ring-2 ring-stone-100 ring-offset-1 ring-offset-stone-300
               "
 
-              /* animate={controls} */
-              style={{ x }}
-              // transition={transitionTypes[transitionType]}
+              animate={controls}
+              transition={transitionTypes[transitionType]}
             >
               <p>notification : please update your profile</p>
             </motion.div>
@@ -136,11 +133,8 @@ const Sprint2 = () => {
               "
 
               onClick={() => {
-                /* controls.set({ x: -100 }); // like initial
-                controls.start({ x: 0 }); // like animate */
-
-                x.set(-100);
-                animate(x, 0, transitionTypes[transitionType]);
+                controls.set({ x: -100 }); // like initial (jump)
+                controls.start({ x: 0 }); // like animate (animate)
               }}
 
               whileHover={{ y: -2 }}
