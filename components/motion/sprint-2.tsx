@@ -1,6 +1,11 @@
 import { useState } from "react";
 import type { Transition } from "motion/react";
-import { motion, useAnimationControls } from "motion/react";
+import {
+  animate,
+  motion,
+  useAnimationControls,
+  useMotionValue,
+} from "motion/react";
 
 /* 
 sprint 2: Transitions + Springs
@@ -31,7 +36,7 @@ Then min / max can limit that predicted target
 */
   inertia: {
     type: "inertia", // use momentum
-    velocity: 100, // starting movement speed
+    velocity: 200, // starting movement speed
     timeConstant: 200, // how quickly the momentum slows down
     min: -100, // minimum allowed value
     max: 100, // maximum allowed value
@@ -45,8 +50,10 @@ Decay     → inertia-style movement that gradually slows down
 
 const Sprint2 = () => {
   const [transitionType, setTransitionType] = useState("tween");
-  const controls = useAnimationControls();
+  /* const controls = useAnimationControls(); */
   const [level, setLevel] = useState("basic");
+
+  const x = useMotionValue(0);
 
   return (
     <div className="space-y-10">
@@ -115,8 +122,9 @@ const Sprint2 = () => {
               ring-2 ring-stone-100 ring-offset-1 ring-offset-stone-300
               "
 
-              animate={controls}
-              transition={transitionTypes[transitionType]}
+              /* animate={controls} */
+              style={{ x }}
+              // transition={transitionTypes[transitionType]}
             >
               <p>notification : please update your profile</p>
             </motion.div>
@@ -128,8 +136,11 @@ const Sprint2 = () => {
               "
 
               onClick={() => {
-                controls.set({ x: -100 }); // like initial
-                controls.start({ x: 0 }); // like animate
+                /* controls.set({ x: -100 }); // like initial
+                controls.start({ x: 0 }); // like animate */
+
+                x.set(-100);
+                animate(x, 0, transitionTypes[transitionType]);
               }}
 
               whileHover={{ y: -2 }}
