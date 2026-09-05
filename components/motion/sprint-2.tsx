@@ -21,13 +21,12 @@ const transitionTypes: Record<string, Transition> = {
     bounce: 0.3, // extra bounce
   },
   /* 
-what is inertia
-it predict the position of x according physics
+  what is inertia
+  it predict the position of x according physics
 
-when velocity: 100 it predict x: 0
-when velocity: 500 it predict x: 100
-
-Then min / max can limit that predicted target
+  when velocity: 100 it predict x: 0
+  when velocity: 500 it predict x: 100
+  Then min / max can limit that predicted target
 */
   inertia: {
     type: "inertia", // use momentum
@@ -109,6 +108,7 @@ const Sprint2 = () => {
               ))}
             </ul>
 
+            {/* notification */}
             <motion.div
               className="
               rounded-md px-5 py-1
@@ -121,6 +121,7 @@ const Sprint2 = () => {
               <p>notification : please update your profile</p>
             </motion.div>
 
+            {/* reset animation */}
             <motion.button
               className="
               px-5 py-1 rounded-xl cursor-pointer
@@ -156,10 +157,7 @@ const Sprint2 = () => {
               ring-2 ring-stone-100 ring-offset-1 ring-offset-stone-300
               "
               animate={{ x: [-100, 100, 0] }}
-              transition={{
-                type: "keyframes",
-                duration: 2,
-              }}
+              transition={{ type: "keyframes", duration: 2 }}
             >
               keyframes example
             </motion.div>
