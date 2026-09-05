@@ -1,11 +1,6 @@
 import { useState } from "react";
 import type { Transition } from "motion/react";
-import {
-  animate,
-  motion,
-  useAnimationControls,
-  useMotionValue,
-} from "motion/react";
+import { motion, useAnimationControls } from "motion/react";
 
 /* 
 sprint 2: Transitions + Springs
