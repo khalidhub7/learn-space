@@ -9,21 +9,29 @@ sprint 2: Transitions + Springs
 const transitionTypes: Record<string, Transition> = {
   tween: {
     type: "tween",
-    duration: 0.6, // how long the animation takes
+    duration: 1, // how long the animation takes
     ease: "easeOut", // starts fast, slows down
   },
 
   spring: {
     type: "spring", // use spring physics
-    stiffness: 180, // how strongly it pulls
+    stiffness: 150, // how strongly it pulls
     damping: 15, // how much it reduces bouncing
     mass: 1, // how heavy the movement feels
     bounce: 0.3, // extra bounce
   },
+  /* 
+what is inertia
+it predict the position of x according physics
 
+when velocity: 100 it predict x: 0
+when velocity: 500 it predict x: 100
+
+Then min / max can limit that predicted target
+*/
   inertia: {
     type: "inertia", // use momentum
-    velocity: 500, // starting movement speed
+    velocity: 100, // starting movement speed
     timeConstant: 200, // how quickly the momentum slows down
     min: -100, // minimum allowed value
     max: 100, // maximum allowed value
