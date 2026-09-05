@@ -44,13 +44,19 @@ const Sprint2 = () => {
     <div className="space-y-10">
       {/* level nav */}
       <div className="px-5 flex items-center gap-5">
-        <p className="flex-[1_1]">select level :</p>
+        <p className="flex-[1_1] text-fuchsia-400 font-bold tracking-wider">
+          select level :
+        </p>
 
         <ul className="flex justify-around flex-[2_1] p-2">
           {["basic", "advanced"].map((l) => (
             <li key={l}>
               <motion.button
-                className="rounded-lg px-3 cursor-pointer ring-2 ring-stone-200"
+                className={`
+                  rounded-lg px-3 cursor-pointer ring-2 ring-stone-200
+                  ring-offset-1 
+                  ${level === l ? "ring-offset-fuchsia-400" : ""}
+                  `}
                 onClick={() => setLevel(l)}
 
                 whileHover={{ y: -2 }}
@@ -66,7 +72,7 @@ const Sprint2 = () => {
       <div
         className="
         flex flex-col items-center gap-10
-        w-xl rounded-lg p-5 ring-2 ring-stone-100
+        w-xl rounded-lg p-5 ring-2 ring-stone-200
         "
       >
         {/* basic level */}
@@ -81,7 +87,7 @@ const Sprint2 = () => {
                 <li key={t}>
                   <motion.button
                     className={`
-                      px-5 rounded cursor-pointer
+                      px-5 rounded-lg cursor-pointer
                       ring-2 ring-stone-200 ring-offset-1
                       ${transitionType === t ? "ring-offset-fuchsia-400 " : ""}
                       `}
@@ -129,14 +135,18 @@ const Sprint2 = () => {
           </>
         ) : undefined}
 
+        {/* advanced level */}
         {level === "advanced" ? (
           <>
-            <p className=" tracking-wider text-fuchsia-400 font-bold ">
+            <p className="text-blue-400 font-bold tracking-wider">
               Other animation
             </p>
 
             <motion.div
-              className="motion-div"
+              className="
+              rounded-xl px-5 py-2 w-sm
+              ring-2 ring-stone-100 ring-offset-1 ring-offset-stone-300
+              "
               animate={{ x: [-100, 100, 0] }}
               transition={{
                 type: "keyframes",
@@ -147,7 +157,10 @@ const Sprint2 = () => {
             </motion.div>
 
             <motion.div
-              className="motion-div cursor-grab "
+              className="
+              rounded-xl px-5 py-2 w-sm cursor-grab
+              ring-2 ring-stone-100 ring-offset-1 ring-offset-stone-300 
+              "
               drag="x"
               dragConstraints={{ left: -100, right: 100 }}
               dragTransition={{ power: 0, timeConstant: 100 }}
@@ -165,6 +178,11 @@ const Sprint2 = () => {
 Need precise timing? → tween
 Need physical/natural movement? → spring
 Need momentum after movement? → inertia
+*/
+
+/* 
+bounce/duration are overridden when those physics parameters are used
+
 */
 
 export { Sprint2 };
