@@ -12,7 +12,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-
 @utility bg-diagonal {
   --diagonal-color: rgb(229 231 235 / 0.45);
 
@@ -26,7 +25,6 @@
     --diagonal-color: rgb(255 255 255 / 0.06);
   }
 }
-
 
 /* @media (prefers-color-scheme: dark) {
   :root {
