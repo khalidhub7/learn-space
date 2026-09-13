@@ -61,9 +61,9 @@ const Sprint2 = () => {
             <li key={l}>
               <motion.button
                 className={cn(
-                  "rounded-lg px-3 cursor-pointer",
+                  "rounded px-5 cursor-pointer",
                   "ring-2 ring-stone-200 ring-offset-1",
-                  { "ring-offset-fuchsia-400": level === l },
+                  { "ring-offset-red-400": level === l },
                 )}
                 onClick={() => setLevel(l)}
 
