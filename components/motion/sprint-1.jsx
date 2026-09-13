@@ -20,9 +20,8 @@ const Sprint1 = () => {
   return (
     <motion.div
       className="
-      rounded-md p-5 w-sm
-      ring-2 ring-stone-100
-      ring-offset-1 ring-offset-stone-200
+      rounded p-5 w-sm
+      ring-2 ring-stone-100 ring-offset-1 ring-offset-stone-300
       "
 
       initial={{ x: -100 }}
@@ -30,10 +29,13 @@ const Sprint1 = () => {
       transition={{ duration: 1 }}
     >
       <div className="p-2 flex flex-col items-center">
+        {/* title */}
         <h3 className="text-blue-400 font-semibold mb-5">{product.title}</h3>
 
+        {/* description */}
         <motion.p
           className="text-stone-500 leading-7 tracking-wider text-sm"
+          
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
