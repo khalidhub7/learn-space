@@ -96,7 +96,7 @@ const Sprint2 = () => {
                 <li key={t}>
                   <motion.button
                     className={cn(
-                      "px-5 rounded-lg cursor-pointer",
+                      "px-5 rounded cursor-pointer",
                       "ring-2 ring-stone-200 ring-offset-1",
                       { "ring-offset-fuchsia-400": transitionType === t },
                     )}
