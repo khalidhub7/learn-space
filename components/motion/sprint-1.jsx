@@ -35,7 +35,7 @@ const Sprint1 = () => {
         {/* description */}
         <motion.p
           className="text-stone-500 leading-7 tracking-wider text-sm"
-          
+
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
