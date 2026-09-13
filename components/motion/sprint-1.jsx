@@ -49,7 +49,7 @@ const Sprint1 = () => {
           className="cursor-pointer"
 
           whileHover={{ scale: 1.1 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.3 }}
         >
           <Image
             src={product.thumbnail}
@@ -61,27 +61,28 @@ const Sprint1 = () => {
       </div>
 
       <div className="flex justify-between items-center h-12">
+        {/* price */}
         <div className="h-full w-1/2" ref={containerRef}>
           <motion.span
             className="
-            inline-block rounded-lg cursor-grab
-            text-blue-400 font-semibold p-2 
+            inline-block rounded cursor-grab
+            text-blue-400 font-semibold px-2 py-0.5
             "
             drag
-            whileDrag={{ border: "1px dashed" }}
+            whileDrag={{ border: "2px dashed" }}
             dragConstraints={containerRef}
           >
             {product.price}
           </motion.span>
         </div>
 
+        {/* add to cart button */}
         <motion.button
           className="
-          text-blue-400 font-bold text-sm p-2 rounded-lg cursor-pointer
-          outline-none
-          ring-2 ring-blue-50
-          ring-offset-1 ring-offset-blue-200
-        "
+          text-blue-400 font-bold text-sm p-2 rounded cursor-pointer
+          ring-2 ring-blue-50 ring-offset-1 ring-offset-blue-200 outline-none
+          "
+
           whileTap={{ scale: 0.9 }}
           whileFocus={{ backgroundColor: "oklch(93% 0.007 106.5)" }}
         >

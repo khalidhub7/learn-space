@@ -15,19 +15,19 @@ const transitionTypes: Record<string, Transition> = {
 
   spring: {
     type: "spring", // use spring physics
-    stiffness: 150, // how strongly it pulls
-    damping: 15, // how much it reduces bouncing
+    stiffness: 150, // how strongly the spring pulls toward the target
+    damping: 15, // friction that slows the oscillation
     mass: 1, // how heavy the movement feels
     bounce: 0.3, // extra bounce
   },
-  /* 
+  /*
   what is inertia
   it predict the position of x according physics
 
   when velocity: 100 it predict x: 0
   when velocity: 500 it predict x: 100
   Then min / max can limit that predicted target
-*/
+  */
   inertia: {
     type: "inertia", // use momentum
     velocity: 200, // starting movement speed
@@ -76,6 +76,7 @@ const Sprint2 = () => {
         </ul>
       </div>
 
+      {/* sprint content */}
       <div
         className="
         flex flex-col items-center gap-10
