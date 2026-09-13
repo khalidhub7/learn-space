@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { Transition } from "motion/react";
 import { motion, useAnimationControls } from "motion/react";
+import { cn } from "@/lib/utils";
 
 /* 
 sprint 2: Transitions + Springs
@@ -55,15 +56,15 @@ const Sprint2 = () => {
           select level :
         </p>
 
-        <ul className="flex justify-around flex-[2_1] p-2">
+        <ul className="flex justify-around flex-[2_1]">
           {["basic", "advanced"].map((l) => (
             <li key={l}>
               <motion.button
-                className={`
-                  rounded-lg px-3 cursor-pointer ring-2 ring-stone-200
-                  ring-offset-1 
-                  ${level === l ? "ring-offset-fuchsia-400" : ""}
-                  `}
+                className={cn(
+                  "rounded-lg px-3 cursor-pointer",
+                  "ring-2 ring-stone-200 ring-offset-1",
+                  { "ring-offset-fuchsia-400": level === l },
+                )}
                 onClick={() => setLevel(l)}
 
                 whileHover={{ y: -2 }}
