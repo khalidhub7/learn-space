@@ -44,8 +44,10 @@ const Sprint1 = () => {
           {product.description}
         </motion.p>
 
+        {/* thumbnail */}
         <motion.div
           className="cursor-pointer"
+
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 1 }}
         >
