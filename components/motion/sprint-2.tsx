@@ -81,7 +81,7 @@ const Sprint2 = () => {
       <div
         className="
         flex flex-col items-center gap-10
-        w-xl rounded-lg p-5 ring-2 ring-stone-200
+        w-xl rounded p-5 ring-2 ring-stone-200
         "
       >
         {/* basic level */}
@@ -95,11 +95,12 @@ const Sprint2 = () => {
               {Object.keys(transitionTypes).map((t) => (
                 <li key={t}>
                   <motion.button
-                    className={`
-                      px-5 rounded-lg cursor-pointer
-                      ring-2 ring-stone-200 ring-offset-1
-                      ${transitionType === t ? "ring-offset-fuchsia-400 " : ""}
-                      `}
+                    className={cn(
+                      "px-5 rounded-lg cursor-pointer",
+                      "ring-2 ring-stone-200 ring-offset-1",
+                      { "ring-offset-fuchsia-400": transitionType === t },
+                    )}
+
                     whileTap={{ scale: 0.9 }}
                     whileHover={{ translateY: -2 }}
                     onClick={() => setTransitionType(t)}
