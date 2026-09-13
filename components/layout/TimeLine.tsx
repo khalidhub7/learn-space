@@ -13,39 +13,28 @@
   { id: 4, position: "right", title: "take browser source" },
 ]; */
 
-import {
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useSpring,
-  useTime,
-  useTransform,
-} from "motion/react";
 import { useRef } from "react";
+import { useTransform, useMotionValueEvent } from "motion/react";
+import { motion, useSpring, useTime, useScroll } from "motion/react";
 
-type SeparatorProps = {
-  className?: string;
-};
-
+type SeparatorProps = { className?: string };
 type TimeLineItemProps = {
   isMobile?: boolean;
   position: "left" | "right";
   title: string;
 };
-
 type TimeLineItemData = {
   id: number;
   position: "left" | "right";
   title: string;
 };
 
-type TimeLineProps = {
-  items: TimeLineItemData[];
-};
+type TimeLineProps = { items: TimeLineItemData[] };
 
 const Separator = ({ className = "" }: SeparatorProps) => {
   const time = useTime();
   /* const scale = useTransform(time, [0, 4000], [0, 1], { clamp: false }); */
+
   const scale = useTransform(time, (latest) => {
     const progress = (latest % 4000) / 4000;
     return 0.2 + progress;

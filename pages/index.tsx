@@ -6,8 +6,7 @@ export default function Home() {
   return (
     <div
       className="
-      min-h-screen
-      flex flex-col gap-10 justify-center items-center
+      min-h-screen flex flex-col gap-10 justify-center items-center
       "
     >
       <h1 className="text-3xl text-fuchsia-400 font-bold">
@@ -22,13 +21,9 @@ export default function Home() {
               <Link
                 href={c.href}
                 className="
-                  inline-block
-                  rounded-lg py-1 px-5
-                  hover:scale-95
-                  transition-transform duration-300
-
-                  ring-2 ring-blue-100
-                  ring-offset-1 ring-offset-blue-400
+                inline-block rounded-lg py-1 px-5
+                hover:scale-95 transition-transform duration-300
+                ring-2 ring-blue-100 ring-offset-1 ring-offset-blue-400
                 "
               >
                 {c.concept}
