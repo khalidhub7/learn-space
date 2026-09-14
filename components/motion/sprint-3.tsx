@@ -28,7 +28,7 @@ const Sprint3 = () => {
       ring-2 ring-gray-200
       "
     >
-      {/* trigger */}
+      {/* nav trigger */}
       <motion.button
         className="
         rounded-full w-8 aspect-square cursor-pointer
@@ -44,6 +44,7 @@ const Sprint3 = () => {
         {isOpen ? "✕" : "☰"}
       </motion.button>
 
+      {/* nav */}
       <AnimatePresence>
         {isOpen ? (
           <nav>
@@ -58,10 +59,9 @@ const Sprint3 = () => {
                 <motion.li
                   key={l}
                   className="
-                rounded-lg p-2 w-60
-                ring-2 ring-slate-100
-                ring-offset-2 ring-offset-slate-200
-                "
+                  rounded-lg p-2 w-60
+                  ring-2 ring-olive-100 ring-offset-1 ring-offset-olive-200
+                  "
                   variants={childVariants}
                   /*
                   initial="hidden"
