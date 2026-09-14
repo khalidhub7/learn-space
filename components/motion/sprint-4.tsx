@@ -149,60 +149,6 @@ const Sprint4 = () => {
         </div>
       ) : undefined}
 
-      {/* layoutId */}
-
-      {concept === "layoutId" ? (
-        <div
-          className="
-        relative w-xl rounded-lg p-5
-        ring-4 ring-gray-100
-        space-y-6
-        "
-        >
-          {/*
-          Problem before namespace:
-          Two rows share the same layoutId,
-          so their indicators interfere.
-          
-          Namespace:
-          LayoutGroup id separates the rows,
-          so each row has its own layoutId scope.
-          */}
-
-          <LayoutGroup id="row-1">
-            {/* first row */}
-            <ul className="flex justify-around w-full">
-              {tabs.map((tab) => (
-                <li key={tab} className="relative isolate">
-                  <NavItem
-                    tabName={tab}
-                    isActive={activeTab.row1 === tab}
-                    setActive={setActiveTab}
-                    rowId="row1"
-                  />
-                </li>
-              ))}
-            </ul>
-          </LayoutGroup>
-
-          <LayoutGroup id="row-2">
-            {/* second row */}
-            <ul className="flex justify-around w-full">
-              {tabs.map((tab) => (
-                <li key={tab} className="relative isolate">
-                  <NavItem
-                    tabName={tab}
-                    isActive={activeTab.row2 === tab}
-                    setActive={setActiveTab}
-                    rowId="row2"
-                  />
-                </li>
-              ))}
-            </ul>
-          </LayoutGroup>
-        </div>
-      ) : undefined}
-
       {/* LayoutGroup */}
 
       {concept === "LayoutGroup" ? (
@@ -259,6 +205,60 @@ const Sprint4 = () => {
               </ul>
             </div>
           </div>
+        </div>
+      ) : undefined}
+
+      {/* layoutId */}
+
+      {concept === "layoutId" ? (
+        <div
+          className="
+          relative w-xl rounded-lg p-5
+          ring-4 ring-gray-100
+          space-y-6
+          "
+        >
+          {/*
+          Problem before namespace:
+          Two rows share the same layoutId,
+          so their indicators interfere.
+          
+          Namespace:
+          LayoutGroup id separates the rows,
+          so each row has its own layoutId scope.
+          */}
+
+          <LayoutGroup id="row-1">
+            {/* first row */}
+            <ul className="flex justify-around w-full">
+              {tabs.map((tab) => (
+                <li key={tab} className="relative isolate">
+                  <NavItem
+                    tabName={tab}
+                    isActive={activeTab.row1 === tab}
+                    setActive={setActiveTab}
+                    rowId="row1"
+                  />
+                </li>
+              ))}
+            </ul>
+          </LayoutGroup>
+
+          <LayoutGroup id="row-2">
+            {/* second row */}
+            <ul className="flex justify-around w-full">
+              {tabs.map((tab) => (
+                <li key={tab} className="relative isolate">
+                  <NavItem
+                    tabName={tab}
+                    isActive={activeTab.row2 === tab}
+                    setActive={setActiveTab}
+                    rowId="row2"
+                  />
+                </li>
+              ))}
+            </ul>
+          </LayoutGroup>
         </div>
       ) : undefined}
     </div>
