@@ -33,11 +33,11 @@ const Sprint3 = () => {
         className="
         rounded-full w-8 aspect-square cursor-pointer
         flex items-center justify-center
-        ring-2 ring-slate-200 ring-offset-1 ring-offset-slate-300
+        ring-2 ring-olive-200 ring-offset-1 ring-offset-olive-300
         "
 
         whileTap={{ scale: 0.9 }}
-        whileHover={{ rotate: 360 }}
+        whileHover={{ rotate: 90 }}
         transition={{ type: "spring", stiffness: 200 }}
         onClick={() => setIsOpen((prev) => !prev)}
       >
