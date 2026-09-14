@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { LayoutGroup, motion } from "motion/react";
+import { cn } from "@/lib/utils";
 
 /* 
 sprint 4: Layout animations
@@ -46,6 +47,7 @@ const NavItem = ({ rowId, tabName, isActive, setActive }) => {
       return prev;
     });
   };
+
   return (
     <>
       {isActive ? (
@@ -80,11 +82,12 @@ const Sprint4 = () => {
         {["layout", "LayoutGroup", "layoutId"].map((n) => (
           <li key={n}>
             <motion.button
-              className={`
-                rounded-lg  w-28 cursor-pointer
-                ring-2 ring-olive-300 ring-offset-1
-                ${concept === n ? "ring-offset-fuchsia-400" : undefined}
-              `}
+              className={cn(
+                "rounded-lg  w-28 cursor-pointer",
+                "ring-2 ring-olive-300 ring-offset-1",
+                { "ring-offset-fuchsia-400": concept === n },
+              )}
+
               onClick={() => setConcept(n)}
               whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.1 }}
