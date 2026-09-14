@@ -50,6 +50,7 @@ const Sprint3 = () => {
           <nav>
             <motion.ul
               className="w-sm flex flex-col items-center gap-5"
+
               variants={parentVariants}
               initial="hidden"
               animate="visible"
@@ -59,9 +60,10 @@ const Sprint3 = () => {
                 <motion.li
                   key={l}
                   className="
-                  rounded-lg p-2 w-60
+                  rounded-lg py-2 w-52 text-sm
                   ring-2 ring-olive-100 ring-offset-1 ring-offset-olive-200
                   "
+
                   variants={childVariants}
                   /*
                   initial="hidden"
