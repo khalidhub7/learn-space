@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 import type { Transition } from "motion/react";
 import { motion, useAnimationControls } from "motion/react";
-import { cn } from "@/lib/utils";
 
 /* 
 sprint 2: Transitions + Springs
@@ -114,7 +114,7 @@ const Sprint2 = () => {
             {/* notification */}
             <motion.div
               className="
-              rounded-md px-5 py-1
+              rounded px-5 py-1
               ring-2 ring-stone-100 ring-offset-1 ring-offset-stone-300
               "
 
@@ -127,10 +127,9 @@ const Sprint2 = () => {
             {/* reset animation */}
             <motion.button
               className="
-              px-5 py-1 rounded-xl cursor-pointer
+              px-5 py-1 rounded-full cursor-pointer
               ring-2 ring-olive-200
               "
-
               onClick={() => {
                 controls.set({ x: -100 }); // like initial (jump)
                 controls.start({ x: 0 }); // like animate (animate)
@@ -156,7 +155,7 @@ const Sprint2 = () => {
 
             <motion.div
               className="
-              rounded-xl px-5 py-2 w-sm
+              rounded px-5 py-2 w-sm
               ring-2 ring-stone-100 ring-offset-1 ring-offset-stone-300
               "
               animate={{ x: [-100, 100, 0] }}
@@ -167,7 +166,7 @@ const Sprint2 = () => {
 
             <motion.div
               className="
-              rounded-xl px-5 py-2 w-sm cursor-grab
+              rounded px-5 py-2 w-sm cursor-grab
               ring-2 ring-stone-100 ring-offset-1 ring-offset-stone-300 
               "
               drag="x"
@@ -190,8 +189,9 @@ Need momentum after movement? → inertia
 */
 
 /* 
-bounce/duration are overridden when those physics parameters are used
-
+- bounce/duration are overridden when those physics parameters are used
+- Want to move something smoothly over time?
+      → You need useAnimationControls (or animate())
 */
 
 export { Sprint2 };
