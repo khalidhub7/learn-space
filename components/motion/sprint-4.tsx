@@ -83,14 +83,14 @@ const Sprint4 = () => {
           <li key={n}>
             <motion.button
               className={cn(
-                "rounded-lg  w-28 cursor-pointer",
+                "rounded w-28 cursor-pointer",
                 "ring-2 ring-olive-300 ring-offset-1",
                 { "ring-offset-fuchsia-400": concept === n },
               )}
 
               onClick={() => setConcept(n)}
               whileTap={{ scale: 0.9 }}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ y: -3 }}
             >
               {n}
             </motion.button>
@@ -102,10 +102,10 @@ const Sprint4 = () => {
       {concept === "layout" ? (
         <div
           className="
-          relative w-xl rounded-lg p-5
-        ring-4 ring-gray-100
-        "
+          relative w-xl rounded p-5 ring-2 ring-gray-200
+          "
         >
+          {/* reset button */}
           <motion.button
             className="absolute -top-8 right-5 cursor-pointer text-xl"
             whileHover={{ scale: 1.3, rotate: 90 }}
@@ -113,28 +113,28 @@ const Sprint4 = () => {
           >
             ↻
           </motion.button>
+
+          {/* widgets */}
           <ul
             className="
-          w-full p-2 grid grid-cols-3 gap-y-10
-          place-items-center
-          "
+            w-full p-2 grid grid-cols-3 gap-y-10 place-items-center
+            "
           >
             {widgets.map((w) => (
               <motion.li
                 layout
                 key={w.id}
 
-                className={`
-                relative w-28
-                flex items-center justify-center
-                aspect-square rounded-lg
-                ring-2 ring-slate-200
-                ring-offset-1 ring-offset-slate-300
-                ${hiddenIds.has(w.id) ? "hidden" : ""}
-                `}
+                className={cn(
+                  "relative w-28 flex items-center justify-center",
+                  "aspect-square rounded",
+                  "ring-2 ring-olive-100",
+                  "ring-offset-1 ring-offset-olive-300",
+                  { hidden: hiddenIds.has(w.id) },
+                )}
               >
                 <motion.button
-                  className=" cursor-pointer absolute right-2 top-1 "
+                  className="text-xl cursor-pointer absolute right-2 top-1"
                   whileHover={{ scale: 1.3, rotate: 90 }}
                   onClick={() =>
                     setHiddenIds((prev) => new Set(prev).add(w.id))
