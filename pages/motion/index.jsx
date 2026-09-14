@@ -42,7 +42,7 @@ const sprints = [
 ];
 
 const Motion = () => {
-  const [activeSprintId, setActiveSprintId] = useState(2);
+  const [activeSprintId, setActiveSprintId] = useState(3);
   const activeSprint = sprints[activeSprintId - 1];
   const ActiveComponent = activeSprint.component;
 
