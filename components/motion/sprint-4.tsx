@@ -55,11 +55,9 @@ const NavItem = ({ rowId, tabName, isActive, setActive }) => {
           layoutId="active-tab"
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
           className="
-            absolute -top-1 -left-4 -z-10
-            bg-neutral-50 rounded-full h-8 w-24
-            ring-2 ring-olive-200
-            ring-offset-1 ring-offset-blue-400
-            "
+          rounded-md h-8 w-24 bg-taupe-50 absolute -top-1 -left-4 -z-10
+          ring-2 ring-blue-100 ring-offset-1 ring-offset-blue-300
+          "
         />
       ) : undefined}
 
@@ -71,9 +69,10 @@ const NavItem = ({ rowId, tabName, isActive, setActive }) => {
 };
 
 const Sprint4 = () => {
+  const [concept, setConcept] = useState("layoutId");
   const [hiddenIds, setHiddenIds] = useState(new Set([]));
   const [activeTab, setActiveTab] = useState({ row1: "Home", row2: "Home" });
-  const [concept, setConcept] = useState("layout");
+  
 
   return (
     <div className="space-y-10">
@@ -149,6 +148,58 @@ const Sprint4 = () => {
         </div>
       ) : undefined}
 
+      {/* layoutId */}
+
+      {concept === "layoutId" ? (
+        <div
+          className="
+          space-y-7 relative w-xl rounded p-5 ring-2 ring-gray-200
+          "
+        >
+          {/*
+          Problem before namespace:
+          Two rows share the same layoutId,
+          so their indicators interfere.
+          
+          Namespace:
+          LayoutGroup id separates the rows,
+          so each row has its own layoutId scope.
+          */}
+
+          <LayoutGroup id="row-1">
+            {/* first row */}
+            <ul className="flex justify-around w-full">
+              {tabs.map((tab) => (
+                <li key={tab} className="relative isolate">
+                  <NavItem
+                    tabName={tab}
+                    isActive={activeTab.row1 === tab}
+                    setActive={setActiveTab}
+                    rowId="row1"
+                  />
+                </li>
+              ))}
+            </ul>
+          </LayoutGroup>
+
+          <LayoutGroup id="row-2">
+            {/* second row */}
+            <ul className="flex justify-around w-full">
+              {tabs.map((tab) => (
+                <li key={tab} className="relative isolate">
+                  <NavItem
+                    tabName={tab}
+                    isActive={activeTab.row2 === tab}
+                    setActive={setActiveTab}
+                    rowId="row2"
+                  />
+                </li>
+              ))}
+            </ul>
+          </LayoutGroup>
+        </div>
+      ) : undefined}
+
       {/* LayoutGroup */}
 
       {concept === "LayoutGroup" ? (
@@ -208,59 +259,6 @@ const Sprint4 = () => {
         </div>
       ) : undefined}
 
-      {/* layoutId */}
-
-      {concept === "layoutId" ? (
-        <div
-          className="
-          relative w-xl rounded-lg p-5
-          ring-4 ring-gray-100
-          space-y-6
-          "
-        >
-          {/*
-          Problem before namespace:
-          Two rows share the same layoutId,
-          so their indicators interfere.
-          
-          Namespace:
-          LayoutGroup id separates the rows,
-          so each row has its own layoutId scope.
-          */}
-
-          <LayoutGroup id="row-1">
-            {/* first row */}
-            <ul className="flex justify-around w-full">
-              {tabs.map((tab) => (
-                <li key={tab} className="relative isolate">
-                  <NavItem
-                    tabName={tab}
-                    isActive={activeTab.row1 === tab}
-                    setActive={setActiveTab}
-                    rowId="row1"
-                  />
-                </li>
-              ))}
-            </ul>
-          </LayoutGroup>
-
-          <LayoutGroup id="row-2">
-            {/* second row */}
-            <ul className="flex justify-around w-full">
-              {tabs.map((tab) => (
-                <li key={tab} className="relative isolate">
-                  <NavItem
-                    tabName={tab}
-                    isActive={activeTab.row2 === tab}
-                    setActive={setActiveTab}
-                    rowId="row2"
-                  />
-                </li>
-              ))}
-            </ul>
-          </LayoutGroup>
-        </div>
-      ) : undefined}
     </div>
   );
 };
