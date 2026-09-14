@@ -22,8 +22,7 @@ const AccordionItem = ({ header }) => {
   return (
     <motion.div
       className="
-      rounded-lg p-2 cursor-pointer
-      ring-1 ring-olive-300
+      rounded-md p-2 cursor-pointer ring-1 ring-olive-300
       "
       layout
       onClick={() => setIsOpen(!isOpen)}
@@ -40,12 +39,9 @@ const AccordionItem = ({ header }) => {
 
 const NavItem = ({ rowId, tabName, isActive, setActive }) => {
   const handler = () => {
-    setActive((prev) => {
-      if (prev[rowId] !== tabName) {
-        return { ...prev, [rowId]: tabName };
-      }
-      return prev;
-    });
+    setActive((prev) =>
+      prev[rowId] !== tabName ? { ...prev, [rowId]: tabName } : prev,
+    );
   };
 
   return (
@@ -69,10 +65,9 @@ const NavItem = ({ rowId, tabName, isActive, setActive }) => {
 };
 
 const Sprint4 = () => {
-  const [concept, setConcept] = useState("layoutId");
+  const [concept, setConcept] = useState("LayoutGroup");
   const [hiddenIds, setHiddenIds] = useState(new Set([]));
   const [activeTab, setActiveTab] = useState({ row1: "Home", row2: "Home" });
-  
 
   return (
     <div className="space-y-10">
@@ -205,10 +200,8 @@ const Sprint4 = () => {
       {concept === "LayoutGroup" ? (
         <div
           className="
-        w-xl rounded-lg p-5
-        ring-4 ring-gray-100
-        space-y-1
-        "
+          space-y-1 w-xl rounded p-5 ring-2 ring-gray-200
+          "
         >
           {/*
           Test:
@@ -225,13 +218,9 @@ const Sprint4 = () => {
           LayoutGroup is useful when items have separate state/updates
           and need coordination
           */}
-          <p className="text-blue-400 font-bold text-xl ">
-            LayoutGroup example 1
-          </p>
-          <p className="text-slate-400">
-            with/without LayoutGroup read cmnts inside code to understand
-          </p>
-          <div className="grid grid-cols-2 gap-x-3">
+
+          <div className="grid grid-cols-2 gap-x-10">
+            {/* without LayoutGroup */}
             <div className="space-y-5">
               <p className="text-fuchsia-500">without LayoutGroup</p>
               <ul>
@@ -243,6 +232,7 @@ const Sprint4 = () => {
               </ul>
             </div>
 
+            {/* with LayoutGroup */}
             <div className="space-y-5">
               <p className="text-fuchsia-500">with LayoutGroup</p>
               <ul>
@@ -258,7 +248,6 @@ const Sprint4 = () => {
           </div>
         </div>
       ) : undefined}
-
     </div>
   );
 };
