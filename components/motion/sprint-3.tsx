@@ -7,7 +7,7 @@ sprint 3: Variants, AnimatePresence, Exit animations
 */
 const testNavs = ["Home", "About", "Projects", "Contact"];
 
-const variants: Variants = {
+const childVariants: Variants = {
   hidden: { opacity: 0, y: -30 },
   visible: { opacity: 1, y: 0 },
   exit: { x: 20 },
@@ -24,18 +24,18 @@ const Sprint3 = () => {
   return (
     <div
       className="
-      w-xl rounded-lg p-5 h-96
-      ring-4 ring-gray-100
-      flex flex-col items-center gap-10
+      flex flex-col items-center gap-10 w-xl rounded p-5 h-96
+      ring-2 ring-gray-200
       "
     >
+      {/* trigger */}
       <motion.button
         className="
         rounded-full w-8 aspect-square cursor-pointer
         flex items-center justify-center
-        ring-2 ring-slate-200
-        ring-offset-1 ring-offset-slate-300
+        ring-2 ring-slate-200 ring-offset-1 ring-offset-slate-300
         "
+
         whileTap={{ scale: 0.9 }}
         whileHover={{ rotate: 360 }}
         transition={{ type: "spring", stiffness: 200 }}
@@ -62,7 +62,7 @@ const Sprint3 = () => {
                 ring-2 ring-slate-100
                 ring-offset-2 ring-offset-slate-200
                 "
-                  variants={variants}
+                  variants={childVariants}
                   /*
                   initial="hidden"
                   animate="visible"
