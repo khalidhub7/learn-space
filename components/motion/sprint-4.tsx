@@ -255,12 +255,12 @@ const Sprint4 = () => {
 export { Sprint4 };
 
 /*
-layout = animate layout changes
+layout      = animate layout changes
 LayoutGroup = LayoutGroup coordinates layout animations 
               between components that update independently.
-layoutId = animate between matching/shared elements
+layoutId    = animate between matching/shared elements
 
 LayoutGroup
-Shared state → usually no need for LayoutGroup
+Shared state      → usually no need for LayoutGroup
 Independent state → LayoutGroup can coordinate the animations
 */
