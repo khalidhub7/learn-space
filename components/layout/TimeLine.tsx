@@ -33,20 +33,20 @@ type TimeLineItemData = {
 type TimeLineProps = { items: TimeLineItemData[] };
 
 const Separator = ({ className = "" }: SeparatorProps) => {
+  // dot
   const time = useTime();
   /* const scale = useTransform(time, [0, 4000], [0, 1], { clamp: false }); */
-
   const scale = useTransform(time, (latest) => {
     const progress = (latest % 4000) / 4000;
-    return 0.5 + (progress - 0.5);
+    return 0.5 + progress * 0.5;
   });
 
+  // line
   const ref = useRef(null);
-
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start 90%", "start 75%"],
-    trackContentSize: true,
+    trackContentSize: true, // watch content size changes
   });
 
   const scaleY = useSpring(0, { stiffness: 100, damping: 10 });
@@ -57,13 +57,12 @@ const Separator = ({ className = "" }: SeparatorProps) => {
   });
 
   return (
-    <div className={cn("flex flex-col items-center gap-2 ", className)}>
+    <div className={cn("flex flex-col items-center gap-2", className)}>
       <motion.div
         aria-hidden="true"
-        className="size-8 rounded-full ring-4 ring-taupe-300"
+        className="size-2 rounded-full ring-4 ring-taupe-200 "
 
         style={{ scale }}
-        whileInView={{ height: 5, width: 5, opacity: 1 }}
         transition={{ type: "spring", stiffness: 900 }}
       />
 
@@ -86,7 +85,7 @@ const TimeLineItem = ({
   return (
     <div
       className={cn(
-        "px-3 p-1 grid justify-items-center",
+        "px-3 py-1 grid justify-items-center",
         isMobile ? "grid-cols-[30px_1fr]" : "grid-cols-[1fr_30px_1fr]",
       )}
     >
@@ -105,13 +104,14 @@ const TimeLineItem = ({
 
       {/* right card */}
       <motion.div
-        className="
-        p-5 w-full rounded
-        border-t-4 border-blue-200
+        className={cn(
+          "p-5 w-full shadow",
+          "border-t-2 border-blue-400",
 
-        ring-2 ring-olive-100
-        ring-offset-1 ring-offset-olive-300
-        "
+          position === "left" && !isMobile
+            ? "rounded-tl-2xl rounded-br-2xl"
+            : "rounded-tr-2xl rounded-bl-2xl",
+        )}
 
         initial={{ x: -50, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
