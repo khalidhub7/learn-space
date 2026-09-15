@@ -24,7 +24,7 @@ const items: TimeLineItemData[] = [
 ];
 
 const Sprint5 = () => {
-  const [concept, setConcept] = useState("useScroll");
+  const [concept, setConcept] = useState("useVelocity");
 
   // useMotionValue
   const x1 = useMotionValue(0);
@@ -164,6 +164,8 @@ const Sprint5 = () => {
             style={{ x: x4, scaleX: deforcation }}
             drag="x"
             dragConstraints={{ left: -200, right: 200 }}
+            dragMomentum={true}
+            dragElastic={0}
           />
         </div>
       ) : undefined}
