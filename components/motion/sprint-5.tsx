@@ -1,19 +1,10 @@
 import { useState } from "react";
-import {
-  animate,
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  useVelocity,
-} from "motion/react";
-
-import { TimeLine, TimeLineItemData } from "../layout/TimeLine";
 import { Parallax } from "../layout/Parallax";
+import { animate, motion, useMotionValue } from "motion/react";
+import { TimeLine, TimeLineItemData } from "../layout/TimeLine";
+import { useSpring, useTransform, useVelocity } from "motion/react";
 
-/* 
-sprint 5: Motion Values + Scroll
-*/
+// sprint 5: Motion Values + Scroll
 
 const concepts = [
   "useMotionValue",
@@ -192,7 +183,7 @@ const Sprint5 = () => {
             Parallax ( different elements move at different speeds )
           </p>
 
-          < Parallax />
+          <Parallax />
         </div>
       ) : undefined}
     </div>
