@@ -14,9 +14,9 @@
 ]; */
 
 import { useRef } from "react";
+import { cn } from "@/lib/utils";
 import { useTransform, useMotionValueEvent } from "motion/react";
 import { motion, useSpring, useTime, useScroll } from "motion/react";
-import { cn } from "@/lib/utils";
 
 type SeparatorProps = { className?: string };
 type TimeLineItemProps = {
@@ -60,7 +60,7 @@ const Separator = ({ className = "" }: SeparatorProps) => {
     <div className={cn("flex flex-col items-center gap-2 ", className)}>
       <motion.div
         aria-hidden="true"
-        className="size-8 rounded-full ring-4 ring-red-400"
+        className="size-8 rounded-full ring-4 ring-taupe-300"
 
         style={{ scale }}
         whileInView={{ height: 5, width: 5, opacity: 1 }}
@@ -86,7 +86,7 @@ const TimeLineItem = ({
   return (
     <div
       className={cn(
-        "p-3 grid justify-items-center",
+        "px-3 p-1 grid justify-items-center",
         isMobile ? "grid-cols-[30px_1fr]" : "grid-cols-[1fr_30px_1fr]",
       )}
     >
