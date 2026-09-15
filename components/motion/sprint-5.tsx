@@ -3,6 +3,7 @@ import { Parallax } from "../layout/Parallax";
 import { animate, motion, useMotionValue } from "motion/react";
 import { TimeLine, TimeLineItemData } from "../layout/TimeLine";
 import { useSpring, useTransform, useVelocity } from "motion/react";
+import { cn } from "@/lib/utils";
 
 // sprint 5: Motion Values + Scroll
 
@@ -52,11 +53,11 @@ const Sprint5 = () => {
         {concepts.map((c) => (
           <li key={c}>
             <motion.button
-              className={`
-                rounded p-1 cursor-pointer
-                ring-2 ring-slate-300 ring-offset-1
-                ${concept === c ? "ring-offset-fuchsia-400" : undefined}
-                `}
+              className={cn(
+                "rounded p-1 cursor-pointer",
+                "ring-2 ring-slate-300 ring-offset-1",
+                { "ring-offset-fuchsia-400": concept === c },
+              )}
               onClick={() => setConcept(c)}
               whileHover={{ scale: 0.9, y: -3 }}
             >
@@ -69,9 +70,8 @@ const Sprint5 = () => {
       {concept === "useMotionValue" ? (
         <div
           className="
-          w-xl rounded-lg p-5 
-          ring-4 ring-gray-100
-          flex flex-col gap-8 items-center
+          w-xl rounded p-5 flex flex-col gap-8 items-center
+          ring-2 ring-gray-200
           "
         >
           <p className="text-slate-500">
@@ -81,7 +81,7 @@ const Sprint5 = () => {
             className="
             bg-blue-400 size-10 rounded-xl cursor-pointer self-start
             "
-            /* onClick={() => (x.get() === 0 ? x.set(200) : x.set(0))} */
+            /* onClick={() => (x1.get() === 0 ? x1.set(200) : x1.set(0))} */
             onClick={() =>
               animate(x1, x1.get() === 0 ? 200 : 0, {
                 type: "tween",
@@ -97,9 +97,8 @@ const Sprint5 = () => {
       {concept === "useTransform" ? (
         <div
           className="
-          w-xl rounded-lg p-5 
-          ring-4 ring-gray-100
-          flex flex-col gap-6 items-center
+          w-xl rounded p-5 flex flex-col gap-6 items-center
+          ring-2 ring-gray-200
           "
         >
           <p className="text-slate-500">
@@ -117,9 +116,8 @@ const Sprint5 = () => {
       {concept === "useSpring" ? (
         <div
           className="
-          w-xl rounded-lg p-5
-          ring-4 ring-gray-100
-          flex flex-col gap-6 items-center
+          w-xl rounded p-5 flex flex-col gap-6 items-center
+          ring-2 ring-gray-200
           "
         >
           <p className="text-slate-500">
@@ -154,8 +152,8 @@ const Sprint5 = () => {
       {concept === "useVelocity" ? (
         <div
           className="
-          w-xl rounded-lg p-5 ring-4 ring-gray-100
-          flex flex-col gap-6 items-center
+          w-xl rounded p-5 flex flex-col gap-6 items-center
+          ring-2 ring-gray-200
           "
         >
           <p className="text-slate-500">
@@ -174,9 +172,8 @@ const Sprint5 = () => {
       {concept === "bonus" ? (
         <div
           className="
-          w-xl rounded-lg p-5
-          ring-4 ring-gray-100
-          flex flex-col gap-6 items-center
+          w-xl rounded p-5 flex flex-col gap-6 items-center
+          ring-2 ring-gray-200
           "
         >
           <p className="text-slate-500">
@@ -194,6 +191,6 @@ export { Sprint5 };
 
 /* other apis
 useMotionValueEvent → Instead of repeatedly checking x.get()
-                    it help to listen for events
+                      it help to listen for events
 
 */

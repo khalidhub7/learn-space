@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 
 /*
 Parallax: When elements move at different speeds as you scroll.
@@ -10,9 +10,9 @@ const Parallax = () => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({ container });
 
-  const slow = useTransform(scrollYProgress, [0, 1], [-30, 30]);
-  const normal = useTransform(scrollYProgress, [0, 1], [-60, 60]);
-  const fast = useTransform(scrollYProgress, [0, 1], [-100, 100]);
+  const slow = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+  const normal = useTransform(scrollYProgress, [0, 1], [-100, 100]);
+  const fast = useTransform(scrollYProgress, [0, 1], [-200, 200]);
 
   return (
     <motion.div
