@@ -24,7 +24,7 @@ const items: TimeLineItemData[] = [
 ];
 
 const Sprint5 = () => {
-  const [concept, setConcept] = useState("bonus");
+  const [concept, setConcept] = useState("useScroll");
 
   // useMotionValue
   const x1 = useMotionValue(0);
@@ -134,9 +134,8 @@ const Sprint5 = () => {
       {concept === "useScroll" ? (
         <div
           className="
-          w-xl rounded-lg p-5
-          ring-4 ring-gray-100
-          flex flex-col gap-6 items-center
+          w-xl rounded p-5 flex flex-col gap-6 items-center
+          ring-2 ring-gray-200
           "
         >
           <p className="text-slate-500">
