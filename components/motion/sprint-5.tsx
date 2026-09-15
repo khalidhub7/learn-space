@@ -164,8 +164,8 @@ const Sprint5 = () => {
             style={{ x: x4, scaleX: deforcation }}
             drag="x"
             dragConstraints={{ left: -200, right: 200 }}
-            dragMomentum={true}
-            dragElastic={0}
+            dragMomentum={true} // allows some overshoot
+            dragElastic={0} // keeps moving based on release velocity
           />
         </div>
       ) : undefined}
