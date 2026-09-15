@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { LayoutGroup, motion } from "motion/react";
 import { cn } from "@/lib/utils";
+import { LayoutGroup, motion } from "motion/react";
 
-/* 
-sprint 4: Layout animations
-*/
+// sprint 4: Layout animations
 
 const widgets = [
   { id: 1, name: "Weather" },
@@ -24,14 +22,16 @@ const AccordionItem = ({ header }) => {
       className="
       rounded-md p-2 cursor-pointer ring-1 ring-olive-300
       "
-      layout
       onClick={() => setIsOpen(!isOpen)}
 
-      /* enable that to see the interfere clearly */
-      /* transition={{ type: "tween", duration: 3 }} */
+      // enable that to see the interfere clearly
+      // transition={{ type: "tween", duration: 3 }}
+      layout
       transition={{ type: "spring", stiffness: 300, damping: 25 }}
     >
-      <motion.h2 layout>{header}</motion.h2>
+      <motion.h2 layout className="text-sm">
+        {header}
+      </motion.h2>
       {isOpen ? <p className="h-28">AccordionItem content ...</p> : null}
     </motion.div>
   );
@@ -235,15 +235,15 @@ const Sprint4 = () => {
             {/* with LayoutGroup */}
             <div className="space-y-5">
               <p className="text-fuchsia-500">with LayoutGroup</p>
-              <ul>
-                <LayoutGroup>
+              <LayoutGroup>
+                <ul>
                   {tabs.map((t) => (
                     <li key={t}>
                       <AccordionItem header={t} />
                     </li>
                   ))}
-                </LayoutGroup>
-              </ul>
+                </ul>
+              </LayoutGroup>
             </div>
           </div>
         </div>
@@ -259,4 +259,8 @@ layout = animate layout changes
 LayoutGroup = LayoutGroup coordinates layout animations 
               between components that update independently.
 layoutId = animate between matching/shared elements
+
+LayoutGroup
+Shared state → usually no need for LayoutGroup
+Independent state → LayoutGroup can coordinate the animations
 */
