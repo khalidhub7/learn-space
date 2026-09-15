@@ -36,10 +36,13 @@ const Separator = ({ className = "" }: SeparatorProps) => {
   // dot
   const time = useTime();
   /* const scale = useTransform(time, [0, 4000], [0, 1], { clamp: false }); */
-  const scale = useTransform(time, (latest) => {
-    const progress = (latest % 4000) / 4000;
-    return 0.5 + progress * 0.5;
-  });
+  const scale = useSpring(
+    useTransform(time, (latest) => {
+      const progress = (latest % 3000) / 3000;
+      return 0.5 + progress * 0.5;
+    }),
+    { stiffness: 600 },
+  );
 
   // line
   const ref = useRef(null);
@@ -60,10 +63,9 @@ const Separator = ({ className = "" }: SeparatorProps) => {
     <div className={cn("flex flex-col items-center gap-2", className)}>
       <motion.div
         aria-hidden="true"
-        className="size-2 rounded-full ring-4 ring-taupe-200 "
+        className="size-2 rounded-full ring-4 ring-olive-300 "
 
         style={{ scale }}
-        transition={{ type: "spring", stiffness: 900 }}
       />
 
       <motion.div
